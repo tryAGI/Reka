@@ -12,10 +12,10 @@ C# SDK originally based on the Ollama OpenAPI specification, generated using [Op
 
 ```bash
 # Build the solution
-dotnet build Reka.sln
+dotnet build Reka.slnx
 
 # Build for release (also produces NuGet package)
-dotnet build Reka.sln -c Release
+dotnet build Reka.slnx -c Release
 
 # Run integration tests (uses Testcontainers, no API key required -- runs Ollama in Docker)
 dotnet test src/tests/Reka.IntegrationTests/Reka.IntegrationTests.csproj
