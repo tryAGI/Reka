@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\libs\Ollama\Ollama.csproj" />
+    <ProjectReference Include="..\..\libs\Reka\Reka.csproj" />
   </ItemGroup>
 
 </Project>
