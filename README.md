@@ -114,6 +114,34 @@ var response = await chatClient.GetResponseAsync(
     new ChatOptions { ModelId = "reka-flash" });
 ```
 
+### Structured JSON output
+
+```csharp
+using Microsoft.Extensions.AI;
+
+IChatClient chatClient = new RekaClient("your-api-key");
+
+var schema = System.Text.Json.JsonDocument.Parse("""
+{
+    "type": "object",
+    "properties": {
+        "name": { "type": "string" },
+        "age": { "type": "integer" }
+    },
+    "required": ["name", "age"],
+    "additionalProperties": false
+}
+""").RootElement;
+
+var response = await chatClient.GetResponseAsync(
+    [new ChatMessage(ChatRole.User, "Return info about Alice who is 30.")],
+    new ChatOptions
+    {
+        ModelId = "reka-flash",
+        ResponseFormat = new ChatResponseFormatJson(schema, "person", "A person object"),
+    });
+```
+
 ### Speech-to-text (ISpeechToTextClient)
 
 ```csharp
