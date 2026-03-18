@@ -37,7 +37,6 @@ The SDK code is **entirely auto-generated** — do not manually edit files in `s
 |---------|---------|
 | `src/libs/Reka/` | Main SDK library (`RekaClient`) |
 | `src/tests/Reka.IntegrationTests/` | Integration tests against real Reka API |
-| `src/helpers/TrimmingHelper/` | NativeAOT/trimming compatibility validator |
 
 ### Build Configuration
 
