@@ -1,14 +1,15 @@
 <Solution>
+  <Folder Name="/helpers/">
+    <Project Path="src/helpers/TrimmingHelper/TrimmingHelper.csproj" />
+  </Folder>
   <Folder Name="/libs/">
     <File Path="src/libs/Directory.Build.props" />
-    <Project Path="src/libs/Reka.Models/Reka.Models.csproj" />
     <Project Path="src/libs/Reka/Reka.csproj" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".github/workflows/dotnet.yml" />
     <File Path=".github/workflows/pull-request.yml" />
     <File Path=".gitignore" />
-    <File Path="docs/openapi.yaml" />
     <File Path="LICENSE" />
     <File Path="README.md" />
     <File Path="src/Directory.Build.props" />
