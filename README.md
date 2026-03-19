@@ -214,6 +214,9 @@ foreach (var model in models.Data)
 }
 ```
 
+<!-- EXAMPLES:START -->
+<!-- EXAMPLES:END -->
+
 ## License
 
 [MIT](LICENSE)
