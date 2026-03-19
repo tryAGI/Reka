@@ -1,3 +1,6 @@
+using System.Text;
+using System.Text.Json;
+
 namespace Reka.IntegrationTests;
 
 [TestClass]
@@ -25,5 +28,38 @@ public partial class Tests
         var api = new RekaClient(apiKey);
 
         return api;
+    }
+
+    private (RekaClient client, CaptureHandler capture) CreateCapturingClient()
+    {
+        var capture = new CaptureHandler();
+        var httpClient = new HttpClient(capture)
+        {
+            BaseAddress = new Uri("https://api.reka.ai"),
+        };
+        var client = new RekaClient(httpClient: httpClient, disposeHttpClient: true);
+
+        return (client, capture);
+    }
+
+    internal sealed class CaptureHandler : HttpMessageHandler
+    {
+        public JsonDocument? LastRequestBody { get; private set; }
+
+        protected override async Task<HttpResponseMessage> SendAsync(
+            HttpRequestMessage request,
+            CancellationToken cancellationToken)
+        {
+            if (request.Content is not null)
+            {
+                var body = await request.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                LastRequestBody = JsonDocument.Parse(body);
+            }
+
+            return new HttpResponseMessage(System.Net.HttpStatusCode.OK)
+            {
+                Content = new StringContent("{}", Encoding.UTF8, "application/json"),
+            };
+        }
     }
 }
