@@ -18,8 +18,9 @@ public partial class Tests
     public RekaClient GetAuthenticatedClient()
     {
         var apiKey =
-            Environment.GetEnvironmentVariable("REKA_API_KEY") ??
-            throw new AssertInconclusiveException("REKA_API_KEY environment variable is not found.");
+            Environment.GetEnvironmentVariable("REKA_API_KEY") is { Length: > 0 } apiKeyValue
+                ? apiKeyValue
+                : throw new AssertInconclusiveException("REKA_API_KEY environment variable is not found.");
 
         var api = new RekaClient(apiKey);
 
