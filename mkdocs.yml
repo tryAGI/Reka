@@ -4,7 +4,60 @@ nav:
 - Guides:
   - Microsoft.Extensions.AI: guides/meai.md
 # EXAMPLES:START
-
+- Examples:
+  - Chat Client Audio Url: examples/chat-client-audio-url.md
+  - Chat Client Data Content Audio: examples/chat-client-data-content-audio.md
+  - Chat Client Data Content Image: examples/chat-client-data-content-image.md
+  - Chat Client Get Response Async: examples/chat-client-get-response-async.md
+  - Chat Client Get Service Metadata: examples/chat-client-get-service-metadata.md
+  - Chat Client Get Service Self: examples/chat-client-get-service-self.md
+  - Chat Client Get Service Unknown Returns Null: examples/chat-client-get-service-unknown-returns-null.md
+  - Chat Client Get Streaming Response Async: examples/chat-client-get-streaming-response-async.md
+  - Chat Client Image Url Streaming: examples/chat-client-image-url-streaming.md
+  - Chat Client Image Url: examples/chat-client-image-url.md
+  - Chat Client Invalid Model: examples/chat-client-invalid-model.md
+  - Chat Client Max Tokens One: examples/chat-client-max-tokens-one.md
+  - Chat Client Multiple Content Parts: examples/chat-client-multiple-content-parts.md
+  - Chat Client Pdf Url: examples/chat-client-pdf-url.md
+  - Chat Client Response Format Json Schema: examples/chat-client-response-format-json-schema.md
+  - Chat Client Seed Reproducibility: examples/chat-client-seed-reproducibility.md
+  - Chat Client Tool Calling Required Mode: examples/chat-client-tool-calling-required-mode.md
+  - Chat Client Tool Calling Round Trip: examples/chat-client-tool-calling-round-trip.md
+  - Chat Client Tool Calling Streaming: examples/chat-client-tool-calling-streaming.md
+  - Chat Client Tool Calling: examples/chat-client-tool-calling.md
+  - Chat Client Video Url: examples/chat-client-video-url.md
+  - Chat Completion Invalid Model: examples/chat-completion-invalid-model.md
+  - Chat Completion Max Tokens One: examples/chat-completion-max-tokens-one.md
+  - Chat Completion Stop Sequence: examples/chat-completion-stop-sequence.md
+  - Chat Completion System Message As User: examples/chat-completion-system-message-as-user.md
+  - Chat Completion Temperature: examples/chat-completion-temperature.md
+  - Chat Completion: examples/chat-completion.md
+  - Meai Mapping Assistant And Tool Roles: examples/meai-mapping-assistant-and-tool-roles.md
+  - Meai Mapping Audio Uri Content: examples/meai-mapping-audio-uri-content.md
+  - Meai Mapping Data Content Audio: examples/meai-mapping-data-content-audio.md
+  - Meai Mapping Data Content Image: examples/meai-mapping-data-content-image.md
+  - Meai Mapping Default Model: examples/meai-mapping-default-model.md
+  - Meai Mapping Image Uri Content: examples/meai-mapping-image-uri-content.md
+  - Meai Mapping Multiple Text Contents Switch To Parts: examples/meai-mapping-multiple-text-contents-switch-to-parts.md
+  - Meai Mapping Options: examples/meai-mapping-options.md
+  - Meai Mapping Pdf Uri Content: examples/meai-mapping-pdf-uri-content.md
+  - Meai Mapping Response Format Json: examples/meai-mapping-response-format-json.md
+  - Meai Mapping Seed: examples/meai-mapping-seed.md
+  - Meai Mapping System Message Converted To User: examples/meai-mapping-system-message-converted-to-user.md
+  - Meai Mapping Video Uri Content: examples/meai-mapping-video-uri-content.md
+  - Models: examples/models.md
+  - Research Chat Completion: examples/research-chat-completion.md
+  - Research With Parallel Thinking: examples/research-with-parallel-thinking.md
+  - Research With Response Format: examples/research-with-response-format.md
+  - Research With Web Search: examples/research-with-web-search.md
+  - Speech To Text Client Get Service Metadata: examples/speech-to-text-client-get-service-metadata.md
+  - Speech To Text Client Get Service Self: examples/speech-to-text-client-get-service-self.md
+  - Speech To Text Client Get Streaming Text Async: examples/speech-to-text-client-get-streaming-text-async.md
+  - Speech To Text Client Get Text Async: examples/speech-to-text-client-get-text-async.md
+  - Speech To Text Client Translation: examples/speech-to-text-client-translation.md
+  - Speech To Text Client With Raw Representation Factory: examples/speech-to-text-client-with-raw-representation-factory.md
+  - Transcribe Audio: examples/transcribe-audio.md
+  - Translate Audio: examples/translate-audio.md
 # EXAMPLES:END
 
 theme:
