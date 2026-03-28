@@ -40,111 +40,111 @@ namespace Reka
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ChatMessageInputRole? Type3 { get; set; }
+        public string? Type3 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.OneOf<string, global::System.Collections.Generic.IList<global::Reka.ContentPart>>? Type4 { get; set; }
+        public double? Type4 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string? Type5 { get; set; }
+        public int? Type5 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Reka.ContentPart>? Type6 { get; set; }
+        public bool? Type6 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ContentPart? Type7 { get; set; }
+        public global::System.Collections.Generic.IList<string>? Type7 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ContentPartType? Type8 { get; set; }
+        public global::System.Collections.Generic.IList<global::Reka.Tool>? Type8 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Reka.ToolCall>? Type9 { get; set; }
+        public global::Reka.Tool? Type9 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ToolCall? Type10 { get; set; }
+        public global::Reka.CreateChatCompletionRequestToolChoice? Type10 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ToolCallType? Type11 { get; set; }
+        public global::Reka.ResearchConfig? Type11 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.FunctionCall? Type12 { get; set; }
+        public global::Reka.ResponseFormat? Type12 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public double? Type13 { get; set; }
+        public global::Reka.WebSearchConfig? Type13 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public int? Type14 { get; set; }
+        public global::Reka.ParallelThinkingConfig? Type14 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public bool? Type15 { get; set; }
+        public global::Reka.UserLocation? Type15 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<string>? Type16 { get; set; }
+        public global::Reka.ApproximateLocation? Type16 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Reka.Tool>? Type17 { get; set; }
+        public global::Reka.ParallelThinkingConfigMode? Type17 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.Tool? Type18 { get; set; }
+        public global::Reka.ResponseFormatType? Type18 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public object? Type19 { get; set; }
+        public global::Reka.JsonSchemaConfig? Type19 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.CreateChatCompletionRequestToolChoice? Type20 { get; set; }
+        public object? Type20 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ResearchConfig? Type21 { get; set; }
+        public global::Reka.ChatMessageInputRole? Type21 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.WebSearchConfig? Type22 { get; set; }
+        public global::Reka.OneOf<string, global::System.Collections.Generic.IList<global::Reka.ContentPart>>? Type22 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.UserLocation? Type23 { get; set; }
+        public global::System.Collections.Generic.IList<global::Reka.ContentPart>? Type23 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ApproximateLocation? Type24 { get; set; }
+        public global::Reka.ContentPart? Type24 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ParallelThinkingConfig? Type25 { get; set; }
+        public global::System.Collections.Generic.IList<global::Reka.ToolCall>? Type25 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ParallelThinkingConfigMode? Type26 { get; set; }
+        public global::Reka.ToolCall? Type26 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ResponseFormat? Type27 { get; set; }
+        public global::Reka.ContentPartType? Type27 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ResponseFormatType? Type28 { get; set; }
+        public global::Reka.ToolCallType? Type28 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.JsonSchemaConfig? Type29 { get; set; }
+        public global::Reka.FunctionCall? Type29 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -164,59 +164,59 @@ namespace Reka
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ChatMessageOutput? Type34 { get; set; }
+        public global::Reka.Usage? Type34 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ChatMessageOutputRole? Type35 { get; set; }
+        public global::Reka.ChatMessageOutput? Type35 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Reka.ReasoningStep>? Type36 { get; set; }
+        public global::Reka.ChoiceFinishReason? Type36 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ReasoningStep? Type37 { get; set; }
+        public global::Reka.ChatMessageOutputRole? Type37 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ReasoningStepRole? Type38 { get; set; }
+        public global::System.Collections.Generic.IList<global::Reka.ReasoningStep>? Type38 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.OneOf<string, object>? Type39 { get; set; }
+        public global::Reka.ReasoningStep? Type39 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Reka.ReasoningToolCall>? Type40 { get; set; }
+        public global::System.Collections.Generic.IList<global::Reka.Annotation>? Type40 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ReasoningToolCall? Type41 { get; set; }
+        public global::Reka.Annotation? Type41 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Reka.Annotation>? Type42 { get; set; }
+        public global::Reka.ReasoningStepRole? Type42 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.Annotation? Type43 { get; set; }
+        public global::Reka.OneOf<string, object>? Type43 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.AnnotationType? Type44 { get; set; }
+        public global::System.Collections.Generic.IList<global::Reka.ReasoningToolCall>? Type44 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.UrlCitation? Type45 { get; set; }
+        public global::Reka.ReasoningToolCall? Type45 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.ChoiceFinishReason? Type46 { get; set; }
+        public global::Reka.AnnotationType? Type46 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.Usage? Type47 { get; set; }
+        public global::Reka.UrlCitation? Type47 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -277,23 +277,23 @@ namespace Reka
         /// <summary>
         /// 
         /// </summary>
-        public global::Reka.OneOf<string, global::System.Collections.Generic.List<global::Reka.ContentPart>>? ListType1 { get; set; }
+        public global::System.Collections.Generic.List<string>? ListType1 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Reka.ContentPart>? ListType2 { get; set; }
+        public global::System.Collections.Generic.List<global::Reka.Tool>? ListType2 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Reka.ToolCall>? ListType3 { get; set; }
+        public global::Reka.OneOf<string, global::System.Collections.Generic.List<global::Reka.ContentPart>>? ListType3 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<string>? ListType4 { get; set; }
+        public global::System.Collections.Generic.List<global::Reka.ContentPart>? ListType4 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Reka.Tool>? ListType5 { get; set; }
+        public global::System.Collections.Generic.List<global::Reka.ToolCall>? ListType5 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -305,11 +305,11 @@ namespace Reka
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Reka.ReasoningToolCall>? ListType8 { get; set; }
+        public global::System.Collections.Generic.List<global::Reka.Annotation>? ListType8 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Reka.Annotation>? ListType9 { get; set; }
+        public global::System.Collections.Generic.List<global::Reka.ReasoningToolCall>? ListType9 { get; set; }
         /// <summary>
         /// 
         /// </summary>

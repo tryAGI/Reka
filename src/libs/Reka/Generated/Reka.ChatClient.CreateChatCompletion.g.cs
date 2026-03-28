@@ -218,7 +218,6 @@ namespace Reka
                 }
             }
         }
-
         /// <summary>
         /// Create a chat completion<br/>
         /// Creates a chat completion for the provided messages and model.
