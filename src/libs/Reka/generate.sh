@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 dotnet tool install --global autosdk.cli --prerelease
 rm -rf Generated
 autosdk generate openapi.yaml \
