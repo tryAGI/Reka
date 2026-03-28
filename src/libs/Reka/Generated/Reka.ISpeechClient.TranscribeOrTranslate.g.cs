@@ -17,7 +17,6 @@ namespace Reka
 
             global::Reka.TranscribeOrTranslateRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Transcribe or translate audio<br/>
         /// Transcribes audio to text and optionally translates it to a target language.<br/>

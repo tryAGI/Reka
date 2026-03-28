@@ -11,23 +11,15 @@ namespace Reka
         /// <summary>
         /// 
         /// </summary>
-        French,
-        /// <summary>
-        /// 
-        /// </summary>
-        Spanish,
-        /// <summary>
-        /// 
-        /// </summary>
-        Japanese,
-        /// <summary>
-        /// 
-        /// </summary>
         Chinese,
         /// <summary>
         /// 
         /// </summary>
-        Korean,
+        French,
+        /// <summary>
+        /// 
+        /// </summary>
+        German,
         /// <summary>
         /// 
         /// </summary>
@@ -35,11 +27,19 @@ namespace Reka
         /// <summary>
         /// 
         /// </summary>
+        Japanese,
+        /// <summary>
+        /// 
+        /// </summary>
+        Korean,
+        /// <summary>
+        /// 
+        /// </summary>
         Portuguese,
         /// <summary>
         /// 
         /// </summary>
-        German,
+        Spanish,
     }
 
     /// <summary>
@@ -54,14 +54,14 @@ namespace Reka
         {
             return value switch
             {
-                TranscribeOrTranslateRequestTargetLanguage.French => "french",
-                TranscribeOrTranslateRequestTargetLanguage.Spanish => "spanish",
-                TranscribeOrTranslateRequestTargetLanguage.Japanese => "japanese",
                 TranscribeOrTranslateRequestTargetLanguage.Chinese => "chinese",
-                TranscribeOrTranslateRequestTargetLanguage.Korean => "korean",
-                TranscribeOrTranslateRequestTargetLanguage.Italian => "italian",
-                TranscribeOrTranslateRequestTargetLanguage.Portuguese => "portuguese",
+                TranscribeOrTranslateRequestTargetLanguage.French => "french",
                 TranscribeOrTranslateRequestTargetLanguage.German => "german",
+                TranscribeOrTranslateRequestTargetLanguage.Italian => "italian",
+                TranscribeOrTranslateRequestTargetLanguage.Japanese => "japanese",
+                TranscribeOrTranslateRequestTargetLanguage.Korean => "korean",
+                TranscribeOrTranslateRequestTargetLanguage.Portuguese => "portuguese",
+                TranscribeOrTranslateRequestTargetLanguage.Spanish => "spanish",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -72,14 +72,14 @@ namespace Reka
         {
             return value switch
             {
-                "french" => TranscribeOrTranslateRequestTargetLanguage.French,
-                "spanish" => TranscribeOrTranslateRequestTargetLanguage.Spanish,
-                "japanese" => TranscribeOrTranslateRequestTargetLanguage.Japanese,
                 "chinese" => TranscribeOrTranslateRequestTargetLanguage.Chinese,
-                "korean" => TranscribeOrTranslateRequestTargetLanguage.Korean,
-                "italian" => TranscribeOrTranslateRequestTargetLanguage.Italian,
-                "portuguese" => TranscribeOrTranslateRequestTargetLanguage.Portuguese,
+                "french" => TranscribeOrTranslateRequestTargetLanguage.French,
                 "german" => TranscribeOrTranslateRequestTargetLanguage.German,
+                "italian" => TranscribeOrTranslateRequestTargetLanguage.Italian,
+                "japanese" => TranscribeOrTranslateRequestTargetLanguage.Japanese,
+                "korean" => TranscribeOrTranslateRequestTargetLanguage.Korean,
+                "portuguese" => TranscribeOrTranslateRequestTargetLanguage.Portuguese,
+                "spanish" => TranscribeOrTranslateRequestTargetLanguage.Spanish,
                 _ => null,
             };
         }

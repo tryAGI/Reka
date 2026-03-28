@@ -220,7 +220,6 @@ namespace Reka
                 }
             }
         }
-
         /// <summary>
         /// Transcribe or translate audio<br/>
         /// Transcribes audio to text and optionally translates it to a target language.<br/>

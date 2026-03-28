@@ -15,7 +15,6 @@ namespace Reka
 
             global::Reka.CreateChatCompletionRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create a chat completion<br/>
         /// Creates a chat completion for the provided messages and model.

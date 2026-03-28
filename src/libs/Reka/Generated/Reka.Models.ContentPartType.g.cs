@@ -11,7 +11,7 @@ namespace Reka
         /// <summary>
         /// 
         /// </summary>
-        Text,
+        AudioUrl,
         /// <summary>
         /// 
         /// </summary>
@@ -19,15 +19,15 @@ namespace Reka
         /// <summary>
         /// 
         /// </summary>
-        VideoUrl,
-        /// <summary>
-        /// 
-        /// </summary>
-        AudioUrl,
-        /// <summary>
-        /// 
-        /// </summary>
         PdfUrl,
+        /// <summary>
+        /// 
+        /// </summary>
+        Text,
+        /// <summary>
+        /// 
+        /// </summary>
+        VideoUrl,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace Reka
         {
             return value switch
             {
-                ContentPartType.Text => "text",
-                ContentPartType.ImageUrl => "image_url",
-                ContentPartType.VideoUrl => "video_url",
                 ContentPartType.AudioUrl => "audio_url",
+                ContentPartType.ImageUrl => "image_url",
                 ContentPartType.PdfUrl => "pdf_url",
+                ContentPartType.Text => "text",
+                ContentPartType.VideoUrl => "video_url",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace Reka
         {
             return value switch
             {
-                "text" => ContentPartType.Text,
-                "image_url" => ContentPartType.ImageUrl,
-                "video_url" => ContentPartType.VideoUrl,
                 "audio_url" => ContentPartType.AudioUrl,
+                "image_url" => ContentPartType.ImageUrl,
                 "pdf_url" => ContentPartType.PdfUrl,
+                "text" => ContentPartType.Text,
+                "video_url" => ContentPartType.VideoUrl,
                 _ => null,
             };
         }

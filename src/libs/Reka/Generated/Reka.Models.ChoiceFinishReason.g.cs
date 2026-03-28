@@ -11,7 +11,7 @@ namespace Reka
         /// <summary>
         /// 
         /// </summary>
-        Stop,
+        Context,
         /// <summary>
         /// 
         /// </summary>
@@ -19,7 +19,7 @@ namespace Reka
         /// <summary>
         /// 
         /// </summary>
-        Context,
+        Stop,
         /// <summary>
         /// 
         /// </summary>
@@ -38,9 +38,9 @@ namespace Reka
         {
             return value switch
             {
-                ChoiceFinishReason.Stop => "stop",
-                ChoiceFinishReason.Length => "length",
                 ChoiceFinishReason.Context => "context",
+                ChoiceFinishReason.Length => "length",
+                ChoiceFinishReason.Stop => "stop",
                 ChoiceFinishReason.ToolCalls => "tool_calls",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -52,9 +52,9 @@ namespace Reka
         {
             return value switch
             {
-                "stop" => ChoiceFinishReason.Stop,
-                "length" => ChoiceFinishReason.Length,
                 "context" => ChoiceFinishReason.Context,
+                "length" => ChoiceFinishReason.Length,
+                "stop" => ChoiceFinishReason.Stop,
                 "tool_calls" => ChoiceFinishReason.ToolCalls,
                 _ => null,
             };

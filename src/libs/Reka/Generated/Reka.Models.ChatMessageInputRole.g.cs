@@ -11,15 +11,15 @@ namespace Reka
         /// <summary>
         /// 
         /// </summary>
-        User,
-        /// <summary>
-        /// 
-        /// </summary>
         Assistant,
         /// <summary>
         /// 
         /// </summary>
         Tool,
+        /// <summary>
+        /// 
+        /// </summary>
+        User,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace Reka
         {
             return value switch
             {
-                ChatMessageInputRole.User => "user",
                 ChatMessageInputRole.Assistant => "assistant",
                 ChatMessageInputRole.Tool => "tool",
+                ChatMessageInputRole.User => "user",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace Reka
         {
             return value switch
             {
-                "user" => ChatMessageInputRole.User,
                 "assistant" => ChatMessageInputRole.Assistant,
                 "tool" => ChatMessageInputRole.Tool,
+                "user" => ChatMessageInputRole.User,
                 _ => null,
             };
         }

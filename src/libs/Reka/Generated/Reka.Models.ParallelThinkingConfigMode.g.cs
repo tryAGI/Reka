@@ -12,7 +12,7 @@ namespace Reka
         /// <summary>
         /// 
         /// </summary>
-        None,
+        High,
         /// <summary>
         /// 
         /// </summary>
@@ -20,7 +20,7 @@ namespace Reka
         /// <summary>
         /// 
         /// </summary>
-        High,
+        None,
     }
 
     /// <summary>
@@ -35,9 +35,9 @@ namespace Reka
         {
             return value switch
             {
-                ParallelThinkingConfigMode.None => "none",
-                ParallelThinkingConfigMode.Low => "low",
                 ParallelThinkingConfigMode.High => "high",
+                ParallelThinkingConfigMode.Low => "low",
+                ParallelThinkingConfigMode.None => "none",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -48,9 +48,9 @@ namespace Reka
         {
             return value switch
             {
-                "none" => ParallelThinkingConfigMode.None,
-                "low" => ParallelThinkingConfigMode.Low,
                 "high" => ParallelThinkingConfigMode.High,
+                "low" => ParallelThinkingConfigMode.Low,
+                "none" => ParallelThinkingConfigMode.None,
                 _ => null,
             };
         }
