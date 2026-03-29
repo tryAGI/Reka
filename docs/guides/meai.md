@@ -161,6 +161,12 @@ Console.WriteLine($"Start: {response.StartTime}");
 Console.WriteLine($"End: {response.EndTime}");
 ```
 
+### Streaming Behavior
+
+`GetStreamingTextAsync` delegates to the non-streaming `GetTextAsync` method internally. The Reka transcription API processes audio synchronously, and then the full result is converted to `SpeechToTextResponseUpdate` events using `ToSpeechToTextResponseUpdates()`.
+
+This means you will not receive incremental transcription updates as audio is processed. The entire transcript is returned at once after processing completes. For most use cases, calling `GetTextAsync` directly is equivalent and simpler.
+
 ## Dependency Injection
 
 ```csharp
