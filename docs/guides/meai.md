@@ -3,7 +3,7 @@
 !!! tip "Cross-SDK comparison"
     See the [centralized MEAI documentation](https://tryagi.github.io/docs/meai/) for feature matrices and comparisons across all tryAGI SDKs.
 
-The Reka SDK implements `IChatClient` and `ISpeechToTextClient` from [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai), providing unified interfaces for chat completions and speech-to-text transcription.
+The Reka SDK implements `IChatClient` and `ISpeechToTextClient` and provides `AIFunction` tool wrappers, all compatible with [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai).
 
 !!! warning "Namespace Conflict"
     Reka has a generated `IChatClient` interface that shadows `Microsoft.Extensions.AI.IChatClient`. Use full qualification or a type alias when both namespaces are in scope:
