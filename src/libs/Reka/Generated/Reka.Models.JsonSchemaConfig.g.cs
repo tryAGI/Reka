@@ -47,11 +47,11 @@ namespace Reka
         /// <param name="name">
         /// Name for the schema. Alphanumeric with underscores/dashes, max 64 characters.
         /// </param>
-        /// <param name="description">
-        /// Description of the expected output format.
-        /// </param>
         /// <param name="schema">
         /// Valid JSON Schema defining the expected structure.
+        /// </param>
+        /// <param name="description">
+        /// Description of the expected output format.
         /// </param>
         /// <param name="strict">
         /// Whether to enforce exact schema compliance.<br/>
@@ -67,8 +67,8 @@ namespace Reka
             bool? strict)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.Schema = schema ?? throw new global::System.ArgumentNullException(nameof(schema));
             this.Description = description;
+            this.Schema = schema ?? throw new global::System.ArgumentNullException(nameof(schema));
             this.Strict = strict;
         }
 
