@@ -70,6 +70,10 @@ namespace Reka
         /// <param name="model">
         /// The model used for the chat completion.
         /// </param>
+        /// <param name="choices">
+        /// A list of chat completion choices.
+        /// </param>
+        /// <param name="usage"></param>
         /// <param name="object">
         /// The object type (e.g., "chat.completion").
         /// </param>
@@ -79,10 +83,6 @@ namespace Reka
         /// <param name="systemFingerprint">
         /// System fingerprint for the response.
         /// </param>
-        /// <param name="choices">
-        /// A list of chat completion choices.
-        /// </param>
-        /// <param name="usage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -97,11 +97,11 @@ namespace Reka
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
-            this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
-            this.Usage = usage ?? throw new global::System.ArgumentNullException(nameof(usage));
             this.Object = @object;
             this.Created = created;
             this.SystemFingerprint = systemFingerprint;
+            this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
+            this.Usage = usage ?? throw new global::System.ArgumentNullException(nameof(usage));
         }
 
         /// <summary>
