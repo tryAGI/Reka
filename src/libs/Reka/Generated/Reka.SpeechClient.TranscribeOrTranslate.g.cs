@@ -5,6 +5,25 @@ namespace Reka
 {
     public partial class SpeechClient
     {
+
+
+        private static readonly global::Reka.EndPointSecurityRequirement s_TranscribeOrTranslateSecurityRequirement0 =
+            new global::Reka.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Reka.EndPointAuthorizationRequirement[]
+                {                    new global::Reka.EndPointAuthorizationRequirement
+                    {
+                        Type = "ApiKey",
+                        Location = "Header",
+                        Name = "X-Api-Key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+        private static readonly global::Reka.EndPointSecurityRequirement[] s_TranscribeOrTranslateSecurityRequirements =
+            new global::Reka.EndPointSecurityRequirement[]
+            {                s_TranscribeOrTranslateSecurityRequirement0,
+            };
         partial void PrepareTranscribeOrTranslateArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::Reka.TranscribeOrTranslateRequest request);
@@ -43,9 +62,15 @@ namespace Reka
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::Reka.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_TranscribeOrTranslateSecurityRequirements,
+                operationName: "TranscribeOrTranslateAsync");
+
             var __pathBuilder = new global::Reka.PathBuilder(
                 path: "/v1/transcription_or_translation",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -55,7 +80,7 @@ namespace Reka
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

@@ -41,17 +41,17 @@ namespace Reka
 
 
         /// <summary>
-        /// Chat completion operations
+        /// Chat completion operations.
         /// </summary>
         public ChatClient Chat { get; }
 
         /// <summary>
-        /// Model management operations
+        /// Model management operations.
         /// </summary>
         public ModelsClient Models { get; }
 
         /// <summary>
-        /// Speech transcription and translation operations
+        /// Speech transcription and translation operations.
         /// </summary>
         public SpeechClient Speech { get; }
 

@@ -6,6 +6,7 @@ namespace Reka
     public sealed partial class RekaClient
     {
         /// <inheritdoc cref="RekaClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::Reka.EndPointAuthorization}?, bool)"/>
+
         public RekaClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,
