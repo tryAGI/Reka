@@ -13,7 +13,7 @@ namespace Reka
         /// <summary>
         /// Reka API
         /// </summary>
-        public const string DefaultBaseUrl = "https://api.reka.ai";
+        public const string DefaultBaseUrl = "https://api.reka.ai/";
 
         private bool _disposeHttpClient = true;
 
@@ -38,7 +38,7 @@ namespace Reka
 
 
         /// <summary>
-        /// Chat completion operations
+        /// Chat completion operations.
         /// </summary>
         public ChatClient Chat => new ChatClient(HttpClient, authorizations: Authorizations)
         {
@@ -47,7 +47,7 @@ namespace Reka
         };
 
         /// <summary>
-        /// Model management operations
+        /// Model management operations.
         /// </summary>
         public ModelsClient Models => new ModelsClient(HttpClient, authorizations: Authorizations)
         {
@@ -56,7 +56,7 @@ namespace Reka
         };
 
         /// <summary>
-        /// Speech transcription and translation operations
+        /// Speech transcription and translation operations.
         /// </summary>
         public SpeechClient Speech => new SpeechClient(HttpClient, authorizations: Authorizations)
         {

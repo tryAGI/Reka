@@ -4,7 +4,7 @@
 namespace Reka
 {
     /// <summary>
-    /// Model management operations<br/>
+    /// Model management operations.<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
@@ -13,7 +13,7 @@ namespace Reka
         /// <summary>
         /// Reka API
         /// </summary>
-        public const string DefaultBaseUrl = "https://api.reka.ai";
+        public const string DefaultBaseUrl = "https://api.reka.ai/";
 
         private bool _disposeHttpClient = true;
 

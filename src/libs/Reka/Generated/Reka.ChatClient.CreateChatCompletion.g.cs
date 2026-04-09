@@ -5,6 +5,25 @@ namespace Reka
 {
     public partial class ChatClient
     {
+
+
+        private static readonly global::Reka.EndPointSecurityRequirement s_CreateChatCompletionSecurityRequirement0 =
+            new global::Reka.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Reka.EndPointAuthorizationRequirement[]
+                {                    new global::Reka.EndPointAuthorizationRequirement
+                    {
+                        Type = "ApiKey",
+                        Location = "Header",
+                        Name = "X-Api-Key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+        private static readonly global::Reka.EndPointSecurityRequirement[] s_CreateChatCompletionSecurityRequirements =
+            new global::Reka.EndPointSecurityRequirement[]
+            {                s_CreateChatCompletionSecurityRequirement0,
+            };
         partial void PrepareCreateChatCompletionArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::Reka.CreateChatCompletionRequest request);
@@ -41,9 +60,15 @@ namespace Reka
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::Reka.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_CreateChatCompletionSecurityRequirements,
+                operationName: "CreateChatCompletionAsync");
+
             var __pathBuilder = new global::Reka.PathBuilder(
                 path: "/v1/chat/completions",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -53,7 +78,7 @@ namespace Reka
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
