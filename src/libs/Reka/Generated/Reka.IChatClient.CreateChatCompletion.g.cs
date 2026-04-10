@@ -9,11 +9,13 @@ namespace Reka
         /// Creates a chat completion for the provided messages and model.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Reka.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Reka.CreateChatCompletionResponse> CreateChatCompletionAsync(
 
             global::Reka.CreateChatCompletionRequest request,
+            global::Reka.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a chat completion<br/>
@@ -71,6 +73,7 @@ namespace Reka
         /// <param name="responseFormat">
         /// Structured output configuration. Forces the model to return valid JSON matching a schema.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Reka.CreateChatCompletionResponse> CreateChatCompletionAsync(
@@ -89,6 +92,7 @@ namespace Reka
             global::Reka.CreateChatCompletionRequestToolChoice? toolChoice = default,
             global::Reka.ResearchConfig? research = default,
             global::Reka.ResponseFormat? responseFormat = default,
+            global::Reka.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

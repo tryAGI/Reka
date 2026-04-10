@@ -26,6 +26,7 @@ namespace Reka
             Authorizations.Add(new global::Reka.EndPointAuthorization
             {
                 Type = "ApiKey",
+                SchemeId = "ApiKeyAuth",
                 Location = "Header",
                 Name = "X-Api-Key",
                 Value = apiKey,
