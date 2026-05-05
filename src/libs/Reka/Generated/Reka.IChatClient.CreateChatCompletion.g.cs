@@ -21,6 +21,19 @@ namespace Reka
         /// Create a chat completion<br/>
         /// Creates a chat completion for the provided messages and model.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Reka.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Reka.AutoSDKHttpResponse<global::Reka.CreateChatCompletionResponse>> CreateChatCompletionAsResponseAsync(
+
+            global::Reka.CreateChatCompletionRequest request,
+            global::Reka.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create a chat completion<br/>
+        /// Creates a chat completion for the provided messages and model.
+        /// </summary>
         /// <param name="messages">
         /// A list of messages comprising the conversation so far.
         /// </param>
