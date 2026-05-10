@@ -44,5 +44,6 @@ namespace Reka
         public ParallelThinkingConfig()
         {
         }
+
     }
 }

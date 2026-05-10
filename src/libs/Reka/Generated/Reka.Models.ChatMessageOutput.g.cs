@@ -98,5 +98,6 @@ namespace Reka
         public ChatMessageOutput()
         {
         }
+
     }
 }

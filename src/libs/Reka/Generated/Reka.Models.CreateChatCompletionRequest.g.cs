@@ -212,5 +212,6 @@ namespace Reka
         public CreateChatCompletionRequest()
         {
         }
+
     }
 }

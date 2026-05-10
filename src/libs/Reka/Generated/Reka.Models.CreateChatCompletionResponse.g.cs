@@ -110,5 +110,6 @@ namespace Reka
         public CreateChatCompletionResponse()
         {
         }
+
     }
 }
