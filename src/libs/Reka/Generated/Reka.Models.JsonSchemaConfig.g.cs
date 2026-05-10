@@ -78,5 +78,6 @@ namespace Reka
         public JsonSchemaConfig()
         {
         }
+
     }
 }
