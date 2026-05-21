@@ -41,5 +41,6 @@ namespace Reka
         public UserLocation()
         {
         }
+
     }
 }

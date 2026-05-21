@@ -66,5 +66,6 @@ namespace Reka
         public TimestampSegment()
         {
         }
+
     }
 }

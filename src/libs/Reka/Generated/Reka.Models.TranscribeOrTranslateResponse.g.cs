@@ -75,5 +75,6 @@ namespace Reka
         public TranscribeOrTranslateResponse()
         {
         }
+
     }
 }

@@ -52,5 +52,6 @@ namespace Reka
         public ReasoningToolCall()
         {
         }
+
     }
 }
