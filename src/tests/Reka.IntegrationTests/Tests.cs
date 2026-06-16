@@ -37,7 +37,7 @@ public partial class Tests
         {
             BaseAddress = new Uri("https://api.reka.ai"),
         };
-        var client = new RekaClient(httpClient: httpClient, disposeHttpClient: true);
+        var client = new RekaClient("test", httpClient: httpClient, disposeHttpClient: true);
 
         return (client, capture);
     }
