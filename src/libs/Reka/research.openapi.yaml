@@ -1,0 +1,734 @@
+openapi: 3.1.0
+info:
+  title: API Reference
+  version: 1.0.0
+paths:
+  /chat/completions:
+    post:
+      operationId: create-chat-completion
+      summary: Create Chat Completion
+      tags:
+        - ''
+      parameters:
+        - name: Authorization
+          in: header
+          description: Bearer authentication
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createChatCompletion_Response_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateChatCompletionRequest'
+servers:
+  - url: https://api.reka.ai/v1
+    description: https://api.reka.ai/v1/
+components:
+  schemas:
+    CreateChatCompletionRequestMessagesItemsOneOf0Role:
+      type: string
+      enum:
+        - user
+      default: user
+      description: The role of the messages author, in this case `user`.
+      title: CreateChatCompletionRequestMessagesItemsOneOf0Role
+    CreateChatCompletionRequestMessagesItems0:
+      type: object
+      properties:
+        role:
+          $ref: '#/components/schemas/CreateChatCompletionRequestMessagesItemsOneOf0Role'
+          description: The role of the messages author, in this case `user`.
+        content:
+          type: string
+          description: |
+            The contents of the user message.
+      required:
+        - role
+        - content
+      description: |
+        Messages sent by an end user, containing prompts or additional context
+        information.
+      title: CreateChatCompletionRequestMessagesItems0
+    CreateChatCompletionRequestMessagesItemsOneOf1Role:
+      type: string
+      enum:
+        - assistant
+      default: assistant
+      description: The role of the messages author, in this case `assistant`.
+      title: CreateChatCompletionRequestMessagesItemsOneOf1Role
+    CreateChatCompletionRequestMessagesItems1:
+      type: object
+      properties:
+        role:
+          $ref: '#/components/schemas/CreateChatCompletionRequestMessagesItemsOneOf1Role'
+          description: The role of the messages author, in this case `assistant`.
+        content:
+          type: string
+          description: |
+            The contents of the assistant message.
+      required:
+        - role
+        - content
+      description: |
+        Messages sent by the agent in response to user messages.
+      title: CreateChatCompletionRequestMessagesItems1
+    CreateChatCompletionRequestMessagesItems:
+      oneOf:
+        - $ref: '#/components/schemas/CreateChatCompletionRequestMessagesItems0'
+        - $ref: '#/components/schemas/CreateChatCompletionRequestMessagesItems1'
+      title: CreateChatCompletionRequestMessagesItems
+    ResearchOptionsWebSearchUserLocationApproximate:
+      type: object
+      properties:
+        city:
+          type: string
+          description: The city to use for web searches, e.g. `Sunnyvale`.
+        region:
+          type: string
+          description: The region to use for web searches, e.g. `California`.
+        country:
+          type: string
+          description: >-
+            The country to use for web searches. The two-letter [ISO country
+            code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
+        timezone:
+          type: string
+          description: >-
+            The timezone to use for web searches. The [IANA timezone](https://timeapi.io/documentation/iana-timezones)
+            of the user, e.g. `America/California`
+      description: >
+        An approximate location to use for web searches. This is useful when the exact location is not known, but a
+        general area is desired.
+      title: ResearchOptionsWebSearchUserLocationApproximate
+    ResearchOptionsWebSearchUserLocation:
+      type: object
+      properties:
+        type:
+          type: string
+          default: approximate
+          description: |
+            The type of user location to use for web searches.
+        approximate:
+          $ref: '#/components/schemas/ResearchOptionsWebSearchUserLocationApproximate'
+          description: >
+            An approximate location to use for web searches. This is useful when the exact location is not known, but a
+            general area is desired.
+      required:
+        - approximate
+      description: |
+        The location to use for web searches. This can help the agent find results relevant to a specific area.
+      title: ResearchOptionsWebSearchUserLocation
+    ResearchOptionsWebSearch:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          default: true
+          description: |
+            Whether to enable web search for the agent.
+        max_uses:
+          type: integer
+          description: |
+            The maximum number of web search queries the agent can make.
+        allowed_domains:
+          type: array
+          items:
+            type: string
+          description: >
+            A list of allowed domains for web search. If empty, all domains are allowed. If specified, the agent will
+            only search within these domains. This is useful for restricting the agent to specific sources.
+
+
+            For example, `["wikipedia.org", "reka.ai"]` would restrict searches to Wikipedia and Reka's website.
+        blocked_domains:
+          type: array
+          items:
+            type: string
+          description: >
+            A list of blocked domains for web search. If specified, the agent will not search within these domains. This
+            is useful for excluding specific sources from the agent's search results.
+
+
+            For example, `["example.com"]` would block searches from example.com.
+        user_location:
+          $ref: '#/components/schemas/ResearchOptionsWebSearchUserLocation'
+          description: |
+            The location to use for web searches. This can help the agent find results relevant to a specific area.
+      description: |
+        Configuration for web search capabilities. This allows the agent to perform web searches to gather information.
+      title: ResearchOptionsWebSearch
+    ResearchOptionsParallelThinkingMode:
+      type: string
+      enum:
+        - none
+        - low
+        - high
+      default: none
+      description: >
+        The level of additional compute to use for generating the answer. Use "none" for default behavior, "low" for
+        moderate additional compute, or "high" for maximum additional compute and quality.
+      title: ResearchOptionsParallelThinkingMode
+    ResearchOptionsParallelThinking:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/ResearchOptionsParallelThinkingMode'
+          description: >
+            The level of additional compute to use for generating the answer. Use "none" for default behavior, "low" for
+            moderate additional compute, or "high" for maximum additional compute and quality.
+      description: >
+        Configuration for Test Time Compute (Parallel Thinking). Use this to trade added compute for higher quality
+        responses.
+      title: ResearchOptionsParallelThinking
+    ResearchOptions:
+      type: object
+      properties:
+        web_search:
+          $ref: '#/components/schemas/ResearchOptionsWebSearch'
+          description: >
+            Configuration for web search capabilities. This allows the agent to perform web searches to gather
+            information.
+        parallel_thinking:
+          $ref: '#/components/schemas/ResearchOptionsParallelThinking'
+          description: >
+            Configuration for Test Time Compute (Parallel Thinking). Use this to trade added compute for higher quality
+            responses.
+      title: ResearchOptions
+    ResponseFormatJsonSchemaType:
+      type: string
+      enum:
+        - json_schema
+      description: The type of response format being defined. Always `json_schema`.
+      title: ResponseFormatJsonSchemaType
+    ResponseFormatJsonSchemaSchema:
+      type: object
+      additionalProperties:
+        description: Any type
+      description: |
+        The schema for the response format, described as a JSON Schema object.
+        Learn how to build JSON schemas [here](https://json-schema.org/).
+      title: ResponseFormatJsonSchemaSchema
+    ResponseFormatJsonSchemaJsonSchema:
+      type: object
+      properties:
+        description:
+          type: string
+          description: >
+            A description of what the response format is for, used by the agent to determine how to respond in the
+            format.
+        name:
+          type: string
+          description: >
+            The name of the response format. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum
+            length of 64.
+        schema:
+          $ref: '#/components/schemas/ResponseFormatJsonSchemaSchema'
+        strict:
+          type:
+            - boolean
+            - 'null'
+          default: false
+          description: >
+            Whether to enable strict schema adherence when generating the output.
+
+            If set to true, the agent will always follow the exact schema defined in the `schema` field. Only a subset
+            of JSON Schema is supported when `strict` is `true`.
+      required:
+        - name
+      description: |
+        Structured Outputs configuration options, including a JSON Schema.
+      title: ResponseFormatJsonSchemaJsonSchema
+    ResponseFormatJsonSchema:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ResponseFormatJsonSchemaType'
+          description: The type of response format being defined. Always `json_schema`.
+        json_schema:
+          $ref: '#/components/schemas/ResponseFormatJsonSchemaJsonSchema'
+          description: |
+            Structured Outputs configuration options, including a JSON Schema.
+      description: |
+        JSON Schema response format. Used to generate structured JSON responses.
+      title: ResponseFormatJsonSchema
+    CreateChatCompletionRequestResponseFormat:
+      oneOf:
+        - $ref: '#/components/schemas/ResponseFormatJsonSchema'
+      description: >
+        An object specifying the format that the agent must output.
+
+        Setting this to `{ "type": "json_schema", "json_schema": {...} }` enables Structured Outputs, which ensures the
+        agent returns output that matches the supplied JSON schema.
+
+        If not specified, the agent will return a plain text response.
+      title: CreateChatCompletionRequestResponseFormat
+    CreateChatCompletionRequest:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateChatCompletionRequestMessagesItems'
+          description: |
+            A list of messages comprising the conversation so far.
+        model:
+          type: string
+          default: reka-flash-research
+          description: |
+            The model name used to generate the response.
+            Currently, only `"reka-flash-research"` is supported for this endpoint.
+        stream:
+          type: boolean
+          default: false
+          description: >
+            Determines whether to stream the response incrementally.
+
+            If set to `true`, the agent will return a stream of response chunks. If `false`, the response will be
+            returned as a single object.
+        research:
+          $ref: '#/components/schemas/ResearchOptions'
+        response_format:
+          $ref: '#/components/schemas/CreateChatCompletionRequestResponseFormat'
+          description: >
+            An object specifying the format that the agent must output.
+
+            Setting this to `{ "type": "json_schema", "json_schema": {...} }` enables Structured Outputs, which ensures
+            the agent returns output that matches the supplied JSON schema.
+
+            If not specified, the agent will return a plain text response.
+      required:
+        - messages
+        - model
+      title: CreateChatCompletionRequest
+    CreateChatCompletionResponseChoicesItemsFinishReason:
+      type: string
+      enum:
+        - stop
+      description: |
+        The reason the agent stopped generating tokens. 
+        This will be `stop` if the agent hit a natural stop point or a provided stop sequence.
+      title: CreateChatCompletionResponseChoicesItemsFinishReason
+    ChatCompletionResponseMessageRole:
+      type: string
+      enum:
+        - assistant
+      default: assistant
+      description: The role of the author of this message.
+      title: ChatCompletionResponseMessageRole
+    ReasoningStepRole:
+      type: string
+      enum:
+        - assistant
+        - tool
+      default: assistant
+      description: The author of the reasoning step.
+      title: ReasoningStepRole
+    ReasoningStepToolCallsItemsName:
+      type: string
+      enum:
+        - search_web
+        - analyze
+      description: The name of the tool that was called.
+      title: ReasoningStepToolCallsItemsName
+    ReasoningStepToolCallsItemsArgs0:
+      type: object
+      properties:
+        urls:
+          type: array
+          items:
+            description: Any type
+          description: The list of URLs to analyze.
+        task:
+          type: string
+          description: |
+            The type of analysis to perform on the webpage.
+      required:
+        - urls
+        - task
+      description: >
+        The arguments for the `analyze` tool call, which includes the URLs to analyze and the type of analysis to
+        perform.
+      title: ReasoningStepToolCallsItemsArgs0
+    ReasoningStepToolCallsItemsArgs1:
+      type: object
+      properties:
+        query:
+          type: string
+          description: The search query to execute.
+      required:
+        - query
+      description: |
+        The arguments for the `search_web` tool call, which includes the query and optional filters.
+      title: ReasoningStepToolCallsItemsArgs1
+    ReasoningStepToolCallsItemsArgs:
+      oneOf:
+        - $ref: '#/components/schemas/ReasoningStepToolCallsItemsArgs0'
+        - $ref: '#/components/schemas/ReasoningStepToolCallsItemsArgs1'
+      description: The arguments passed to the tool.
+      title: ReasoningStepToolCallsItemsArgs
+    ReasoningStepToolCallsItems:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier for the tool call.
+        name:
+          $ref: '#/components/schemas/ReasoningStepToolCallsItemsName'
+          description: The name of the tool that was called.
+        args:
+          $ref: '#/components/schemas/ReasoningStepToolCallsItemsArgs'
+          description: The arguments passed to the tool.
+      description: A single tool call made by the agent.
+      title: ReasoningStepToolCallsItems
+    ReasoningStepContentToolName:
+      type: string
+      enum:
+        - search_web
+        - analyze
+      description: The name of the tool executed.
+      title: ReasoningStepContentToolName
+    ReasoningStepContentToolOutputItems0:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL of the webpage.
+        title:
+          type: string
+          description: The title of the webpage.
+        snippet:
+          type: string
+          description: A brief summary of the webpage content.
+        age:
+          type:
+            - string
+            - 'null'
+          description: A string representing the age of the web search result.
+      description: >
+        The result of a web search, containing the URL, title, snippet, and age of the webpage from the "search_web"
+        tool.
+      title: ReasoningStepContentToolOutputItems0
+    ReasoningStepContentToolOutputItems1:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL of the webpage.
+        analysis:
+          type: string
+          description: The analysis of the webpage content.
+      description: |
+        The result of analyzing a webpage, containing the URL and analysis  from the "analyze" tool.
+      title: ReasoningStepContentToolOutputItems1
+    ReasoningStepContentToolOutputItems:
+      oneOf:
+        - $ref: '#/components/schemas/ReasoningStepContentToolOutputItems0'
+        - $ref: '#/components/schemas/ReasoningStepContentToolOutputItems1'
+      title: ReasoningStepContentToolOutputItems
+    ReasoningStepContent:
+      type: object
+      properties:
+        tool_name:
+          $ref: '#/components/schemas/ReasoningStepContentToolName'
+          description: The name of the tool executed.
+        tool_output:
+          type:
+            - array
+            - 'null'
+          items:
+            $ref: '#/components/schemas/ReasoningStepContentToolOutputItems'
+        tool_error:
+          type:
+            - string
+            - 'null'
+          description: The error message from the tool execution, if applicable.
+      description: The result from the execution of the tool call, if applicable.
+      title: ReasoningStepContent
+    ReasoningStep:
+      type: object
+      properties:
+        role:
+          $ref: '#/components/schemas/ReasoningStepRole'
+          description: The author of the reasoning step.
+        reasoning_content:
+          type: string
+          description: The agent's internal reasoning — a natural language explanation of its intent before acting.
+        tool_calls:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReasoningStepToolCallsItems'
+          description: A list of tool calls made by the agent during this reasoning step.
+        content:
+          oneOf:
+            - $ref: '#/components/schemas/ReasoningStepContent'
+            - type: 'null'
+          description: The result from the execution of the tool call, if applicable.
+        tool_call_id:
+          type:
+            - string
+            - 'null'
+          description: >
+            The unique identifier of the tool call that produced this reasoning step. This is used to link the reasoning
+            step to the tool call in an earlier reasoning step.
+      required:
+        - role
+      description: A single reasoning step.
+      title: ReasoningStep
+    ChatCompletionResponseMessageAnnotationsItemsType:
+      type: string
+      enum:
+        - url_citation
+      description: The type of the URL citation. Always `url_citation`.
+      title: ChatCompletionResponseMessageAnnotationsItemsType
+    ChatCompletionResponseMessageAnnotationsItemsUrlCitation:
+      type: object
+      properties:
+        end_index:
+          type: integer
+          description: The index of the last character of the URL citation in the message.
+        start_index:
+          type: integer
+          description: The index of the first character of the URL citation in the message.
+        url:
+          type: string
+          description: The URL of the web resource.
+        title:
+          type: string
+          description: The title of the web resource.
+      required:
+        - end_index
+        - start_index
+        - url
+        - title
+      description: A URL citation.
+      title: ChatCompletionResponseMessageAnnotationsItemsUrlCitation
+    ChatCompletionResponseMessageAnnotationsItems:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ChatCompletionResponseMessageAnnotationsItemsType'
+          description: The type of the URL citation. Always `url_citation`.
+        url_citation:
+          $ref: '#/components/schemas/ChatCompletionResponseMessageAnnotationsItemsUrlCitation'
+          description: A URL citation.
+      required:
+        - type
+        - url_citation
+      description: |
+        A URL citation.
+      title: ChatCompletionResponseMessageAnnotationsItems
+    ChatCompletionResponseMessage:
+      type: object
+      properties:
+        role:
+          $ref: '#/components/schemas/ChatCompletionResponseMessageRole'
+          description: The role of the author of this message.
+        reasoning_steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReasoningStep'
+          description: A list of reasoning steps taken by the agent to arrive at the response.
+        reasoning_content:
+          type: string
+          description: The agent's reasoning for its response.
+        content:
+          type: string
+          description: The contents of the message.
+        annotations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatCompletionResponseMessageAnnotationsItems'
+          description: |
+            Annotations for the message.
+      required:
+        - role
+        - content
+      description: A chat completion message generated by the agent.
+      title: ChatCompletionResponseMessage
+    CreateChatCompletionResponseChoicesItems:
+      type: object
+      properties:
+        finish_reason:
+          $ref: '#/components/schemas/CreateChatCompletionResponseChoicesItemsFinishReason'
+          description: |
+            The reason the agent stopped generating tokens. 
+            This will be `stop` if the agent hit a natural stop point or a provided stop sequence.
+        index:
+          type: integer
+          description: The index of the choice in the list of choices.
+        message:
+          $ref: '#/components/schemas/ChatCompletionResponseMessage'
+      required:
+        - finish_reason
+        - index
+        - message
+      title: CreateChatCompletionResponseChoicesItems
+    CompletionUsage:
+      type: object
+      properties:
+        completion_tokens:
+          type: integer
+          default: 0
+          description: Number of tokens in the generated completion.
+        prompt_tokens:
+          type: integer
+          default: 0
+          description: Number of tokens in the prompt.
+        total_tokens:
+          type: integer
+          default: 0
+          description: Total number of tokens used in the request (prompt + completion).
+      required:
+        - completion_tokens
+        - prompt_tokens
+        - total_tokens
+      description: Usage statistics for the completion request.
+      title: CompletionUsage
+    CreateChatCompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the chat completion.
+        choices:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateChatCompletionResponseChoicesItems'
+          description: A list of chat completion choices. Always 1.
+        created:
+          type: integer
+          description: The Unix timestamp (in seconds) of when the chat completion was created.
+        model:
+          type: string
+          description: The model used for the chat completion.
+        usage:
+          $ref: '#/components/schemas/CompletionUsage'
+      required:
+        - id
+        - choices
+        - created
+        - model
+      description: Represents a chat completion response returned by agent, based on the provided input.
+      title: CreateChatCompletionResponse
+    ChatCompletionStreamResponseDeltaRole:
+      type: string
+      enum:
+        - assistant
+      default: assistant
+      description: The role of the author of this message.
+      title: ChatCompletionStreamResponseDeltaRole
+    ChatCompletionStreamResponseDelta:
+      type: object
+      properties:
+        role:
+          $ref: '#/components/schemas/ChatCompletionStreamResponseDeltaRole'
+          description: The role of the author of this message.
+        reasoning_steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReasoningStep'
+          description: A list of reasoning steps taken by the agent to arrive at the response.
+        reasoning_content:
+          type: string
+          description: The agent's reasoning for its response.
+        content:
+          type: string
+          description: The contents of the message.
+      required:
+        - role
+      description: A chat completion delta generated by streamed agent responses.
+      title: ChatCompletionStreamResponseDelta
+    CreateChatCompletionStreamResponseChoicesItemsFinishReason:
+      type: string
+      enum:
+        - stop
+      description: >
+        The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a
+        provided stop sequence,
+      title: CreateChatCompletionStreamResponseChoicesItemsFinishReason
+    CreateChatCompletionStreamResponseChoicesItems:
+      type: object
+      properties:
+        delta:
+          $ref: '#/components/schemas/ChatCompletionStreamResponseDelta'
+        finish_reason:
+          oneOf:
+            - $ref: '#/components/schemas/CreateChatCompletionStreamResponseChoicesItemsFinishReason'
+            - type: 'null'
+          description: >
+            The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or
+            a provided stop sequence,
+        index:
+          type: integer
+          description: The index of the choice in the list of choices.
+      required:
+        - delta
+        - finish_reason
+        - index
+      title: CreateChatCompletionStreamResponseChoicesItems
+    CreateChatCompletionStreamResponseObject:
+      type: string
+      enum:
+        - chat.completion.chunk
+      description: The object type, which is always `chat.completion.chunk`.
+      title: CreateChatCompletionStreamResponseObject
+    CreateChatCompletionStreamResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the chat completion. Each chunk has the same ID.
+        choices:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateChatCompletionStreamResponseChoicesItems'
+          description: >
+            A list of chat completion choices. Can contain more than one elements if `n` is greater than 1. Can also be
+            empty for the last chunk.
+        created:
+          type: integer
+          description: The Unix timestamp (in seconds) of when the chat completion was created. Each chunk has the same timestamp.
+        model:
+          type: string
+          description: The model to generate the completion.
+        object:
+          $ref: '#/components/schemas/CreateChatCompletionStreamResponseObject'
+          description: The object type, which is always `chat.completion.chunk`.
+        usage:
+          oneOf:
+            - $ref: '#/components/schemas/CompletionUsage'
+            - type: 'null'
+          description: >
+            When present, it contains a null value **except for the last chunk** which contains the token usage
+            statistics for the entire request.
+
+
+            **NOTE:** If the stream is interrupted or cancelled, you may not  receive the final usage chunk which
+            contains the total token usage for the request.
+      required:
+        - id
+        - choices
+        - created
+        - model
+        - object
+      description: |
+        Represents a streamed chunk of a chat completion response returned
+        by the agent, based on the provided input.
+      title: CreateChatCompletionStreamResponse
+    createChatCompletion_Response_200:
+      oneOf:
+        - $ref: '#/components/schemas/CreateChatCompletionResponse'
+        - $ref: '#/components/schemas/CreateChatCompletionStreamResponse'
+      title: createChatCompletion_Response_200
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

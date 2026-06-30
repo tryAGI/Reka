@@ -1,0 +1,5221 @@
+openapi: 3.1.0
+info:
+  title: API Reference
+  version: 1.0.0
+paths:
+  /v1/videos/upload:
+    post:
+      operationId: upload
+      summary: Upload Video
+      description: Upload a new video for search and Q&A.
+      tags:
+        - subpackage_videos
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__protocol__VideoUploadResponse'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                video_url:
+                  type: string
+                  description: >-
+                    Video URL for Reka to download from before indexing, for e.g.
+                    https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4
+                index:
+                  type: boolean
+                  description: A boolean flag to indicate whether or not to index the provided video
+                enable_thumbnails:
+                  type: boolean
+                  default: false
+                  description: A boolean flag to indicate whether or not to index the enable thumbnails when indexing the video
+                video_name:
+                  type: string
+                  description: A name to associate with your video. Required for file uploads, optional for URL uploads
+                video_absolute_start_timestamp:
+                  type: string
+                  description: >-
+                    The real-world timestamp when the video recording started, in ISO 8601 format (e.g.,
+                    '2024-01-01T00:00:00Z')
+                config:
+                  type: string
+                  description: JSON string containing VideoIndexingParams configuration for advanced indexing options
+                person_indexing:
+                  type: boolean
+                  description: Whether to enable person/object detection and indexing for the video.
+                persist_frames:
+                  type: boolean
+                  description: Whether to persist extracted video frames for later retrieval
+                caption_prompt:
+                  type: string
+                  description: Custom prompt to use when generating captions for video segments
+                encode_chunks:
+                  type: boolean
+                  description: Whether to encode video chunks during indexing
+                caption_mode:
+                  $ref: '#/components/schemas/CaptionMode'
+                  description: Predefined caption mode to use for generating captions
+                group_id:
+                  type: string
+                  description: ID of the video group to associate this video with
+                chunking_config:
+                  type: string
+                  description: JSON string containing ChunkingConfig for custom video chunking behavior
+              required:
+                - index
+  /v1/videos/{video_id}:
+    get:
+      operationId: get-video
+      summary: Get Video By Id
+      description: Retrieve a single video by ID.
+      tags:
+        - subpackage_videos
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideosGetResponseChunk'
+    delete:
+      operationId: delete-video
+      summary: Delete Video By Id
+      description: Delete a single video by ID.
+      tags:
+        - subpackage_videos
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoDeleteResponse'
+  /v1/videos:
+    get:
+      operationId: get-videos
+      summary: List Videos
+      description: List videos or retrieve specific videos by IDs.
+      tags:
+        - subpackage_videos
+      parameters:
+        - name: ids
+          in: query
+          description: Filter by specific video IDs
+          required: false
+          schema:
+            type:
+              - array
+              - 'null'
+            items:
+              type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideosGetResponse'
+  /v1/videos/groups:
+    post:
+      operationId: post-create-video-group
+      summary: Create Video Group
+      tags:
+        - subpackage_videoGroup
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__protocol__VideoGroupResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/orchestrator__protocol__VideoGroupCreateRequest'
+    get:
+      operationId: get-list-video-groups
+      summary: List Video Groups
+      tags:
+        - subpackage_videoGroup
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__protocol__VideoGroupListResponse'
+  /v1/videos/groups/{group_id}:
+    get:
+      operationId: get-video-group
+      summary: Get Video Group
+      tags:
+        - subpackage_videoGroup
+      parameters:
+        - name: group_id
+          in: path
+          description: Group identifier
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__protocol__VideoGroupResponse'
+    patch:
+      operationId: patch-update-video-group
+      summary: Update Video Group
+      tags:
+        - subpackage_videoGroup
+      parameters:
+        - name: group_id
+          in: path
+          description: Group identifier
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__protocol__VideoGroupResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/orchestrator__protocol__VideoGroupUpdateRequest'
+    delete:
+      operationId: delete-video-group
+      summary: Delete Video Group
+      tags:
+        - subpackage_videoGroup
+      parameters:
+        - name: group_id
+          in: path
+          description: Group identifier
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__protocol__VideoGroupDeleteResponse'
+  /v1/videos/groups/{group_id}/videos:
+    get:
+      operationId: list-group-videos-v-1-videos-groups-group-id-videos-get
+      summary: List Group Videos
+      tags:
+        - subpackage_videoGroup
+      parameters:
+        - name: group_id
+          in: path
+          description: Group identifier
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideosGetResponse'
+    post:
+      operationId: post-move-videos-to-group
+      summary: Move Videos To Group
+      tags:
+        - subpackage_videoGroup
+      parameters:
+        - name: group_id
+          in: path
+          description: Destination group identifier
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__protocol__VideoMoveGroupResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/orchestrator__protocol__VideoMoveGroupRequest'
+  /v1/videos/search:
+    post:
+      operationId: post-embedding-search
+      summary: Embedding Search
+      description: Embedding-based search with temporal extraction support.
+      tags:
+        - subpackage_videoSearch
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoSearchResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+  /v1/qa/chat:
+    post:
+      operationId: chat-v-1-qa-chat-post
+      summary: Chat
+      description: |-
+        Chat with the video QA model.
+
+        Set `stream=true` to receive server-sent events (SSE) instead of a single response.
+      tags:
+        - subpackage_videoQa
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoQAResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoQARequest'
+  /v1/qa/quicktag:
+    post:
+      operationId: quick-tag-v-1-qa-quicktag-post
+      summary: Quick Tag
+      description: Generate metadata tags for short videos (under 30 seconds) without storage
+      tags:
+        - subpackage_metadataTagging
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoTaggingAdvertisingResult'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                video:
+                  type: string
+              required:
+                - video
+  /v1/qa/indexedtag:
+    post:
+      operationId: indexed-tag-v-1-qa-indexedtag-post
+      summary: Indexed Tag
+      description: Generate metadata tags for previously indexed videos
+      tags:
+        - subpackage_metadataTagging
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Metadata Tagging_indexed_tag_v1_qa_indexedtag_post_Response_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoTaggingRequest'
+  /v1/clips:
+    post:
+      operationId: create-reel-v-1-clips-post
+      summary: Create Reel
+      description: Generate highlight reels from longer videos
+      tags:
+        - subpackage_clipApi
+      parameters:
+        - name: reel_quality
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/ReelQuality'
+        - name: force_vllm_whisper_asr
+          in: query
+          description: Force vLLM Whisper ASR for this clip-generation request.
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '202':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClipRequest'
+    get:
+      operationId: list-reels-v-1-clips-get
+      summary: List Reels
+      description: List reel generations for the current user with pagination.
+      tags:
+        - subpackage_clipApi
+      parameters:
+        - name: offset
+          in: query
+          description: Number of records to skip
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: limit
+          in: query
+          description: Maximum number of records to return
+          required: false
+          schema:
+            type: integer
+            default: 20
+        - name: status
+          in: query
+          description: Filter by status
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClipListResponse'
+  /v1/clips/{id}:
+    get:
+      operationId: get-reel-v-1-clips-id-get
+      summary: Get Reel
+      description: Get the status and output of a reel generation job.
+      tags:
+        - subpackage_clipApi
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClipResponse'
+    delete:
+      operationId: delete-reel-v-1-clips-id-delete
+      summary: Delete Reel
+      description: Delete a completed or failed reel generation.
+      tags:
+        - subpackage_clipApi
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClipDeleteRequest'
+  /v1/images/upload:
+    post:
+      operationId: upload-images-v-1-images-upload-post
+      summary: Upload Images
+      tags:
+        - subpackage_images
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageUploadBatchResponse'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                images:
+                  type: array
+                  items:
+                    type: string
+                  description: List of images to upload (optional if image_urls are provided)
+                metadata:
+                  type: string
+                  description: JSON string of metadata list matching image order
+              required:
+                - metadata
+  /v1/images/{image_id}:
+    get:
+      operationId: get-image
+      summary: Get Image By Id
+      description: Retrieve a single image by ID.
+      tags:
+        - subpackage_images
+      parameters:
+        - name: image_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageUploadResponse'
+    delete:
+      operationId: delete-image
+      summary: Delete Image By Id
+      description: Delete a single image by ID.
+      tags:
+        - subpackage_images
+      parameters:
+        - name: image_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageDeleteResponse'
+  /v1/images:
+    get:
+      operationId: get-images
+      summary: List Images
+      description: List images or retrieve specific images by IDs.
+      tags:
+        - subpackage_images
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 20
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageGetResponse'
+  /v1/images/search:
+    post:
+      operationId: search-images-v-1-images-search-post
+      summary: Search Images
+      description: Search for images with a plaintext query
+      tags:
+        - subpackage_images
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSearchResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageSearchRequest'
+  /v2/videos:
+    get:
+      operationId: list-videos-v-2-videos-get
+      summary: List Videos
+      description: List all videos for the authenticated user, across all groups.
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: ids
+          in: query
+          description: Filter by video IDs
+          required: false
+          schema:
+            type:
+              - array
+              - 'null'
+            items:
+              type: string
+              format: uuid
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoListResponse'
+    post:
+      operationId: upload-video-v-2-videos-post
+      summary: Upload Video
+      description: Upload a video file or URL without triggering indexing.
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '202':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__api__v2__models__VideoUploadResponse'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                video_url:
+                  type: string
+                  description: URL to download video from
+                video_name:
+                  type: string
+                  description: Display name for the video. Required for file uploads.
+                group_id:
+                  type: string
+                  description: ID of the video group to associate this video with
+                description:
+                  type: string
+                  description: Video description
+  /v2/videos/{video_id}:
+    get:
+      operationId: get-video-v-2-videos-video-id-get
+      summary: Get Video
+      description: Get video details including upload status and metadata.
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoResponse'
+    delete:
+      operationId: delete-video-v-2-videos-video-id-delete
+      summary: Delete Video
+      description: Delete a single video.
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoDeleteResponse'
+    patch:
+      operationId: update-video-metadata-v-2-videos-video-id-patch
+      summary: Update Video Metadata
+      description: Update a video's metadata (name/title/description) and optionally move group.
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoMetadataUpdateRequest'
+  /v2/video-groups:
+    get:
+      operationId: list-video-groups-v-2-video-groups-get
+      summary: List Video Groups
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__api__v2__models__VideoGroupListResponse'
+    post:
+      operationId: create-video-group-v-2-video-groups-post
+      summary: Create Video Group
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__api__v2__models__VideoGroupResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/orchestrator__api__v2__models__VideoGroupCreateRequest'
+  /v2/video-groups/{group_id}:
+    get:
+      operationId: get-video-group-v-2-video-groups-group-id-get
+      summary: Get Video Group
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: group_id
+          in: path
+          description: Group identifier
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__api__v2__models__VideoGroupResponse'
+    delete:
+      operationId: delete-video-group-v-2-video-groups-group-id-delete
+      summary: Delete Video Group
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: group_id
+          in: path
+          description: Group identifier
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__api__v2__models__VideoGroupDeleteResponse'
+    patch:
+      operationId: update-video-group-v-2-video-groups-group-id-patch
+      summary: Update Video Group
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: group_id
+          in: path
+          description: Group identifier
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__api__v2__models__VideoGroupResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/orchestrator__api__v2__models__VideoGroupUpdateRequest'
+  /v2/video-groups/{group_id}/videos:
+    get:
+      operationId: list-group-videos-v-2-video-groups-group-id-videos-get
+      summary: List Group Videos
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: group_id
+          in: path
+          description: Group identifier
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoListResponse'
+    post:
+      operationId: move-videos-to-group-v-2-video-groups-group-id-videos-post
+      summary: Move Videos To Group
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: group_id
+          in: path
+          description: Destination group identifier
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orchestrator__api__v2__models__VideoMoveGroupResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/orchestrator__api__v2__models__VideoMoveGroupRequest'
+  /v2/features:
+    get:
+      operationId: get-feature-catalog-v-2-features-get
+      summary: Get Feature Catalog
+      description: Discover available features and their dependencies.
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureCatalogResponse'
+  /v2/videos/{video_id}/features/plan:
+    post:
+      operationId: plan-features-v-2-videos-video-id-features-plan-post
+      summary: Plan Features
+      description: Given desired features, return what the agent can trigger next.
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeaturePlanResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeaturePlanRequest'
+  /v2/videos/{video_id}/features/captions:
+    post:
+      operationId: trigger-captions-v-2-videos-video-id-features-captions-post
+      summary: Trigger Captions
+      description: Dispatch VLM captioning on video chunks.
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureTriggerResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CaptionsTriggerRequest'
+  /v2/videos/{video_id}/features/objects:
+    post:
+      operationId: trigger-objects-v-2-videos-video-id-features-objects-post
+      summary: Trigger Objects
+      description: |-
+        Dispatch object detection and tracking on video chunks.
+
+        Known issues:
+        - Only detects people (via /person/track). The feature is named "objects"
+          but other BoundingBoxType values (face, text, facecam) are never produced
+          here; filtering get_objects by those types silently returns nothing.
+        - person_id is always null in API responses. The tracker assigns integer
+          tracking IDs per chunk, which are converted to UUID strings before DB
+          storage. The API reader calls int() on those UUIDs, which always fails.
+        - person_id is chunk-scoped, not video-scoped. The tracker resets IDs at
+          each chunk boundary, so the same person gets a different person_id in
+          every chunk — cross-chunk re-identification does not work.
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureTriggerResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectsTriggerRequest'
+  /v2/videos/{video_id}/features/embeddings:
+    post:
+      operationId: trigger-embeddings-v-2-videos-video-id-features-embeddings-post
+      summary: Trigger Embeddings
+      description: Dispatch vector embedding computation for semantic search.
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureTriggerResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeatureTriggerRequest'
+  /v2/videos/{video_id}/features/transcript:
+    post:
+      operationId: trigger-transcript-v-2-videos-video-id-features-transcript-post
+      summary: Trigger Transcript
+      description: Trigger chunking for a video. Returns transcript feature status.
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureTriggerResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TranscriptTriggerRequest'
+  /v2/search:
+    post:
+      operationId: search-v-2-search-post
+      summary: Search
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V2SearchResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/V2SearchRequest'
+  /v2/chat:
+    post:
+      operationId: chat-v-2-chat-post
+      summary: Chat
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V2ChatResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/V2ChatRequest'
+  /v2/videos/{video_id}/captions:
+    get:
+      operationId: list-captions-v-2-videos-video-id-captions-get
+      summary: List Captions
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type:
+              - number
+              - 'null'
+            format: double
+        - name: end
+          in: query
+          required: false
+          schema:
+            type:
+              - number
+              - 'null'
+            format: double
+        - name: page_limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 50
+        - name: page_token
+          in: query
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResponse_CaptionEntry_'
+  /v2/videos/{video_id}/transcript:
+    get:
+      operationId: list-transcript-v-2-videos-video-id-transcript-get
+      summary: List Transcript
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type:
+              - number
+              - 'null'
+            format: double
+        - name: end
+          in: query
+          required: false
+          schema:
+            type:
+              - number
+              - 'null'
+            format: double
+        - name: format
+          in: query
+          required: false
+          schema:
+            type: string
+            default: segments
+        - name: page_limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 50
+        - name: page_token
+          in: query
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V2_list_transcript_v2_videos__video_id__transcript_get_Response_200'
+  /v2/videos/{video_id}/scenes:
+    get:
+      operationId: list-scenes-v-2-videos-video-id-scenes-get
+      summary: List Scenes
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type:
+              - number
+              - 'null'
+            format: double
+        - name: end
+          in: query
+          required: false
+          schema:
+            type:
+              - number
+              - 'null'
+            format: double
+        - name: page_limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 50
+        - name: page_token
+          in: query
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResponse_SceneEntry_'
+  /v2/videos/{video_id}/objects:
+    get:
+      operationId: list-objects-v-2-videos-video-id-objects-get
+      summary: List Objects
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type:
+              - number
+              - 'null'
+            format: double
+        - name: end
+          in: query
+          required: false
+          schema:
+            type:
+              - number
+              - 'null'
+            format: double
+        - name: type
+          in: query
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+        - name: page_limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 50
+        - name: page_token
+          in: query
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResponse_ObjectSegment_'
+  /v2/videos/{video_id}/segment:
+    post:
+      operationId: segment-v-2-videos-video-id-segment-post
+      summary: Segment
+      tags:
+        - subpackage_v2
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: X-Enable-Overwrite-Metering
+          in: header
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SegmentResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SegmentRequest'
+  /v2/inference/models:
+    get:
+      operationId: list-inference-models
+      summary: List available inference models
+      tags:
+        - subpackage_inference
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceModelsResponse'
+  /v2/inference/requests:
+    get:
+      operationId: list-inference-requests
+      summary: List inference requests
+      tags:
+        - subpackage_inference
+      parameters:
+        - name: endpoint_id
+          in: query
+          description: Exact-match endpoint filter, e.g. `kling-v3-pro/image-to-video`.
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+        - name: capability
+          in: query
+          description: Filter by capability segment (e.g. `text-to-image`).
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+        - name: model_id
+          in: query
+          description: Filter by model segment (e.g. `kling-v3-pro`).
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+        - name: status
+          in: query
+          description: Filter by lifecycle status.
+          required: false
+          schema:
+            oneOf:
+              - $ref: '#/components/schemas/V2InferenceRequestsGetParametersStatusSchema'
+              - type: 'null'
+        - name: start
+          in: query
+          description: Inclusive lower bound on `created_at` (ISO 8601).
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+            format: date-time
+        - name: end
+          in: query
+          description: Exclusive upper bound on `created_at` (ISO 8601).
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+            format: date-time
+        - name: expand
+          in: query
+          description: >-
+            Optional response expansions. Pass `payloads` to include the `input` and `output` payloads on each item
+            (omitted by default to keep list responses light).
+          required: false
+          schema:
+            type:
+              - array
+              - 'null'
+            items:
+              type: string
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 25
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceRequestListResponse'
+  /v2/inference/requests/{request_id}:
+    get:
+      operationId: get-inference-result
+      summary: Get inference result
+      tags:
+        - subpackage_inference
+      parameters:
+        - name: request_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultResponse'
+  /v2/inference/requests/{request_id}/status:
+    get:
+      operationId: get-inference-status
+      summary: Get inference status
+      tags:
+        - subpackage_inference
+      parameters:
+        - name: request_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: with_logs
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /v2/inference/requests/{request_id}/cancel:
+    post:
+      operationId: cancel-inference
+      summary: Cancel inference request
+      tags:
+        - subpackage_inference
+      parameters:
+        - name: request_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultResponse'
+  /v2/inference/chat/completions:
+    post:
+      operationId: create-chat-completion
+      summary: OpenAI-compatible chat completion (Qwen)
+      description: |-
+        Sync OpenAI-compatible chat completion proxied to DashScope.
+
+        Set `stream=true` for SSE; the response preserves OpenAI's exact wire
+        framing so `openai.OpenAI(base_url=".../v2/inference")` clients work
+        unchanged. Meters one `vision/inference` event per non-error response
+        with token counts as properties.
+      tags:
+        - subpackage_inference
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatCompletionRequest'
+  /v2/inference/nano-banana/text-to-image:
+    post:
+      operationId: submit-nano-banana-text-to-image
+      summary: Submit text-to-image with Nano Banana
+      tags:
+        - subpackage_inference
+      parameters:
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: Idempotency-Key
+          in: header
+          description: >-
+            Optional opaque key, scoped per user. Reusing a key replays the original 202 response — no second enqueue,
+            no second metering event. Choose a fresh key per logical request (UUID is the obvious pattern).
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '202':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextToImageSubmitRequest'
+  /v2/inference/{model}/edit:
+    post:
+      operationId: submit-edit
+      summary: Submit Edit
+      tags:
+        - subpackage_inference
+      parameters:
+        - name: model
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/EditModelId'
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: Idempotency-Key
+          in: header
+          description: >-
+            Optional opaque key, scoped per user. Reusing a key replays the original 202 response — no second enqueue,
+            no second metering event. Choose a fresh key per logical request (UUID is the obvious pattern).
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '202':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditSubmitRequest'
+  /v2/inference/{model}/image-to-bbox:
+    post:
+      operationId: submit-image-to-bbox
+      summary: Submit Image To Bbox
+      tags:
+        - subpackage_inference
+      parameters:
+        - name: model
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/ImageToBboxModelId'
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: Idempotency-Key
+          in: header
+          description: >-
+            Optional opaque key, scoped per user. Reusing a key replays the original 202 response — no second enqueue,
+            no second metering event. Choose a fresh key per logical request (UUID is the obvious pattern).
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '202':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageToBboxSubmitRequest'
+  /v2/inference/{model}/image-to-video:
+    post:
+      operationId: submit-image-to-video
+      summary: Submit Image To Video
+      tags:
+        - subpackage_inference
+      parameters:
+        - name: model
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/ImageToVideoModelId'
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: Idempotency-Key
+          in: header
+          description: >-
+            Optional opaque key, scoped per user. Reusing a key replays the original 202 response — no second enqueue,
+            no second metering event. Choose a fresh key per logical request (UUID is the obvious pattern).
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '202':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageToVideoSubmitRequest'
+  /v2/inference/{model}/text-to-image:
+    post:
+      operationId: submit-text-to-image
+      summary: Submit Text To Image
+      tags:
+        - subpackage_inference
+      parameters:
+        - name: model
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/TextToImageModelId'
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: Idempotency-Key
+          in: header
+          description: >-
+            Optional opaque key, scoped per user. Reusing a key replays the original 202 response — no second enqueue,
+            no second metering event. Choose a fresh key per logical request (UUID is the obvious pattern).
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '202':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextToImageSubmitRequest'
+  /v2/inference/{model}/text-to-speech:
+    post:
+      operationId: submit-text-to-speech
+      summary: Submit Text To Speech
+      tags:
+        - subpackage_inference
+      parameters:
+        - name: model
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/TextToSpeechModelId'
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: Idempotency-Key
+          in: header
+          description: >-
+            Optional opaque key, scoped per user. Reusing a key replays the original 202 response — no second enqueue,
+            no second metering event. Choose a fresh key per logical request (UUID is the obvious pattern).
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '202':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextToSpeechSubmitRequest'
+  /v2/inference/{model}/text-to-video:
+    post:
+      operationId: submit-text-to-video
+      summary: Submit Text To Video
+      tags:
+        - subpackage_inference
+      parameters:
+        - name: model
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/TextToVideoModelId'
+        - name: X-Api-Key
+          in: header
+          description: API key authentication via X-Api-Key header
+          required: true
+          schema:
+            type: string
+        - name: Idempotency-Key
+          in: header
+          description: >-
+            Optional opaque key, scoped per user. Reusing a key replays the original 202 response — no second enqueue,
+            no second metering event. Choose a fresh key per logical request (UUID is the obvious pattern).
+          required: false
+          schema:
+            type:
+              - string
+              - 'null'
+      responses:
+        '202':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextToVideoSubmitRequest'
+servers:
+  - url: https://vision-agent.api.reka.ai
+    description: https://vision-agent.api.reka.ai
+components:
+  schemas:
+    CaptionMode:
+      type: string
+      enum:
+        - generic
+        - security
+        - tagging_ad_video
+        - tte_1110
+      title: CaptionMode
+    orchestrator__protocol__VideoUploadResponse:
+      type: object
+      properties:
+        video_id:
+          type: string
+          description: Unique identifier for the uploaded video
+        video_s3_url:
+          type:
+            - string
+            - 'null'
+          description: S3 URL of the uploaded video (null for background processing)
+        status:
+          type:
+            - string
+            - 'null'
+          default: upload_initiated
+          description: Status of the upload
+      required:
+        - video_id
+      title: orchestrator__protocol__VideoUploadResponse
+    VideoMetadata:
+      type: object
+      properties:
+        width:
+          type:
+            - integer
+            - 'null'
+          description: Width of the video in pixels
+        height:
+          type:
+            - integer
+            - 'null'
+          description: Height of the video in pixels
+        avg_fps:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: Average frames per second
+        video_name:
+          type:
+            - string
+            - 'null'
+          description: Name of the video
+        title:
+          type:
+            - string
+            - 'null'
+          description: Title of the video
+        video_start_timestamp_utc_ms:
+          type:
+            - integer
+            - 'null'
+          description: Start timestamp in milliseconds
+        duration:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: Duration of the video in seconds
+        thumbnail:
+          type:
+            - string
+            - 'null'
+          description: URL to the video thumbnail
+        thumbnails:
+          type:
+            - string
+            - 'null'
+          description: URL, typically VTT, pointing to generated storyboard thumbnails
+        description:
+          type:
+            - string
+            - 'null'
+          description: Description of the video
+        source:
+          type:
+            - string
+            - 'null'
+          description: Source path or URL of the video
+      title: VideoMetadata
+    VideoIndexingStatus:
+      type: string
+      enum:
+        - pending
+        - indexing
+        - indexed
+        - failed
+      title: VideoIndexingStatus
+    UserIndexingParams:
+      type: string
+      enum:
+        - fast_search
+        - qa_and_search
+        - qa
+        - reels
+      description: User-facing indexing parameters enum for API responses
+      title: UserIndexingParams
+    VideosGetResponseChunk:
+      type: object
+      properties:
+        video_id:
+          type: string
+          description: Unique identifier for the video
+        url:
+          type: string
+          description: Presigned S3 URL to access the video
+        metadata:
+          oneOf:
+            - $ref: '#/components/schemas/VideoMetadata'
+            - type: 'null'
+          description: Metadata for a video
+        indexing_status:
+          oneOf:
+            - $ref: '#/components/schemas/VideoIndexingStatus'
+            - type: 'null'
+          description: Status of video indexing
+        indexing_type:
+          oneOf:
+            - $ref: '#/components/schemas/UserIndexingParams'
+            - type: 'null'
+          description: Type of indexing applied to the video
+        group_id:
+          type:
+            - string
+            - 'null'
+          description: Group ID if video belongs to a group
+      required:
+        - video_id
+        - url
+      title: VideosGetResponseChunk
+    VideosGetResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/VideosGetResponseChunk'
+          description: List of video results
+      required:
+        - results
+      title: VideosGetResponse
+    VideoDeleteResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status of the deletion
+        message:
+          type:
+            - string
+            - 'null'
+          description: Status message
+      required:
+        - status
+      title: VideoDeleteResponse
+    orchestrator__protocol__VideoGroupCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name for the new video group
+        metadata:
+          type:
+            - object
+            - 'null'
+          additionalProperties:
+            description: Any type
+          description: Optional metadata to attach to the newly created group
+      required:
+        - name
+      title: orchestrator__protocol__VideoGroupCreateRequest
+    orchestrator__protocol__VideoGroupResponse:
+      type: object
+      properties:
+        group_id:
+          type: string
+          description: Unique identifier for the video group
+        name:
+          type: string
+          description: Name of the video group
+        metadata:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: Arbitrary metadata attached to the group
+        created_at:
+          type:
+            - string
+            - 'null'
+          description: ISO 8601 timestamp when group was created
+        updated_at:
+          type:
+            - string
+            - 'null'
+          description: ISO 8601 timestamp when group was last updated
+      required:
+        - group_id
+        - name
+      title: orchestrator__protocol__VideoGroupResponse
+    orchestrator__protocol__VideoGroupListResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/orchestrator__protocol__VideoGroupResponse'
+          description: List of video groups
+      required:
+        - results
+      title: orchestrator__protocol__VideoGroupListResponse
+    orchestrator__protocol__VideoGroupUpdateRequest:
+      type: object
+      properties:
+        name:
+          type:
+            - string
+            - 'null'
+          description: New name for the video group
+        metadata:
+          type:
+            - object
+            - 'null'
+          additionalProperties:
+            description: Any type
+          description: Updated metadata for the video group. Pass null to leave unchanged.
+      title: orchestrator__protocol__VideoGroupUpdateRequest
+    orchestrator__protocol__VideoGroupDeleteResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status of the deletion
+        message:
+          type:
+            - string
+            - 'null'
+          description: Status message
+      required:
+        - status
+      title: orchestrator__protocol__VideoGroupDeleteResponse
+    SearchRequest:
+      type: object
+      properties:
+        query:
+          type: string
+        threshold:
+          type:
+            - number
+            - 'null'
+          format: double
+        max_results:
+          type: integer
+          default: 10
+        video_ids:
+          type:
+            - array
+            - 'null'
+          items:
+            type: string
+        group_ids:
+          type:
+            - array
+            - 'null'
+          items:
+            type: string
+        search_demo:
+          type: boolean
+          default: false
+        use_llm_rerank:
+          type: boolean
+          default: false
+        use_embeds_rerank:
+          type: boolean
+          default: true
+        add_ocr_to_caption:
+          type: boolean
+          default: false
+        datetime_from:
+          type:
+            - string
+            - 'null'
+          description: Filter from datetime (ISO 8601 format, e.g., 2024-01-15T10:00:00Z)
+        datetime_to:
+          type:
+            - string
+            - 'null'
+          description: Filter to datetime (ISO 8601 format, e.g., 2024-01-15T18:00:00Z)
+        timestamp_from:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: Filter from video timestamp in seconds (relative to video start)
+        timestamp_to:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: Filter to video timestamp in seconds (relative to video start)
+        generate_report:
+          type: boolean
+          default: false
+          description: Whether to generate a report and explanations for the search results
+      required:
+        - query
+      description: Base class for search requests
+      title: SearchRequest
+    VideoChunkSearchResultScore:
+      oneOf:
+        - type: number
+          format: double
+        - type: string
+      description: Relevance score
+      title: VideoChunkSearchResultScore
+    VideoChunkSearchResult:
+      type: object
+      properties:
+        video_chunk_id:
+          type: string
+          description: Unique identifier for the video chunk
+        video_id:
+          type: string
+          description: Unique identifier for the video
+        user_id:
+          type: string
+          description: User ID who owns the video
+        score:
+          $ref: '#/components/schemas/VideoChunkSearchResultScore'
+          description: Relevance score
+        start_timestamp:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: Start timestamp in seconds
+        end_timestamp:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: End timestamp in seconds
+        plain_text_caption:
+          type:
+            - string
+            - 'null'
+          description: Text caption for the video chunk
+        plain_text_transcript:
+          type:
+            - string
+            - 'null'
+          description: Transcription of speech in the video chunk
+        s3_presigned_url:
+          type:
+            - string
+            - 'null'
+          description: Presigned S3 URL to access the parent video
+        video_title:
+          type:
+            - string
+            - 'null'
+          description: Title stored in the video's metadata
+        video_thumbnails:
+          type:
+            - string
+            - 'null'
+          description: URL (typically VTT) pointing to generated storyboard thumbnails
+        explanation:
+          type:
+            - string
+            - 'null'
+          description: Explanation of the video chunk content and its relevance to the search query
+      required:
+        - video_chunk_id
+        - video_id
+        - user_id
+        - score
+      description: Result from hybrid search combining object and embedding search
+      title: VideoChunkSearchResult
+    VideoSearchResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/VideoChunkSearchResult'
+          description: List of search results
+        report:
+          type:
+            - string
+            - 'null'
+          description: Report summarizing the search results
+      required:
+        - results
+      title: VideoSearchResponse
+    SimpleChatMessage:
+      type: object
+      properties:
+        role:
+          type: string
+        content:
+          type: string
+      required:
+        - role
+        - content
+      title: SimpleChatMessage
+    VideoQARequest:
+      type: object
+      properties:
+        user_id:
+          type:
+            - string
+            - 'null'
+          description: Override user ID. Takes precedence over API key header when provided.
+        video_id:
+          type: string
+          description: The ID of the video to query.
+        messages:
+          type:
+            - array
+            - 'null'
+          items:
+            $ref: '#/components/schemas/SimpleChatMessage'
+          description: The conversation history. The last message must be from the user and contain the query.
+        stream:
+          type:
+            - boolean
+            - 'null'
+          default: false
+          description: If true, stream the response using server-sent events (SSE).
+        apply_temporal_prefiltering:
+          type:
+            - boolean
+            - 'null'
+          default: true
+          description: If true, apply temporal pre-filtering to narrow down the video timestamp search space.
+        include_demo_videos:
+          type:
+            - boolean
+            - 'null'
+          default: false
+          description: If true, include demo videos in the QA flow.
+        use_map_reduce_summarization:
+          type:
+            - boolean
+            - 'null'
+          default: false
+          description: If true, use map-reduce summarization instead of one-shot summarization.
+      required:
+        - video_id
+      title: VideoQARequest
+    VideoQaResponseChatResponse:
+      oneOf:
+        - type: string
+        - type: object
+          additionalProperties:
+            description: Any type
+      title: VideoQaResponseChatResponse
+    VideoQaResponseStatus:
+      type: string
+      enum:
+        - pending
+        - indexing
+        - streaming
+        - success
+        - error
+      default: pending
+      title: VideoQaResponseStatus
+    VideoQAResponse:
+      type: object
+      properties:
+        chat_response:
+          oneOf:
+            - $ref: '#/components/schemas/VideoQaResponseChatResponse'
+            - type: 'null'
+        status:
+          $ref: '#/components/schemas/VideoQaResponseStatus'
+      title: VideoQAResponse
+    VideoTaggingAdvertisingResult:
+      type: object
+      properties:
+        Description:
+          type: string
+        Violence:
+          type: boolean
+        Profanity:
+          type: boolean
+        AdultContent:
+          type: boolean
+        Drugs:
+          type: boolean
+        Alcohol:
+          type: boolean
+        Gambling:
+          type: boolean
+        Political:
+          type: boolean
+        ExpectedCTR:
+          type: number
+          format: double
+        ViralityScore:
+          type: number
+          format: double
+        Keyword:
+          type: array
+          items:
+            type: string
+        MoodTone:
+          type: array
+          items:
+            type: string
+      required:
+        - Description
+        - Violence
+        - Profanity
+        - AdultContent
+        - Drugs
+        - Alcohol
+        - Gambling
+        - Political
+        - ExpectedCTR
+        - ViralityScore
+        - Keyword
+        - MoodTone
+      title: VideoTaggingAdvertisingResult
+    VideoTaggingRequest:
+      type: object
+      properties:
+        video_id:
+          type: string
+          description: ID of the video to tag
+      required:
+        - video_id
+      title: VideoTaggingRequest
+    Metadata Tagging_indexed_tag_v1_qa_indexedtag_post_Response_200:
+      oneOf:
+        - $ref: '#/components/schemas/VideoTaggingAdvertisingResult'
+        - type: string
+      title: Metadata Tagging_indexed_tag_v1_qa_indexedtag_post_Response_200
+    ReelQuality:
+      type: string
+      enum:
+        - premium
+        - lite
+        - fallback
+        - full_video
+      title: ReelQuality
+    VideoGenerationTemplate:
+      type: string
+      enum:
+        - compilation
+        - moments
+        - voiceover
+        - trailer
+        - caption_only
+      title: VideoGenerationTemplate
+    SubtitleTranslationLocale:
+      type: string
+      enum:
+        - ar_SA
+        - cs_CZ
+        - da_DK
+        - de_DE
+        - el_GR
+        - en_GB
+        - en_US
+        - es_ES
+        - es_MX
+        - fi_FI
+        - fil_PH
+        - fr_CA
+        - fr_FR
+        - he_IL
+        - hi_IN
+        - hu_HU
+        - id_ID
+        - it_IT
+        - ja_JP
+        - ko_KR
+        - ms_MY
+        - nl_NL
+        - no_NO
+        - pl_PL
+        - pt_BR
+        - pt_PT
+        - ro_RO
+        - ru_RU
+        - sv_SE
+        - th_TH
+        - tr_TR
+        - uk_UA
+        - vi_VN
+        - zh_CN
+        - zh_TW
+      description: Allowed locale codes (underscore BCP-47 style) for subtitle translation.
+      title: SubtitleTranslationLocale
+    ClipGenerationConfig:
+      type: object
+      properties:
+        template:
+          $ref: '#/components/schemas/VideoGenerationTemplate'
+          description: Template type for generation
+        num_generations:
+          type:
+            - integer
+            - 'null'
+          description: >-
+            Number of clips to generate. When provided, must be 1-3. Omit to auto-derive the count from the effective
+            video duration: 3 for videos up to 45 minutes, +1 per additional 15 minutes, capped at 12. The resolved
+            count is returned in the response once auto-resolution completes.
+        min_duration_seconds:
+          type: integer
+          default: 0
+          description: Minimum duration in seconds
+        max_duration_seconds:
+          type: integer
+          default: 90
+          description: Maximum duration in seconds
+        source_start_time:
+          type:
+            - integer
+            - 'null'
+          description: Start time in seconds for source video download.
+        source_end_time:
+          type:
+            - integer
+            - 'null'
+          description: End time in seconds for source video download.
+        translated_subtitles_target_language:
+          oneOf:
+            - $ref: '#/components/schemas/SubtitleTranslationLocale'
+            - type: 'null'
+          description: Optional locale to auto-generate translated subtitles after generation completes.
+        translated_subtitles_group_length:
+          type:
+            - integer
+            - 'null'
+          description: Max character length of a translated subtitle group before splitting on word boundaries.
+      description: Generation settings for the Clip API
+      title: ClipGenerationConfig
+    AspectRatio:
+      type: string
+      enum:
+        - '9:16'
+        - 9:16-split
+        - '16:9'
+        - '4:5'
+        - '1:1'
+      title: AspectRatio
+    VideoResolution:
+      type: string
+      enum:
+        - '240'
+        - '360'
+        - '480'
+        - '720'
+        - '1080'
+      description: Video resolution options in pixels (height).
+      title: VideoResolution
+    CaptionFontConfigTextTransform:
+      type: string
+      enum:
+        - initial
+        - uppercase
+        - lowercase
+      title: CaptionFontConfigTextTransform
+    CaptionFontConfigPosition:
+      type: string
+      enum:
+        - top
+        - bottom
+        - middle
+      title: CaptionFontConfigPosition
+    CaptionFontConfigFontFamily:
+      type: string
+      enum:
+        - BebasNeue
+        - Bangers
+        - RobotoCondensed
+        - Lato
+        - CaptionFont
+      title: CaptionFontConfigFontFamily
+    CaptionFontConfig:
+      type: object
+      properties:
+        desired_font_size:
+          type:
+            - number
+            - 'null'
+          format: double
+        text_transform:
+          oneOf:
+            - $ref: '#/components/schemas/CaptionFontConfigTextTransform'
+            - type: 'null'
+        text_color:
+          type:
+            - string
+            - 'null'
+        highlight_color:
+          type:
+            - string
+            - 'null'
+        stroke_color:
+          type:
+            - string
+            - 'null'
+        position:
+          oneOf:
+            - $ref: '#/components/schemas/CaptionFontConfigPosition'
+            - type: 'null'
+        font_family:
+          oneOf:
+            - $ref: '#/components/schemas/CaptionFontConfigFontFamily'
+            - type: 'null'
+      title: CaptionFontConfig
+    ClipLayout:
+      type: string
+      enum:
+        - ai
+        - fit
+      description: |-
+        Reframing layout choice for non-16:9 aspect ratios.
+
+        AI: bbox-driven cover crop (zoom into faces/text). FIT: full source frame
+        scaled into the target with letterbox/pillarbox bars.
+      title: ClipLayout
+    ClipRenderingConfig:
+      type: object
+      properties:
+        show_watermark:
+          type: boolean
+          default: false
+          description: Whether to display reka watermark
+        subtitles:
+          type: boolean
+          default: true
+          description: Whether to enable subtitles
+        aspect_ratio:
+          $ref: '#/components/schemas/AspectRatio'
+          description: Aspect ratio for the video
+        resolution:
+          $ref: '#/components/schemas/VideoResolution'
+          description: Target resolution for the video
+        caption_style:
+          oneOf:
+            - $ref: '#/components/schemas/CaptionFontConfig'
+            - type: 'null'
+          description: Caption styling overrides
+        layout:
+          $ref: '#/components/schemas/ClipLayout'
+          description: >-
+            How to fit the source video into the target aspect_ratio. 'ai' (default) reframes the source to fill the
+            target, keeping the most relevant content in view. 'fit' preserves the entire source frame inside the
+            target, adding bars on the unfilled sides.
+      description: Rendering settings for the Clip API
+      title: ClipRenderingConfig
+    ClipRequest:
+      type: object
+      properties:
+        video_urls:
+          type: array
+          items:
+            type: string
+            format: uri
+          description: List of video URLs to process
+        prompt:
+          type:
+            - string
+            - 'null'
+          default: Create an engaging short video highlighting the best moments
+          description: Prompt for video generation
+        generation_config:
+          $ref: '#/components/schemas/ClipGenerationConfig'
+          description: Grouped generation configuration
+        rendering_config:
+          $ref: '#/components/schemas/ClipRenderingConfig'
+          description: Grouped rendering configuration
+        stream:
+          type: boolean
+          default: false
+          description: Whether to stream the generation process
+      required:
+        - video_urls
+      description: Request model for Clip API
+      title: ClipRequest
+    ClipGenerationConfigResult:
+      type: object
+      properties:
+        template:
+          $ref: '#/components/schemas/VideoGenerationTemplate'
+          description: Template type for generation
+        num_generations:
+          type:
+            - integer
+            - 'null'
+          description: >-
+            Resolved number of clips. 1-12 once auto-resolution completes; 0 while an auto request is still pending
+            resolution.
+        min_duration_seconds:
+          type: integer
+          default: 0
+          description: Minimum duration in seconds
+        max_duration_seconds:
+          type: integer
+          default: 90
+          description: Maximum duration in seconds
+        source_start_time:
+          type:
+            - integer
+            - 'null'
+          description: Start time in seconds for source video download.
+        source_end_time:
+          type:
+            - integer
+            - 'null'
+          description: End time in seconds for source video download.
+        translated_subtitles_target_language:
+          oneOf:
+            - $ref: '#/components/schemas/SubtitleTranslationLocale'
+            - type: 'null'
+          description: Optional locale to auto-generate translated subtitles after generation completes.
+        translated_subtitles_group_length:
+          type:
+            - integer
+            - 'null'
+          description: Max character length of a translated subtitle group before splitting on word boundaries.
+      description: |-
+        Response-side view of the generation config.
+
+        Request input caps ``num_generations`` at 1-3, but the auto pipeline
+        resolves it from video duration up to 12 (and transiently 0 before
+        resolution completes). Widening the bound here keeps the response
+        OpenAPI schema honest so strict clients don't reject a valid 0-12 value.
+      title: ClipGenerationConfigResult
+    ClipOutput:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Title of the generated reel
+        video_url:
+          type:
+            - string
+            - 'null'
+          description: URL of the generated video
+        signed_s3_video_url:
+          type:
+            - string
+            - 'null'
+          description: Presigned S3 URL for the generated video (for Lambda rendering)
+        caption:
+          type: string
+          description: Caption for the reel
+        hashtags:
+          type: array
+          items:
+            type: string
+          description: List of hashtags
+        ai_score:
+          type: integer
+          default: 60
+          description: AI rating score (0-100)
+      required:
+        - title
+        - video_url
+        - caption
+      description: Individual reel output model for Clip API
+      title: ClipOutput
+    ClipResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the generation
+        status:
+          type: string
+          description: Current status of the generation
+        created_at:
+          type:
+            - string
+            - 'null'
+          description: Creation timestamp
+        updated_at:
+          type:
+            - string
+            - 'null'
+          description: Last update timestamp
+        generation_config:
+          oneOf:
+            - $ref: '#/components/schemas/ClipGenerationConfigResult'
+            - type: 'null'
+          description: Generation configuration used
+        rendering_config:
+          oneOf:
+            - $ref: '#/components/schemas/ClipRenderingConfig'
+            - type: 'null'
+          description: Rendering configuration used
+        video_urls:
+          type: array
+          items:
+            type: string
+          description: List of input video URLs
+        prompt:
+          type:
+            - string
+            - 'null'
+          description: Prompt used for generation
+        output:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClipOutput'
+          description: Generated reel outputs
+      required:
+        - id
+        - status
+      description: Response model for Clip API
+      title: ClipResponse
+    ClipDeleteRequest:
+      type: object
+      properties:
+        delete_input_video:
+          type: boolean
+          default: false
+          description: Whether to delete the indexed source video along with the generation
+      title: ClipDeleteRequest
+    ImageUploadResponse:
+      type: object
+      properties:
+        image_id:
+          type: string
+        image_url:
+          type: string
+        indexing_status:
+          type: integer
+        upload_timestamp:
+          type: number
+          format: double
+      required:
+        - image_id
+        - image_url
+        - indexing_status
+        - upload_timestamp
+      title: ImageUploadResponse
+    ImageUploadBatchResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageUploadResponse'
+      required:
+        - results
+      title: ImageUploadBatchResponse
+    ImageGetResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageUploadResponse'
+      required:
+        - results
+      title: ImageGetResponse
+    ImageDeleteResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+      required:
+        - status
+        - message
+      description: Response model for deleting images
+      title: ImageDeleteResponse
+    ImageSearchRequestSearchMode:
+      type: string
+      enum:
+        - vision
+        - joined
+      default: vision
+      description: 'Search mode: ''vision'' for vision-only search, ''joined'' for hybrid search'
+      title: ImageSearchRequestSearchMode
+    ImageSearchRequest:
+      type: object
+      properties:
+        query:
+          type: string
+          description: Search query text
+        max_results:
+          type: integer
+          default: 10
+        search_mode:
+          $ref: '#/components/schemas/ImageSearchRequestSearchMode'
+          description: 'Search mode: ''vision'' for vision-only search, ''joined'' for hybrid search'
+        image_weight:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: Weight of the image in the search (only used when search_mode='joined')
+        text_weight:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: Weight of the text in the search (only used when search_mode='joined')
+        threshold:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: Similarity score threshold
+      required:
+        - query
+      title: ImageSearchRequest
+    DetectionMetadata:
+      type: object
+      properties:
+        class_name:
+          type: string
+        confidence:
+          type:
+            - number
+            - 'null'
+          format: double
+        bounding_box:
+          type: array
+          items:
+            type: integer
+        is_license_plate:
+          type: boolean
+          default: false
+        license_plate_number:
+          type:
+            - string
+            - 'null'
+        ncic_category:
+          type:
+            - string
+            - 'null'
+      required:
+        - class_name
+        - bounding_box
+      title: DetectionMetadata
+    SecurityMetadata:
+      type: object
+      properties:
+        camera_id:
+          type:
+            - string
+            - 'null'
+        recorded_timestamp_utc:
+          type:
+            - integer
+            - 'null'
+        video_clip_id:
+          type:
+            - string
+            - 'null'
+        org_id:
+          type:
+            - string
+            - 'null'
+        site_id:
+          type:
+            - string
+            - 'null'
+        event_id:
+          type:
+            - string
+            - 'null'
+        caption:
+          type:
+            - string
+            - 'null'
+        detection_metadata:
+          type:
+            - array
+            - 'null'
+          items:
+            $ref: '#/components/schemas/DetectionMetadata'
+      title: SecurityMetadata
+    ImageSearchResult:
+      type: object
+      properties:
+        image_id:
+          type: string
+        image_url:
+          type: string
+        image_metadata:
+          $ref: '#/components/schemas/SecurityMetadata'
+        upload_timestamp:
+          type: number
+          format: double
+        score:
+          type:
+            - number
+            - 'null'
+          format: double
+      required:
+        - image_id
+        - image_url
+        - image_metadata
+        - upload_timestamp
+      title: ImageSearchResult
+    ImageSearchResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageSearchResult'
+      required:
+        - results
+      title: ImageSearchResponse
+    VideoUploadStatus:
+      type: string
+      enum:
+        - uploading
+        - uploaded
+        - failed
+      title: VideoUploadStatus
+    FeatureStatus:
+      type: string
+      enum:
+        - none
+        - pending
+        - processing
+        - ready
+        - failed
+        - blocked
+      title: FeatureStatus
+    VideoResponse:
+      type: object
+      properties:
+        video_id:
+          type: string
+          description: Unique identifier for the video
+        url:
+          type:
+            - string
+            - 'null'
+          description: Presigned S3 URL to access the video
+        status:
+          oneOf:
+            - $ref: '#/components/schemas/VideoUploadStatus'
+            - type: 'null'
+          description: Upload status of the video
+        metadata:
+          oneOf:
+            - $ref: '#/components/schemas/VideoMetadata'
+            - type: 'null'
+          description: Metadata for a video
+        features:
+          type:
+            - object
+            - 'null'
+          additionalProperties:
+            $ref: '#/components/schemas/FeatureStatus'
+          description: Per-feature indexing statuses from the video_features table
+        group_id:
+          type:
+            - string
+            - 'null'
+          description: Group ID if video belongs to a group
+        error:
+          type:
+            - string
+            - 'null'
+          description: Error message if upload/download failed
+      required:
+        - video_id
+      title: VideoResponse
+    VideoListResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/VideoResponse'
+          description: List of video results
+      required:
+        - results
+      title: VideoListResponse
+    orchestrator__api__v2__models__VideoUploadResponse:
+      type: object
+      properties:
+        video_id:
+          type: string
+          description: Unique identifier for the uploaded video
+        status:
+          $ref: '#/components/schemas/VideoUploadStatus'
+          description: Status of the upload
+        metadata:
+          oneOf:
+            - $ref: '#/components/schemas/VideoMetadata'
+            - type: 'null'
+          description: Video metadata (populated after upload completes)
+      required:
+        - video_id
+        - status
+      title: orchestrator__api__v2__models__VideoUploadResponse
+    VideoMetadataUpdateRequest:
+      type: object
+      properties:
+        name:
+          type:
+            - string
+            - 'null'
+          description: >-
+            Updated display name for the video. This is the name shown in listings and search results. Pass null to
+            leave unchanged.
+        title:
+          type:
+            - string
+            - 'null'
+          description: Updated title for the video. Pass null to leave unchanged.
+        description:
+          type:
+            - string
+            - 'null'
+          description: Updated description for the video. Pass null to leave unchanged.
+        group_id:
+          type:
+            - string
+            - 'null'
+          description: >-
+            Move the video to this group. Pass null to leave unchanged. The group must exist and belong to the
+            authenticated user.
+      title: VideoMetadataUpdateRequest
+    orchestrator__api__v2__models__VideoGroupResponse:
+      type: object
+      properties:
+        group_id:
+          type: string
+        name:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            description: Any type
+        created_at:
+          type:
+            - string
+            - 'null'
+        updated_at:
+          type:
+            - string
+            - 'null'
+      required:
+        - group_id
+        - name
+      title: orchestrator__api__v2__models__VideoGroupResponse
+    orchestrator__api__v2__models__VideoGroupListResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/orchestrator__api__v2__models__VideoGroupResponse'
+      required:
+        - results
+      title: orchestrator__api__v2__models__VideoGroupListResponse
+    orchestrator__api__v2__models__VideoGroupCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        metadata:
+          type:
+            - object
+            - 'null'
+          additionalProperties:
+            description: Any type
+      required:
+        - name
+      title: orchestrator__api__v2__models__VideoGroupCreateRequest
+    orchestrator__api__v2__models__VideoGroupDeleteResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type:
+            - string
+            - 'null'
+      required:
+        - status
+      title: orchestrator__api__v2__models__VideoGroupDeleteResponse
+    orchestrator__api__v2__models__VideoGroupUpdateRequest:
+      type: object
+      properties:
+        name:
+          type:
+            - string
+            - 'null'
+        metadata:
+          type:
+            - object
+            - 'null'
+          additionalProperties:
+            description: Any type
+      title: orchestrator__api__v2__models__VideoGroupUpdateRequest
+    orchestrator__api__v2__models__VideoMoveGroupRequest:
+      type: object
+      properties:
+        video_ids:
+          type: array
+          items:
+            type: string
+      required:
+        - video_ids
+      title: orchestrator__api__v2__models__VideoMoveGroupRequest
+    orchestrator__api__v2__models__VideoMoveGroupResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        moved_count:
+          type: integer
+        group_id:
+          type: string
+        video_ids:
+          type: array
+          items:
+            type: string
+      required:
+        - status
+        - moved_count
+        - group_id
+        - video_ids
+      title: orchestrator__api__v2__models__VideoMoveGroupResponse
+    FeatureInfo:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        depends_on:
+          type: array
+          items:
+            type: string
+        produces:
+          type: array
+          items:
+            type: string
+        note:
+          type:
+            - string
+            - 'null'
+      required:
+        - name
+        - description
+        - depends_on
+      description: One entry in the feature catalog.
+      title: FeatureInfo
+    FeatureCatalogResponse:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureInfo'
+      required:
+        - features
+      title: FeatureCatalogResponse
+    Feature:
+      type: string
+      enum:
+        - transcript
+        - captions
+        - reel_captions
+        - embeddings
+        - objects
+        - scenes
+        - audio_events
+        - chapters
+        - thumbnails
+      title: Feature
+    FeaturePlanRequest:
+      type: object
+      properties:
+        desired:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+      required:
+        - desired
+      title: FeaturePlanRequest
+    ChunkingConfig-Output:
+      type: object
+      properties:
+        min_len:
+          type: number
+          format: double
+          default: 15
+        max_len:
+          type: number
+          format: double
+          default: 25
+        use_scene_detection:
+          type: boolean
+          default: false
+        use_asr:
+          type: boolean
+          default: true
+        vad_threshold:
+          type:
+            - number
+            - 'null'
+          format: double
+        language:
+          type:
+            - string
+            - 'null'
+        force_vllm_whisper_asr:
+          type: boolean
+          default: false
+        async_chunking:
+          type: boolean
+          default: false
+          description: If True, chunks are sent to queue for async processing; if False, returned directly
+      title: ChunkingConfig-Output
+    ReconfigureConfig:
+      type: object
+      properties:
+        chunking_config:
+          $ref: '#/components/schemas/ChunkingConfig-Output'
+      required:
+        - chunking_config
+      description: Request body to pass when re-triggering a parent feature.
+      title: ReconfigureConfig
+    ReconfigureAction:
+      type: object
+      properties:
+        trigger:
+          $ref: '#/components/schemas/Feature'
+        config:
+          $ref: '#/components/schemas/ReconfigureConfig'
+        message:
+          type: string
+      required:
+        - trigger
+        - config
+        - message
+      description: Tells the agent how to reconfigure a parent feature to unblock a dependency.
+      title: ReconfigureAction
+    FeaturePlanResponse:
+      type: object
+      properties:
+        video_id:
+          type: string
+        all_required:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+        statuses:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/FeatureStatus'
+        actionable:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+        processing:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+        blocked:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+        reconfigure:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ReconfigureAction'
+        errors:
+          type: object
+          additionalProperties:
+            type: string
+        done:
+          type: boolean
+      required:
+        - video_id
+        - all_required
+        - statuses
+        - actionable
+        - processing
+        - blocked
+        - done
+      title: FeaturePlanResponse
+    CaptionsTriggerRequest:
+      type: object
+      properties:
+        force:
+          type: boolean
+          default: false
+        caption_prompt:
+          type:
+            - string
+            - 'null'
+      title: CaptionsTriggerRequest
+    FeatureTriggerResponse:
+      type: object
+      properties:
+        video_id:
+          type: string
+        feature:
+          $ref: '#/components/schemas/Feature'
+        status:
+          $ref: '#/components/schemas/FeatureStatus'
+      required:
+        - video_id
+        - feature
+        - status
+      title: FeatureTriggerResponse
+    PersonLocalizationConfig:
+      type: object
+      properties:
+        max_fps:
+          type: integer
+          default: 15
+        max_failed_frames:
+          type: integer
+          default: 10
+        num_photos_per_person:
+          type: integer
+          default: 3
+        max_objects_per_chunk:
+          type: integer
+          default: 10
+        conf:
+          type: number
+          format: double
+          default: 0.9
+        iou:
+          type: number
+          format: double
+          default: 0.7
+      title: PersonLocalizationConfig
+    ObjectsTriggerRequest:
+      type: object
+      properties:
+        force:
+          type: boolean
+          default: false
+        person_localization:
+          $ref: '#/components/schemas/PersonLocalizationConfig'
+      title: ObjectsTriggerRequest
+    FeatureTriggerRequest:
+      type: object
+      properties:
+        force:
+          type: boolean
+          default: false
+      description: Base request for all feature triggers.
+      title: FeatureTriggerRequest
+    ChunkerType:
+      type: string
+      enum:
+        - remote
+        - max_utility
+      title: ChunkerType
+    ChunkingConfig-Input:
+      type: object
+      properties:
+        min_len:
+          type: number
+          format: double
+          default: 15
+        max_len:
+          type: number
+          format: double
+          default: 25
+        use_scene_detection:
+          type: boolean
+          default: false
+        use_asr:
+          type: boolean
+          default: true
+        vad_threshold:
+          type:
+            - number
+            - 'null'
+          format: double
+        language:
+          type:
+            - string
+            - 'null'
+        force_vllm_whisper_asr:
+          type: boolean
+          default: false
+        chunker_type:
+          $ref: '#/components/schemas/ChunkerType'
+        async_chunking:
+          type: boolean
+          default: false
+          description: If True, chunks are sent to queue for async processing; if False, returned directly
+      title: ChunkingConfig-Input
+    TranscriptTriggerRequest:
+      type: object
+      properties:
+        force:
+          type: boolean
+          default: false
+        chunking_config:
+          $ref: '#/components/schemas/ChunkingConfig-Input'
+        downsample_video:
+          type: boolean
+          default: true
+      title: TranscriptTriggerRequest
+    SearchStrategy:
+      type: string
+      enum:
+        - semantic
+        - text
+      title: SearchStrategy
+    SearchTextField:
+      type: string
+      enum:
+        - transcript
+        - captions
+      description: Fields searchable by the text strategy.
+      title: SearchTextField
+    ThresholdLevel:
+      type: string
+      enum:
+        - high
+        - medium
+        - low
+        - none
+      description: Named relevance thresholds.
+      title: ThresholdLevel
+    NumberFilter:
+      type: object
+      properties:
+        gte:
+          type:
+            - number
+            - 'null'
+          format: double
+        lte:
+          type:
+            - number
+            - 'null'
+          format: double
+      description: Numeric range filter with optional bounds.
+      title: NumberFilter
+    SearchFilter:
+      type: object
+      properties:
+        id:
+          type:
+            - array
+            - 'null'
+          items:
+            type: string
+          description: Filter to specific video IDs (same as top-level video_ids)
+        duration:
+          oneOf:
+            - $ref: '#/components/schemas/NumberFilter'
+            - type: 'null'
+          description: Filter by video duration in seconds
+        width:
+          oneOf:
+            - $ref: '#/components/schemas/NumberFilter'
+            - type: 'null'
+          description: Filter by video width in pixels
+        height:
+          oneOf:
+            - $ref: '#/components/schemas/NumberFilter'
+            - type: 'null'
+          description: Filter by video height in pixels
+      description: Metadata filters applied to search results.
+      title: SearchFilter
+    V2SearchRequest:
+      type: object
+      properties:
+        query:
+          type: string
+          description: Search query — natural language for semantic, literal text for text
+        strategy:
+          $ref: '#/components/schemas/SearchStrategy'
+          description: '''semantic'' (embedding similarity) or ''text'' (literal substring match)'
+        fields:
+          type:
+            - array
+            - 'null'
+          items:
+            $ref: '#/components/schemas/SearchTextField'
+          description: 'Which data to search. For text: ''transcript'', ''captions'' (default: both). Ignored for semantic.'
+        video_ids:
+          type:
+            - array
+            - 'null'
+          items:
+            type: string
+          description: Scope to specific video IDs
+        group_ids:
+          type:
+            - array
+            - 'null'
+          items:
+            type: string
+          description: Scope to videos in specific groups
+        threshold:
+          $ref: '#/components/schemas/ThresholdLevel'
+          description: 'Confidence filter: high, medium, low, none. Only affects semantic strategy.'
+        rerank:
+          type: boolean
+          default: false
+          description: Apply embedding-based reranking (semantic only, slightly slower)
+        filter:
+          oneOf:
+            - $ref: '#/components/schemas/SearchFilter'
+            - type: 'null'
+          description: Metadata filters (duration, width, height)
+        datetime_from:
+          type:
+            - string
+            - 'null'
+          format: date-time
+          description: Start of an explicit UTC datetime range for semantic search
+        datetime_to:
+          type:
+            - string
+            - 'null'
+          format: date-time
+          description: End of an explicit UTC datetime range for semantic search
+        timestamp_from:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: Start of an explicit in-video timestamp range in seconds
+        timestamp_to:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: End of an explicit in-video timestamp range in seconds
+        page_limit:
+          type: integer
+          default: 10
+          description: Results per page (max 50)
+        page_token:
+          type:
+            - string
+            - 'null'
+          description: Pagination token from a previous response
+        include_report:
+          type: boolean
+          default: false
+          description: Generate LLM summary of results (semantic only)
+      required:
+        - query
+      title: V2SearchRequest
+    V2SearchResult:
+      type: object
+      properties:
+        video_id:
+          type: string
+          description: Video this moment is from
+        video_name:
+          type:
+            - string
+            - 'null'
+          description: Video display name
+        start:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: Start time in seconds
+        end:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: End time in seconds
+        score:
+          type: number
+          format: double
+          description: Relevance score in [0, 1]. Text matches are binary; 1.0 is a sentinel.
+        rank:
+          type: integer
+          description: Position in results (1 = most relevant)
+        caption:
+          type:
+            - string
+            - 'null'
+          description: AI description of the visual content
+        transcript:
+          type:
+            - string
+            - 'null'
+          description: Spoken words in this segment
+        thumbnail_url:
+          type:
+            - string
+            - 'null'
+          description: Preview frame URL (not yet available)
+        video_url:
+          type:
+            - string
+            - 'null'
+          description: Presigned URL to the parent video
+      required:
+        - video_id
+        - score
+        - rank
+      title: V2SearchResult
+    SearchPool:
+      type: object
+      properties:
+        video_count:
+          type: integer
+          description: Number of videos searched
+        total_duration:
+          type: number
+          format: double
+          description: Total duration searched (seconds)
+      required:
+        - video_count
+        - total_duration
+      title: SearchPool
+    V2SearchResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/V2SearchResult'
+        next_page_token:
+          type:
+            - string
+            - 'null'
+        report:
+          type:
+            - string
+            - 'null'
+          description: LLM-generated summary (when include_report=true, semantic only)
+        search_pool:
+          $ref: '#/components/schemas/SearchPool'
+      required:
+        - data
+        - search_pool
+      title: V2SearchResponse
+    ChatMessageRole:
+      type: string
+      enum:
+        - user
+        - assistant
+      description: 'Message author: ''user'' for questions, ''assistant'' for prior answers'
+      title: ChatMessageRole
+    ChatMessage:
+      type: object
+      properties:
+        role:
+          $ref: '#/components/schemas/ChatMessageRole'
+          description: 'Message author: ''user'' for questions, ''assistant'' for prior answers'
+        content:
+          type: string
+          description: Message content
+      required:
+        - role
+        - content
+      title: ChatMessage
+    ChatVideoContext:
+      type: object
+      properties:
+        video_id:
+          type: string
+          description: The video to analyze
+        start:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: >-
+            Start of time range in seconds. When provided, enables visual analysis (frame extraction). Typically from
+            search_videos results.
+        end:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: >-
+            End of time range in seconds. If omitted and start is set, defaults to start + 10 seconds (clamped to video
+            duration).
+      required:
+        - video_id
+      title: ChatVideoContext
+    V2ChatRequest:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatMessage'
+          description: Conversation history. The last message must be from the user.
+        context:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatVideoContext'
+          description: >-
+            Videos to analyze. Each entry references a video, optionally with a time range for visual analysis. At least
+            one required.
+      required:
+        - messages
+        - context
+      title: V2ChatRequest
+    V2ChatResponse:
+      type: object
+      properties:
+        response:
+          type: string
+          description: The answer to the user's question about the video
+        model:
+          type: string
+          description: LLM model that generated the response
+      required:
+        - response
+        - model
+      title: V2ChatResponse
+    CaptionEntry:
+      type: object
+      properties:
+        start:
+          type: number
+          format: double
+        end:
+          type: number
+          format: double
+        caption:
+          type: string
+      required:
+        - start
+        - end
+        - caption
+      title: CaptionEntry
+    PaginatedResponse_CaptionEntry_:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CaptionEntry'
+        next_page_token:
+          type:
+            - string
+            - 'null'
+      required:
+        - data
+      title: PaginatedResponse_CaptionEntry_
+    TranscriptSegment:
+      type: object
+      properties:
+        start:
+          type: number
+          format: double
+        end:
+          type: number
+          format: double
+        text:
+          type: string
+      required:
+        - start
+        - end
+        - text
+      title: TranscriptSegment
+    PaginatedResponse_TranscriptSegment_:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TranscriptSegment'
+        next_page_token:
+          type:
+            - string
+            - 'null'
+      required:
+        - data
+      title: PaginatedResponse_TranscriptSegment_
+    TranscriptTextResponse:
+      type: object
+      properties:
+        text:
+          type: string
+      required:
+        - text
+      title: TranscriptTextResponse
+    V2_list_transcript_v2_videos__video_id__transcript_get_Response_200:
+      oneOf:
+        - $ref: '#/components/schemas/PaginatedResponse_TranscriptSegment_'
+        - $ref: '#/components/schemas/TranscriptTextResponse'
+      title: V2_list_transcript_v2_videos__video_id__transcript_get_Response_200
+    SceneEntry:
+      type: object
+      properties:
+        index:
+          type: integer
+        start:
+          type: number
+          format: double
+        end:
+          type: number
+          format: double
+      required:
+        - index
+        - start
+        - end
+      title: SceneEntry
+    PaginatedResponse_SceneEntry_:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SceneEntry'
+        next_page_token:
+          type:
+            - string
+            - 'null'
+      required:
+        - data
+      title: PaginatedResponse_SceneEntry_
+    Detection:
+      type: object
+      properties:
+        type:
+          type: string
+        person_id:
+          type:
+            - integer
+            - 'null'
+        bbox:
+          type: array
+          items:
+            type: integer
+        frame_idx:
+          type: integer
+        frame_timestamp_start:
+          type: number
+          format: double
+        frame_timestamp_end:
+          type: number
+          format: double
+      required:
+        - type
+        - bbox
+        - frame_idx
+        - frame_timestamp_start
+        - frame_timestamp_end
+      title: Detection
+    ObjectSegment:
+      type: object
+      properties:
+        start:
+          type: number
+          format: double
+        end:
+          type: number
+          format: double
+        detections:
+          type: array
+          items:
+            $ref: '#/components/schemas/Detection'
+      required:
+        - start
+        - end
+        - detections
+      title: ObjectSegment
+    PaginatedResponse_ObjectSegment_:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectSegment'
+        next_page_token:
+          type:
+            - string
+            - 'null'
+      required:
+        - data
+      title: PaginatedResponse_ObjectSegment_
+    SegmentPrompt:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - text
+          description: Prompt type. Currently only 'text' is supported.
+        text:
+          type: string
+          description: What to detect (e.g., 'person', 'laptop', 'red car').
+      required:
+        - type
+        - text
+      title: SegmentPrompt
+    SegmentRequest:
+      type: object
+      properties:
+        prompts:
+          type: array
+          items:
+            $ref: '#/components/schemas/SegmentPrompt'
+          description: Objects to detect. Each prompt is run against every sampled frame.
+        start:
+          type: number
+          format: double
+          default: 0
+          description: Start of time range in seconds.
+        end:
+          type:
+            - number
+            - 'null'
+          format: double
+          description: End of time range in seconds. Defaults to start + 15s, clamped to video duration. Max range is 15 seconds.
+        threshold:
+          type: number
+          format: double
+          default: 0.3
+          description: Confidence threshold. Detections below this score are excluded.
+      required:
+        - prompts
+      title: SegmentRequest
+    SegmentBoundingBox:
+      type: object
+      properties:
+        x_min:
+          type: number
+          format: double
+        y_min:
+          type: number
+          format: double
+        x_max:
+          type: number
+          format: double
+        y_max:
+          type: number
+          format: double
+      required:
+        - x_min
+        - y_min
+        - x_max
+        - y_max
+      title: SegmentBoundingBox
+    SegmentDetection:
+      type: object
+      properties:
+        label:
+          type: string
+        prompt_index:
+          type: integer
+        score:
+          type: number
+          format: double
+        bbox:
+          $ref: '#/components/schemas/SegmentBoundingBox'
+      required:
+        - label
+        - prompt_index
+        - score
+        - bbox
+      title: SegmentDetection
+    SegmentFrame:
+      type: object
+      properties:
+        timestamp:
+          type: number
+          format: double
+        detections:
+          type: array
+          items:
+            $ref: '#/components/schemas/SegmentDetection'
+      required:
+        - timestamp
+        - detections
+      title: SegmentFrame
+    FrameSize:
+      type: object
+      properties:
+        width:
+          type: integer
+        height:
+          type: integer
+      required:
+        - width
+        - height
+      title: FrameSize
+    SegmentResponse:
+      type: object
+      properties:
+        frames:
+          type: array
+          items:
+            $ref: '#/components/schemas/SegmentFrame'
+        frame_size:
+          oneOf:
+            - $ref: '#/components/schemas/FrameSize'
+            - type: 'null'
+        frame_count:
+          type: integer
+      required:
+        - frames
+        - frame_size
+        - frame_count
+      title: SegmentResponse
+    InferenceModelInfo:
+      type: object
+      properties:
+        endpoint_id:
+          type: string
+        model_id:
+          type: string
+        capability:
+          type: string
+      required:
+        - endpoint_id
+        - model_id
+        - capability
+      title: InferenceModelInfo
+    InferenceModelsResponse:
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/InferenceModelInfo'
+      required:
+        - models
+      title: InferenceModelsResponse
+    V2InferenceRequestsGetParametersStatusSchema:
+      type: string
+      enum:
+        - IN_QUEUE
+        - IN_PROGRESS
+        - COMPLETED
+        - FAILED
+        - CANCELLED
+      description: Filter by lifecycle status.
+      title: V2InferenceRequestsGetParametersStatusSchema
+    InferenceRequestListItemStatus:
+      type: string
+      enum:
+        - IN_QUEUE
+        - IN_PROGRESS
+        - COMPLETED
+        - FAILED
+        - CANCELLED
+      title: InferenceRequestListItemStatus
+    ImageToVideoOutput:
+      type: object
+      properties:
+        video_url:
+          type: string
+          format: uri
+        video_url_expires_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        duration_seconds:
+          type: number
+          format: double
+        width:
+          type: integer
+        height:
+          type: integer
+      required:
+        - video_url
+        - duration_seconds
+        - width
+        - height
+      title: ImageToVideoOutput
+    GeneratedImage:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+        width:
+          type:
+            - integer
+            - 'null'
+        height:
+          type:
+            - integer
+            - 'null'
+        content_type:
+          type:
+            - string
+            - 'null'
+      required:
+        - url
+      title: GeneratedImage
+    TextToImageOutput:
+      type: object
+      properties:
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/GeneratedImage'
+        description:
+          type:
+            - string
+            - 'null'
+      required:
+        - images
+      title: TextToImageOutput
+    TextToSpeechOutput:
+      type: object
+      properties:
+        audio_url:
+          type: string
+          format: uri
+        audio_url_expires_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        content_type:
+          type:
+            - string
+            - 'null'
+      required:
+        - audio_url
+      title: TextToSpeechOutput
+    BoundingBox:
+      type: object
+      properties:
+        bbox:
+          type: array
+          items:
+            type: number
+            format: double
+        confidence:
+          type: number
+          format: double
+      required:
+        - bbox
+        - confidence
+      title: BoundingBox
+    ImageToBboxOutput:
+      type: object
+      properties:
+        bboxes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BoundingBox'
+      required:
+        - bboxes
+      title: ImageToBboxOutput
+    InferenceRequestListItemOutput:
+      oneOf:
+        - $ref: '#/components/schemas/ImageToVideoOutput'
+        - $ref: '#/components/schemas/TextToImageOutput'
+        - $ref: '#/components/schemas/TextToSpeechOutput'
+        - $ref: '#/components/schemas/ImageToBboxOutput'
+      title: InferenceRequestListItemOutput
+    InferenceRequestListItem:
+      type: object
+      properties:
+        request_id:
+          type: string
+        status:
+          $ref: '#/components/schemas/InferenceRequestListItemStatus'
+        endpoint_id:
+          type: string
+        model_id:
+          type: string
+        capability:
+          type: string
+        created_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        started_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        completed_at:
+          type:
+            - string
+            - 'null'
+          format: date-time
+        input:
+          type:
+            - object
+            - 'null'
+          additionalProperties:
+            description: Any type
+        output:
+          oneOf:
+            - $ref: '#/components/schemas/InferenceRequestListItemOutput'
+            - type: 'null'
+        error:
+          type:
+            - object
+            - 'null'
+          additionalProperties:
+            description: Any type
+      required:
+        - request_id
+        - status
+        - endpoint_id
+        - model_id
+        - capability
+      title: InferenceRequestListItem
+    InferenceRequestListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/InferenceRequestListItem'
+        next_offset:
+          type:
+            - integer
+            - 'null'
+        has_more:
+          type: boolean
+          default: false
+      required:
+        - items
+      title: InferenceRequestListResponse
+    ResultResponseStatus:
+      type: string
+      enum:
+        - IN_QUEUE
+        - IN_PROGRESS
+        - COMPLETED
+        - FAILED
+        - CANCELLED
+      title: ResultResponseStatus
+    ResultResponseOutput:
+      oneOf:
+        - $ref: '#/components/schemas/ImageToVideoOutput'
+        - $ref: '#/components/schemas/TextToImageOutput'
+        - $ref: '#/components/schemas/TextToSpeechOutput'
+        - $ref: '#/components/schemas/ImageToBboxOutput'
+      title: ResultResponseOutput
+    ResultResponse:
+      type: object
+      properties:
+        request_id:
+          type: string
+        status:
+          $ref: '#/components/schemas/ResultResponseStatus'
+        output:
+          oneOf:
+            - $ref: '#/components/schemas/ResultResponseOutput'
+            - type: 'null'
+        error:
+          type:
+            - object
+            - 'null'
+          additionalProperties:
+            description: Any type
+        metrics:
+          type:
+            - object
+            - 'null'
+          additionalProperties:
+            description: Any type
+      required:
+        - request_id
+        - status
+      title: ResultResponse
+    StatusResponseStatus:
+      type: string
+      enum:
+        - IN_QUEUE
+        - IN_PROGRESS
+        - COMPLETED
+        - FAILED
+        - CANCELLED
+      title: StatusResponseStatus
+    StatusResponse:
+      type: object
+      properties:
+        request_id:
+          type: string
+        status:
+          $ref: '#/components/schemas/StatusResponseStatus'
+        queue_position:
+          type:
+            - integer
+            - 'null'
+        logs:
+          type:
+            - array
+            - 'null'
+          items:
+            type: object
+            additionalProperties:
+              description: Any type
+        metrics:
+          type:
+            - object
+            - 'null'
+          additionalProperties:
+            description: Any type
+      required:
+        - request_id
+        - status
+      title: StatusResponse
+    ChatCompletionRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: Allow-listed Qwen model id.
+        messages:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Any type
+          description: OpenAI chat messages array.
+        stream:
+          type: boolean
+          default: false
+      required:
+        - model
+        - messages
+      title: ChatCompletionRequest
+    TextToImageInputAspectRatio:
+      type: string
+      enum:
+        - '21:9'
+        - '16:9'
+        - '3:2'
+        - '4:3'
+        - '1:1'
+        - '3:4'
+        - '2:3'
+        - '9:16'
+      default: '1:1'
+      title: TextToImageInputAspectRatio
+    TextToImageInputOutputFormat:
+      type: string
+      enum:
+        - jpeg
+        - png
+        - webp
+      default: png
+      title: TextToImageInputOutputFormat
+    TextToImageInput:
+      type: object
+      properties:
+        prompt:
+          type: string
+        num_images:
+          type: integer
+          default: 1
+        aspect_ratio:
+          $ref: '#/components/schemas/TextToImageInputAspectRatio'
+        output_format:
+          $ref: '#/components/schemas/TextToImageInputOutputFormat'
+        seed:
+          type:
+            - integer
+            - 'null'
+      required:
+        - prompt
+      title: TextToImageInput
+    TextToImageSubmitRequest:
+      type: object
+      properties:
+        input:
+          $ref: '#/components/schemas/TextToImageInput'
+        webhook_url:
+          type:
+            - string
+            - 'null'
+          format: uri
+      required:
+        - input
+      title: TextToImageSubmitRequest
+    SubmitResponseStatus:
+      type: string
+      enum:
+        - IN_QUEUE
+        - IN_PROGRESS
+        - COMPLETED
+        - FAILED
+        - CANCELLED
+      title: SubmitResponseStatus
+    SubmitResponse:
+      type: object
+      properties:
+        request_id:
+          type: string
+        status:
+          $ref: '#/components/schemas/SubmitResponseStatus'
+        status_url:
+          type: string
+        response_url:
+          type: string
+        cancel_url:
+          type: string
+      required:
+        - request_id
+        - status
+        - status_url
+        - response_url
+        - cancel_url
+      title: SubmitResponse
+    EditModelId:
+      type: string
+      enum:
+        - gpt-image-2
+        - nano-banana-2
+        - seedream-4
+        - seedream-4.5
+      title: EditModelId
+    EditInputOutputFormat:
+      type: string
+      enum:
+        - jpeg
+        - png
+        - webp
+      default: png
+      title: EditInputOutputFormat
+    EditInput:
+      type: object
+      properties:
+        image_url:
+          type:
+            - string
+            - 'null'
+          format: uri
+        image_b64:
+          type:
+            - string
+            - 'null'
+        prompt:
+          type: string
+        num_images:
+          type: integer
+          default: 1
+        output_format:
+          $ref: '#/components/schemas/EditInputOutputFormat'
+        seed:
+          type:
+            - integer
+            - 'null'
+      required:
+        - prompt
+      title: EditInput
+    EditSubmitRequest:
+      type: object
+      properties:
+        input:
+          $ref: '#/components/schemas/EditInput'
+        webhook_url:
+          type:
+            - string
+            - 'null'
+          format: uri
+      required:
+        - input
+      title: EditSubmitRequest
+    ImageToBboxModelId:
+      type: string
+      enum:
+        - sam3
+      title: ImageToBboxModelId
+    ImageToBboxInput:
+      type: object
+      properties:
+        image_url:
+          type:
+            - string
+            - 'null'
+          format: uri
+        image_b64:
+          type:
+            - string
+            - 'null'
+        prompt:
+          type: string
+        threshold:
+          type: number
+          format: double
+          default: 0.5
+      required:
+        - prompt
+      title: ImageToBboxInput
+    ImageToBboxSubmitRequest:
+      type: object
+      properties:
+        input:
+          $ref: '#/components/schemas/ImageToBboxInput'
+        webhook_url:
+          type:
+            - string
+            - 'null'
+          format: uri
+      required:
+        - input
+      title: ImageToBboxSubmitRequest
+    ImageToVideoModelId:
+      type: string
+      enum:
+        - happyhorse-1.0
+        - kling-v3-4k
+        - kling-v3-pro
+        - kling-v3-pro-audio
+        - kling-v3-std
+        - kling-v3-std-audio
+        - ltx-2-3-fast
+        - ltx-2-3-pro
+        - seedance-2.0-fast
+        - seedance-2.0-pro
+        - wan2.2-flash
+      title: ImageToVideoModelId
+    ImageToVideoInputAspectRatio:
+      type: string
+      enum:
+        - '16:9'
+        - '9:16'
+        - '1:1'
+      default: '16:9'
+      title: ImageToVideoInputAspectRatio
+    ImageToVideoInput:
+      type: object
+      properties:
+        image_url:
+          type:
+            - string
+            - 'null'
+          format: uri
+        image_b64:
+          type:
+            - string
+            - 'null'
+        last_frame_image_url:
+          type:
+            - string
+            - 'null'
+          format: uri
+        last_frame_image_b64:
+          type:
+            - string
+            - 'null'
+        prompt:
+          type: string
+        duration_seconds:
+          type: integer
+          default: 5
+        aspect_ratio:
+          $ref: '#/components/schemas/ImageToVideoInputAspectRatio'
+        seed:
+          type:
+            - integer
+            - 'null'
+        audio:
+          type: boolean
+          default: false
+      required:
+        - prompt
+      title: ImageToVideoInput
+    ImageToVideoSubmitRequest:
+      type: object
+      properties:
+        input:
+          $ref: '#/components/schemas/ImageToVideoInput'
+        webhook_url:
+          type:
+            - string
+            - 'null'
+          format: uri
+      required:
+        - input
+      title: ImageToVideoSubmitRequest
+    TextToImageModelId:
+      type: string
+      enum:
+        - flux-2
+        - flux-2-max
+        - flux-2-pro
+        - gpt-image-2
+        - ideogram-4
+        - ideogram-4-quality
+        - ideogram-4-turbo
+        - nano-banana-2
+        - qwen-image-2512
+        - qwen-image-max-preview
+        - seedream-4
+        - seedream-4.5
+        - uni-1
+        - uni-1-max
+        - wan2.7-fast
+        - wan2.7-pro
+      title: TextToImageModelId
+    TextToSpeechModelId:
+      type: string
+      enum:
+        - eleven-v3
+      title: TextToSpeechModelId
+    TextToSpeechInputOutputFormat:
+      type: string
+      enum:
+        - mp3_44100_128
+        - mp3_44100_64
+        - mp3_22050_32
+        - wav_44100
+        - pcm_44100
+        - opus_48000_128
+      default: mp3_44100_128
+      title: TextToSpeechInputOutputFormat
+    VoiceSettingsInput:
+      type: object
+      properties:
+        stability:
+          type:
+            - number
+            - 'null'
+          format: double
+        similarity_boost:
+          type:
+            - number
+            - 'null'
+          format: double
+        style:
+          type:
+            - number
+            - 'null'
+          format: double
+        speed:
+          type:
+            - number
+            - 'null'
+          format: double
+        use_speaker_boost:
+          type:
+            - boolean
+            - 'null'
+      title: VoiceSettingsInput
+    TextToSpeechInput:
+      type: object
+      properties:
+        text:
+          type: string
+        voice_id:
+          type: string
+          description: ElevenLabs voice id (see voice library).
+        output_format:
+          $ref: '#/components/schemas/TextToSpeechInputOutputFormat'
+        language_code:
+          type:
+            - string
+            - 'null'
+        seed:
+          type:
+            - integer
+            - 'null'
+        voice_settings:
+          oneOf:
+            - $ref: '#/components/schemas/VoiceSettingsInput'
+            - type: 'null'
+      required:
+        - text
+        - voice_id
+      title: TextToSpeechInput
+    TextToSpeechSubmitRequest:
+      type: object
+      properties:
+        input:
+          $ref: '#/components/schemas/TextToSpeechInput'
+        webhook_url:
+          type:
+            - string
+            - 'null'
+          format: uri
+      required:
+        - input
+      title: TextToSpeechSubmitRequest
+    TextToVideoModelId:
+      type: string
+      enum:
+        - happyhorse-1.0
+        - kling-v3-4k
+        - kling-v3-pro
+        - kling-v3-pro-audio
+        - kling-v3-std
+        - kling-v3-std-audio
+        - ltx-2-3-fast
+        - ltx-2-3-pro
+        - seedance-2.0-fast
+        - seedance-2.0-pro
+        - veo-3.1
+        - veo-3.1-fast
+        - wan2.2-plus
+      title: TextToVideoModelId
+    TextToVideoInputAspectRatio:
+      type: string
+      enum:
+        - '16:9'
+        - '9:16'
+        - '1:1'
+      default: '16:9'
+      title: TextToVideoInputAspectRatio
+    TextToVideoInput:
+      type: object
+      properties:
+        prompt:
+          type: string
+        duration_seconds:
+          type: integer
+          default: 5
+        aspect_ratio:
+          $ref: '#/components/schemas/TextToVideoInputAspectRatio'
+        seed:
+          type:
+            - integer
+            - 'null'
+        audio:
+          type: boolean
+          default: false
+      required:
+        - prompt
+      title: TextToVideoInput
+    TextToVideoSubmitRequest:
+      type: object
+      properties:
+        input:
+          $ref: '#/components/schemas/TextToVideoInput'
+        webhook_url:
+          type:
+            - string
+            - 'null'
+          format: uri
+      required:
+        - input
+      title: TextToVideoSubmitRequest
+    orchestrator__protocol__VideoMoveGroupRequest:
+      type: object
+      properties:
+        video_ids:
+          type: array
+          items:
+            type: string
+          description: List of video IDs to move to the group identified by the route parameter.
+      required:
+        - video_ids
+      title: orchestrator__protocol__VideoMoveGroupRequest
+    orchestrator__protocol__VideoMoveGroupResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status of the move operation
+        moved_count:
+          type: integer
+          description: Number of videos moved to the target group
+        group_id:
+          type: string
+          description: Resolved destination group ID
+        video_ids:
+          type: array
+          items:
+            type: string
+          description: Video IDs that were moved
+      required:
+        - status
+        - moved_count
+        - group_id
+        - video_ids
+      title: orchestrator__protocol__VideoMoveGroupResponse
+    ClipListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the generation
+        status:
+          type: string
+          description: Current status of the generation
+        video_urls:
+          type: array
+          items:
+            type: string
+          description: List of input video URLs
+        prompt:
+          type:
+            - string
+            - 'null'
+          description: Prompt used for generation
+      required:
+        - id
+        - status
+      description: Lightweight response model for list endpoint.
+      title: ClipListItem
+    ClipListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClipListItem'
+      required:
+        - items
+      description: Response model for listing reels.
+      title: ClipListResponse
+  securitySchemes:
+    X-Api-Key:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+      description: API key authentication via X-Api-Key header
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token authentication via Authorization header

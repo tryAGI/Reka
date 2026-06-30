@@ -1,0 +1,236 @@
+#nullable enable
+#pragma warning disable CS0618 // Type or member is obsolete
+
+namespace Reka.Vision.JsonConverters
+{
+    /// <inheritdoc />
+    public class InferenceRequestListItemOutputJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Reka.Vision.InferenceRequestListItemOutput>
+    {
+        /// <inheritdoc />
+        public override global::Reka.Vision.InferenceRequestListItemOutput Read(
+            ref global::System.Text.Json.Utf8JsonReader reader,
+            global::System.Type typeToConvert,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+
+            using var __jsonDocument = global::System.Text.Json.JsonDocument.ParseValue(ref reader);
+            var __rawJson = __jsonDocument.RootElement.GetRawText();
+            var __jsonProps = new global::System.Collections.Generic.HashSet<string>();
+            if (__jsonDocument.RootElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
+            {
+                foreach (var __jsonProp in __jsonDocument.RootElement.EnumerateObject())
+                {
+                    __jsonProps.Add(__jsonProp.Name);
+
+                }
+            }
+
+            var __score0 = 0;
+            if (__jsonProps.Contains("duration_seconds")) __score0++;
+            if (__jsonProps.Contains("height")) __score0++;
+            if (__jsonProps.Contains("video_url")) __score0++;
+            if (__jsonProps.Contains("video_url_expires_at")) __score0++;
+            if (__jsonProps.Contains("width")) __score0++;
+            var __score1 = 0;
+            if (__jsonProps.Contains("description")) __score1++;
+            if (__jsonProps.Contains("images")) __score1++;
+            var __score2 = 0;
+            if (__jsonProps.Contains("audio_url")) __score2++;
+            if (__jsonProps.Contains("audio_url_expires_at")) __score2++;
+            if (__jsonProps.Contains("content_type")) __score2++;
+            var __score3 = 0;
+            if (__jsonProps.Contains("bboxes")) __score3++;
+            var __bestScore = 0;
+            var __bestIndex = -1;
+            if (__score0 > __bestScore) { __bestScore = __score0; __bestIndex = 0; }
+            if (__score1 > __bestScore) { __bestScore = __score1; __bestIndex = 1; }
+            if (__score2 > __bestScore) { __bestScore = __score2; __bestIndex = 2; }
+            if (__score3 > __bestScore) { __bestScore = __score3; __bestIndex = 3; }
+
+            global::Reka.Vision.ImageToVideoOutput? imageToVideoOutput = default;
+            global::Reka.Vision.TextToImageOutput? textToImageOutput = default;
+            global::Reka.Vision.TextToSpeechOutput? textToSpeechOutput = default;
+            global::Reka.Vision.ImageToBboxOutput? imageToBboxOutput = default;
+            if (__bestIndex >= 0)
+            {
+                if (__bestIndex == 0)
+                {
+                    try
+                    {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.ImageToVideoOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.ImageToVideoOutput> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.ImageToVideoOutput).Name}");
+                        imageToVideoOutput = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+                else if (__bestIndex == 1)
+                {
+                    try
+                    {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.TextToImageOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.TextToImageOutput> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.TextToImageOutput).Name}");
+                        textToImageOutput = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+                else if (__bestIndex == 2)
+                {
+                    try
+                    {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.TextToSpeechOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.TextToSpeechOutput> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.TextToSpeechOutput).Name}");
+                        textToSpeechOutput = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+                else if (__bestIndex == 3)
+                {
+                    try
+                    {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.ImageToBboxOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.ImageToBboxOutput> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.ImageToBboxOutput).Name}");
+                        imageToBboxOutput = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+            }
+
+            if (imageToVideoOutput == null && textToImageOutput == null && textToSpeechOutput == null && imageToBboxOutput == null)
+            {
+                try
+                {
+
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.ImageToVideoOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.ImageToVideoOutput> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.ImageToVideoOutput).Name}");
+                    imageToVideoOutput = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+            }
+
+            if (imageToVideoOutput == null && textToImageOutput == null && textToSpeechOutput == null && imageToBboxOutput == null)
+            {
+                try
+                {
+
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.TextToImageOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.TextToImageOutput> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.TextToImageOutput).Name}");
+                    textToImageOutput = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+            }
+
+            if (imageToVideoOutput == null && textToImageOutput == null && textToSpeechOutput == null && imageToBboxOutput == null)
+            {
+                try
+                {
+
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.TextToSpeechOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.TextToSpeechOutput> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.TextToSpeechOutput).Name}");
+                    textToSpeechOutput = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+            }
+
+            if (imageToVideoOutput == null && textToImageOutput == null && textToSpeechOutput == null && imageToBboxOutput == null)
+            {
+                try
+                {
+
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.ImageToBboxOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.ImageToBboxOutput> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.ImageToBboxOutput).Name}");
+                    imageToBboxOutput = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+            }
+
+            var __value = new global::Reka.Vision.InferenceRequestListItemOutput(
+                imageToVideoOutput,
+
+                textToImageOutput,
+
+                textToSpeechOutput,
+
+                imageToBboxOutput
+                );
+
+            return __value;
+        }
+
+        /// <inheritdoc />
+        public override void Write(
+            global::System.Text.Json.Utf8JsonWriter writer,
+            global::Reka.Vision.InferenceRequestListItemOutput value,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+
+            if (value.IsImageToVideoOutput)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.ImageToVideoOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.ImageToVideoOutput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.ImageToVideoOutput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ImageToVideoOutput!, typeInfo);
+            }
+            else if (value.IsTextToImageOutput)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.TextToImageOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.TextToImageOutput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.TextToImageOutput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TextToImageOutput!, typeInfo);
+            }
+            else if (value.IsTextToSpeechOutput)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.TextToSpeechOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.TextToSpeechOutput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.TextToSpeechOutput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TextToSpeechOutput!, typeInfo);
+            }
+            else if (value.IsImageToBboxOutput)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.ImageToBboxOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.ImageToBboxOutput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.ImageToBboxOutput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ImageToBboxOutput!, typeInfo);
+            }
+        }
+    }
+}

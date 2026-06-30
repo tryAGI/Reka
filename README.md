@@ -20,6 +20,42 @@ using Reka;
 var client = new RekaClient("your-api-key");
 ```
 
+### Vision API
+
+```csharp
+using Reka.Vision;
+
+var vision = new RekaVisionClient("your-api-key");
+
+var upload = await vision.Videos.UploadAsync(
+    index: true,
+    file: await File.ReadAllBytesAsync("video.mp4"),
+    filename: "video.mp4",
+    videoName: "video.mp4");
+
+Console.WriteLine(upload.VideoId);
+```
+
+The Vision client covers the documented video, image, search, Q&A, clip generation, metadata tagging, V2 feature, and inference endpoints from Reka's Vision API.
+
+### Official Research API
+
+```csharp
+using Reka.Research;
+
+var research = new RekaResearchClient("your-api-key");
+
+var response = await research.CreateChatCompletionAsync(new CreateChatCompletionRequest
+{
+    Model = "reka-flash-research",
+    Messages =
+    [
+        CreateChatCompletionRequestMessagesItems.FromCreateChatCompletionRequestMessagesItems0(
+            CreateChatCompletionRequestMessagesItems0.FromContent("Find recent Reka announcements.")),
+    ],
+});
+```
+
 ### Chat completion
 
 ```csharp
