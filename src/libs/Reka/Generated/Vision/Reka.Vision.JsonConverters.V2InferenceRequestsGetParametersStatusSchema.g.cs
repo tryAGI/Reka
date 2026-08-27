@@ -20,7 +20,7 @@ namespace Reka.Vision.JsonConverters
                     {
                         return global::Reka.Vision.V2InferenceRequestsGetParametersStatusSchemaExtensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

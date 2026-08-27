@@ -4,33 +4,33 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SegmentDetection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Label { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt_index")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int PromptIndex { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("score")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double Score { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("bbox")]
         [global::System.Text.Json.Serialization.JsonRequired]

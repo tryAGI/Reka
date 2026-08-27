@@ -4,28 +4,28 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum StatusResponseStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cancelled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Completed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InProgress,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InQueue,
     }

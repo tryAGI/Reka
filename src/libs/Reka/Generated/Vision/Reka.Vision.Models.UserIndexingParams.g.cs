@@ -9,19 +9,19 @@ namespace Reka.Vision
     public enum UserIndexingParams
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FastSearch,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Qa,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         QaAndSearch,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Reels,
     }

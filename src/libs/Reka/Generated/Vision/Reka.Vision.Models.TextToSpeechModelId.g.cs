@@ -4,12 +4,12 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum TextToSpeechModelId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ElevenV3,
     }

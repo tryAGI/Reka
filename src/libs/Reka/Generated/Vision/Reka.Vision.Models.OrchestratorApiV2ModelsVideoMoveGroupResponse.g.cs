@@ -4,33 +4,33 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class OrchestratorApiV2ModelsVideoMoveGroupResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Status { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("moved_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int MovedCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("group_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string GroupId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]

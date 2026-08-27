@@ -41,7 +41,7 @@ namespace Reka.Vision
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Reka.Vision.VisionJsonSerializerContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
@@ -51,7 +51,7 @@ namespace Reka.Vision
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ClipsClient Clips => new ClipsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -61,7 +61,7 @@ namespace Reka.Vision
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImagesClient Images => new ImagesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -71,7 +71,7 @@ namespace Reka.Vision
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public InferenceClient Inference => new InferenceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -81,7 +81,7 @@ namespace Reka.Vision
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MetadataTaggingClient MetadataTagging => new MetadataTaggingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -91,7 +91,7 @@ namespace Reka.Vision
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public V2Client V2 => new V2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -101,7 +101,7 @@ namespace Reka.Vision
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoGroupsClient VideoGroups => new VideoGroupsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -111,7 +111,7 @@ namespace Reka.Vision
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoQaClient VideoQa => new VideoQaClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -121,7 +121,7 @@ namespace Reka.Vision
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoSearchClient VideoSearch => new VideoSearchClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -131,7 +131,7 @@ namespace Reka.Vision
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideosClient Videos => new VideosClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {

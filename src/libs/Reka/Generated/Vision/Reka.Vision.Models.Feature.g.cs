@@ -4,44 +4,44 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum Feature
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioEvents,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Captions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Chapters,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Embeddings,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Objects,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReelCaptions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Scenes,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Thumbnails,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Transcript,
     }

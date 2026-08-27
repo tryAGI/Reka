@@ -4,12 +4,12 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class FeaturePlanRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("desired")]
         [global::System.Text.Json.Serialization.JsonRequired]

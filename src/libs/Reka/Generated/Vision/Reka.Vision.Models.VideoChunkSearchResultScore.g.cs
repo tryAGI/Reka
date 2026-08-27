@@ -10,7 +10,7 @@ namespace Reka.Vision
     public readonly partial struct VideoChunkSearchResultScore : global::System.IEquatable<VideoChunkSearchResultScore>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public double? VideoChunkSearchResultScoreVariant1 { get; init; }
@@ -19,7 +19,7 @@ namespace Reka.Vision
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoChunkSearchResultScoreVariant1))]
@@ -27,7 +27,7 @@ namespace Reka.Vision
         public bool IsVideoChunkSearchResultScoreVariant1 => VideoChunkSearchResultScoreVariant1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVideoChunkSearchResultScoreVariant1(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public double PickVideoChunkSearchResultScoreVariant1() => IsVideoChunkSearchResultScoreVariant1
             ? VideoChunkSearchResultScoreVariant1!.Value
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoChunkSearchResultScoreVariant1' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public string? VideoChunkSearchResultScoreVariant2 { get; init; }
@@ -56,7 +56,7 @@ namespace Reka.Vision
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoChunkSearchResultScoreVariant2))]
@@ -64,7 +64,7 @@ namespace Reka.Vision
         public bool IsVideoChunkSearchResultScoreVariant2 => VideoChunkSearchResultScoreVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVideoChunkSearchResultScoreVariant2(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string PickVideoChunkSearchResultScoreVariant2() => IsVideoChunkSearchResultScoreVariant2
             ? VideoChunkSearchResultScoreVariant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoChunkSearchResultScoreVariant2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoChunkSearchResultScore(double value) => new VideoChunkSearchResultScore((double?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator double?(VideoChunkSearchResultScore @this) => @this.VideoChunkSearchResultScoreVariant1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoChunkSearchResultScore(double? value)
         {
@@ -101,22 +101,22 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoChunkSearchResultScore FromVideoChunkSearchResultScoreVariant1(double? value) => new VideoChunkSearchResultScore(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoChunkSearchResultScore(string value) => new VideoChunkSearchResultScore((string?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator string?(VideoChunkSearchResultScore @this) => @this.VideoChunkSearchResultScoreVariant2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoChunkSearchResultScore(string? value)
         {
@@ -124,12 +124,12 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoChunkSearchResultScore FromVideoChunkSearchResultScoreVariant2(string? value) => new VideoChunkSearchResultScore(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoChunkSearchResultScore(
             double? videoChunkSearchResultScoreVariant1,
@@ -141,23 +141,23 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             VideoChunkSearchResultScoreVariant2 as object ??
-            VideoChunkSearchResultScoreVariant1 as object 
+            VideoChunkSearchResultScoreVariant1 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             VideoChunkSearchResultScoreVariant1?.ToString() ??
-            VideoChunkSearchResultScoreVariant2?.ToString() 
+            VideoChunkSearchResultScoreVariant2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<double?, TResult>? videoChunkSearchResultScoreVariant1 = null,
@@ -190,7 +190,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<double?>? videoChunkSearchResultScoreVariant1 = null,
@@ -214,7 +214,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<double?>? videoChunkSearchResultScoreVariant1 = null,
@@ -237,7 +237,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(VideoChunkSearchResultScore other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<double?>.Default.Equals(VideoChunkSearchResultScoreVariant1, other.VideoChunkSearchResultScoreVariant1) &&
-                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(VideoChunkSearchResultScoreVariant2, other.VideoChunkSearchResultScoreVariant2) 
+                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(VideoChunkSearchResultScoreVariant2, other.VideoChunkSearchResultScoreVariant2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(VideoChunkSearchResultScore obj1, VideoChunkSearchResultScore obj2)
         {
@@ -277,7 +277,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(VideoChunkSearchResultScore obj1, VideoChunkSearchResultScore obj2)
         {
@@ -285,7 +285,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

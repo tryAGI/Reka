@@ -10,7 +10,7 @@ namespace Reka.Research
     public enum CreateChatCompletionRequestMessagesItemsOneOf1Role
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Assistant,
     }

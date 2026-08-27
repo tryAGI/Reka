@@ -9,27 +9,27 @@ namespace Reka.Vision
     public enum TextToSpeechInputOutputFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp32205032,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp344100128,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp34410064,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Opus48000128,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm44100,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav44100,
     }

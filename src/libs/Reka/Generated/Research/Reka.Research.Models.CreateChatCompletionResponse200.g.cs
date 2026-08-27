@@ -5,7 +5,7 @@
 namespace Reka.Research
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct CreateChatCompletionResponse200 : global::System.IEquatable<CreateChatCompletionResponse200>
     {
@@ -19,7 +19,7 @@ namespace Reka.Research
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateChatCompletionResponse))]
@@ -27,7 +27,7 @@ namespace Reka.Research
         public bool IsCreateChatCompletionResponse => CreateChatCompletionResponse != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateChatCompletionResponse(
 #if NET6_0_OR_GREATER
@@ -40,7 +40,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Research.CreateChatCompletionResponse PickCreateChatCompletionResponse() => IsCreateChatCompletionResponse
             ? CreateChatCompletionResponse!
@@ -57,7 +57,7 @@ namespace Reka.Research
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateChatCompletionStreamResponse))]
@@ -65,7 +65,7 @@ namespace Reka.Research
         public bool IsCreateChatCompletionStreamResponse => CreateChatCompletionStreamResponse != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateChatCompletionStreamResponse(
 #if NET6_0_OR_GREATER
@@ -78,23 +78,23 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Research.CreateChatCompletionStreamResponse PickCreateChatCompletionStreamResponse() => IsCreateChatCompletionStreamResponse
             ? CreateChatCompletionStreamResponse!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateChatCompletionStreamResponse' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateChatCompletionResponse200(global::Reka.Research.CreateChatCompletionResponse value) => new CreateChatCompletionResponse200((global::Reka.Research.CreateChatCompletionResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Research.CreateChatCompletionResponse?(CreateChatCompletionResponse200 @this) => @this.CreateChatCompletionResponse;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateChatCompletionResponse200(global::Reka.Research.CreateChatCompletionResponse? value)
         {
@@ -102,22 +102,22 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateChatCompletionResponse200 FromCreateChatCompletionResponse(global::Reka.Research.CreateChatCompletionResponse? value) => new CreateChatCompletionResponse200(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateChatCompletionResponse200(global::Reka.Research.CreateChatCompletionStreamResponse value) => new CreateChatCompletionResponse200((global::Reka.Research.CreateChatCompletionStreamResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Research.CreateChatCompletionStreamResponse?(CreateChatCompletionResponse200 @this) => @this.CreateChatCompletionStreamResponse;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateChatCompletionResponse200(global::Reka.Research.CreateChatCompletionStreamResponse? value)
         {
@@ -125,12 +125,12 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateChatCompletionResponse200 FromCreateChatCompletionStreamResponse(global::Reka.Research.CreateChatCompletionStreamResponse? value) => new CreateChatCompletionResponse200(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateChatCompletionResponse200(
             global::Reka.Research.CreateChatCompletionResponse? createChatCompletionResponse,
@@ -142,23 +142,23 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             CreateChatCompletionStreamResponse as object ??
-            CreateChatCompletionResponse as object 
+            CreateChatCompletionResponse as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             CreateChatCompletionResponse?.ToString() ??
-            CreateChatCompletionStreamResponse?.ToString() 
+            CreateChatCompletionStreamResponse?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -166,7 +166,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Reka.Research.CreateChatCompletionResponse, TResult>? createChatCompletionResponse = null,
@@ -191,7 +191,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Reka.Research.CreateChatCompletionResponse>? createChatCompletionResponse = null,
@@ -215,7 +215,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Reka.Research.CreateChatCompletionResponse>? createChatCompletionResponse = null,
@@ -238,7 +238,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -259,18 +259,18 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(CreateChatCompletionResponse200 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Reka.Research.CreateChatCompletionResponse?>.Default.Equals(CreateChatCompletionResponse, other.CreateChatCompletionResponse) &&
-                global::System.Collections.Generic.EqualityComparer<global::Reka.Research.CreateChatCompletionStreamResponse?>.Default.Equals(CreateChatCompletionStreamResponse, other.CreateChatCompletionStreamResponse) 
+                global::System.Collections.Generic.EqualityComparer<global::Reka.Research.CreateChatCompletionStreamResponse?>.Default.Equals(CreateChatCompletionStreamResponse, other.CreateChatCompletionStreamResponse)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(CreateChatCompletionResponse200 obj1, CreateChatCompletionResponse200 obj2)
         {
@@ -278,7 +278,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(CreateChatCompletionResponse200 obj1, CreateChatCompletionResponse200 obj2)
         {
@@ -286,7 +286,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

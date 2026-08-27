@@ -4,7 +4,7 @@
 namespace Reka
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class Choice
     {
@@ -16,7 +16,7 @@ namespace Reka
         public required int Index { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]

@@ -10,15 +10,15 @@ namespace Reka.Research
     public enum ResearchOptionsParallelThinkingMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         High,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Low,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
     }

@@ -9,15 +9,15 @@ namespace Reka
     public enum CreateChatCompletionRequestToolChoice
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tool,
     }

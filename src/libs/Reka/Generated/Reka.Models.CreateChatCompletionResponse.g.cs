@@ -4,7 +4,7 @@
 namespace Reka
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateChatCompletionResponse
     {
@@ -49,7 +49,7 @@ namespace Reka
         public required global::System.Collections.Generic.IList<global::Reka.Choice> Choices { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
         [global::System.Text.Json.Serialization.JsonRequired]

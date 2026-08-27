@@ -4,25 +4,25 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DetectionMetadata
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("class_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ClassName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("confidence")]
         public double? Confidence { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("bounding_box")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -35,13 +35,13 @@ namespace Reka.Vision
         public bool? IsLicensePlate { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("license_plate_number")]
         public string? LicensePlateNumber { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ncic_category")]
         public string? NcicCategory { get; set; }

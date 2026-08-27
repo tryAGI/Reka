@@ -4,19 +4,19 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class FeatureTriggerResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string VideoId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("feature")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.FeatureJsonConverter))]
@@ -24,7 +24,7 @@ namespace Reka.Vision
         public required global::Reka.Vision.Feature Feature { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.FeatureStatusJsonConverter))]

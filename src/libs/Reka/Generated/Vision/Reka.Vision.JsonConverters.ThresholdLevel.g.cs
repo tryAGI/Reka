@@ -20,7 +20,7 @@ namespace Reka.Vision.JsonConverters
                     {
                         return global::Reka.Vision.ThresholdLevelExtensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

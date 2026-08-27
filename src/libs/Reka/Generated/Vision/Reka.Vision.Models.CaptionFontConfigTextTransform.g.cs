@@ -4,20 +4,20 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CaptionFontConfigTextTransform
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Initial,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Lowercase,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Uppercase,
     }

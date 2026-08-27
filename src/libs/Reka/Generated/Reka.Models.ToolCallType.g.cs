@@ -9,7 +9,7 @@ namespace Reka
     public enum ToolCallType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Function,
     }

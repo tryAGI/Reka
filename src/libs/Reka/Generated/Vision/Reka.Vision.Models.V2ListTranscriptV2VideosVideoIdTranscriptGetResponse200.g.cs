@@ -5,12 +5,12 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200 : global::System.IEquatable<V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Reka.Vision.PaginatedResponseTranscriptSegment? PaginatedResponseTranscriptSegment { get; init; }
@@ -19,7 +19,7 @@ namespace Reka.Vision
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(PaginatedResponseTranscriptSegment))]
@@ -27,7 +27,7 @@ namespace Reka.Vision
         public bool IsPaginatedResponseTranscriptSegment => PaginatedResponseTranscriptSegment != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPaginatedResponseTranscriptSegment(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Vision.PaginatedResponseTranscriptSegment PickPaginatedResponseTranscriptSegment() => IsPaginatedResponseTranscriptSegment
             ? PaginatedResponseTranscriptSegment!
             : throw new global::System.InvalidOperationException($"Expected union variant 'PaginatedResponseTranscriptSegment' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Reka.Vision.TranscriptTextResponse? TranscriptTextResponse { get; init; }
@@ -56,7 +56,7 @@ namespace Reka.Vision
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TranscriptTextResponse))]
@@ -64,7 +64,7 @@ namespace Reka.Vision
         public bool IsTranscriptTextResponse => TranscriptTextResponse != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTranscriptTextResponse(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Vision.TranscriptTextResponse PickTranscriptTextResponse() => IsTranscriptTextResponse
             ? TranscriptTextResponse!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TranscriptTextResponse' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200(global::Reka.Vision.PaginatedResponseTranscriptSegment value) => new V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200((global::Reka.Vision.PaginatedResponseTranscriptSegment?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Vision.PaginatedResponseTranscriptSegment?(V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200 @this) => @this.PaginatedResponseTranscriptSegment;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200(global::Reka.Vision.PaginatedResponseTranscriptSegment? value)
         {
@@ -101,22 +101,22 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200 FromPaginatedResponseTranscriptSegment(global::Reka.Vision.PaginatedResponseTranscriptSegment? value) => new V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200(global::Reka.Vision.TranscriptTextResponse value) => new V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200((global::Reka.Vision.TranscriptTextResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Vision.TranscriptTextResponse?(V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200 @this) => @this.TranscriptTextResponse;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200(global::Reka.Vision.TranscriptTextResponse? value)
         {
@@ -124,12 +124,12 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200 FromTranscriptTextResponse(global::Reka.Vision.TranscriptTextResponse? value) => new V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200(
             global::Reka.Vision.PaginatedResponseTranscriptSegment? paginatedResponseTranscriptSegment,
@@ -141,23 +141,23 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             TranscriptTextResponse as object ??
-            PaginatedResponseTranscriptSegment as object 
+            PaginatedResponseTranscriptSegment as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             PaginatedResponseTranscriptSegment?.ToString() ??
-            TranscriptTextResponse?.ToString() 
+            TranscriptTextResponse?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Reka.Vision.PaginatedResponseTranscriptSegment, TResult>? paginatedResponseTranscriptSegment = null,
@@ -190,7 +190,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Reka.Vision.PaginatedResponseTranscriptSegment>? paginatedResponseTranscriptSegment = null,
@@ -214,7 +214,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Reka.Vision.PaginatedResponseTranscriptSegment>? paginatedResponseTranscriptSegment = null,
@@ -237,7 +237,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Reka.Vision.PaginatedResponseTranscriptSegment?>.Default.Equals(PaginatedResponseTranscriptSegment, other.PaginatedResponseTranscriptSegment) &&
-                global::System.Collections.Generic.EqualityComparer<global::Reka.Vision.TranscriptTextResponse?>.Default.Equals(TranscriptTextResponse, other.TranscriptTextResponse) 
+                global::System.Collections.Generic.EqualityComparer<global::Reka.Vision.TranscriptTextResponse?>.Default.Equals(TranscriptTextResponse, other.TranscriptTextResponse)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200 obj1, V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200 obj2)
         {
@@ -277,7 +277,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200 obj1, V2ListTranscriptV2VideosVideoIdTranscriptGetResponse200 obj2)
         {
@@ -285,7 +285,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

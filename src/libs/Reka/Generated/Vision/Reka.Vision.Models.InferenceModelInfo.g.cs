@@ -4,26 +4,26 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class InferenceModelInfo
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("endpoint_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string EndpointId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ModelId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("capability")]
         [global::System.Text.Json.Serialization.JsonRequired]

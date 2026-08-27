@@ -4,12 +4,12 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class OrchestratorApiV2ModelsVideoMoveGroupRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]

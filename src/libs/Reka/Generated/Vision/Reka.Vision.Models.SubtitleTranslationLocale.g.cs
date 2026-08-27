@@ -9,143 +9,143 @@ namespace Reka.Vision
     public enum SubtitleTranslationLocale
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ArSa,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CsCz,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DaDk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeDe,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ElGr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EnGb,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EnUs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EsEs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EsMx,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FiFi,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FilPh,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FrCa,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FrFr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HeIl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HiIn,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HuHu,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         IdId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ItIt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JaJp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         KoKr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MsMy,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NlNl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoNo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PlPl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PtBr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PtPt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RoRo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RuRu,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SvSe,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ThTh,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrTr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UkUa,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ViVn,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ZhCn,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ZhTw,
     }

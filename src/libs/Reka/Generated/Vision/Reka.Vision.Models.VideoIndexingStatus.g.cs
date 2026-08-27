@@ -4,24 +4,24 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VideoIndexingStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Indexed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Indexing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pending,
     }

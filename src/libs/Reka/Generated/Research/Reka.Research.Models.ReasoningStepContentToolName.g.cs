@@ -9,11 +9,11 @@ namespace Reka.Research
     public enum ReasoningStepContentToolName
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Analyze,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SearchWeb,
     }

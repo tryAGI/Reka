@@ -4,24 +4,24 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum EditModelId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GptImage2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NanoBanana2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Seedream4,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Seedream45,
     }

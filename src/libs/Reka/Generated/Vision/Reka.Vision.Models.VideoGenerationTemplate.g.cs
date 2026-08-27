@@ -4,28 +4,28 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VideoGenerationTemplate
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CaptionOnly,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Compilation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Moments,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Trailer,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Voiceover,
     }

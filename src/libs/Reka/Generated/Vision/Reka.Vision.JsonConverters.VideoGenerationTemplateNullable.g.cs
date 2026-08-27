@@ -20,7 +20,7 @@ namespace Reka.Vision.JsonConverters
                     {
                         return global::Reka.Vision.VideoGenerationTemplateExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

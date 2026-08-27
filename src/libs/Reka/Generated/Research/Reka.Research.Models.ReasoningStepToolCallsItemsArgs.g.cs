@@ -19,7 +19,7 @@ namespace Reka.Research
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ReasoningStepToolCallsItemsArgs0))]
@@ -27,7 +27,7 @@ namespace Reka.Research
         public bool IsReasoningStepToolCallsItemsArgs0 => ReasoningStepToolCallsItemsArgs0 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickReasoningStepToolCallsItemsArgs0(
 #if NET6_0_OR_GREATER
@@ -40,7 +40,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Research.ReasoningStepToolCallsItemsArgs0 PickReasoningStepToolCallsItemsArgs0() => IsReasoningStepToolCallsItemsArgs0
             ? ReasoningStepToolCallsItemsArgs0!
@@ -56,7 +56,7 @@ namespace Reka.Research
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ReasoningStepToolCallsItemsArgs1))]
@@ -64,7 +64,7 @@ namespace Reka.Research
         public bool IsReasoningStepToolCallsItemsArgs1 => ReasoningStepToolCallsItemsArgs1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickReasoningStepToolCallsItemsArgs1(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Research.ReasoningStepToolCallsItemsArgs1 PickReasoningStepToolCallsItemsArgs1() => IsReasoningStepToolCallsItemsArgs1
             ? ReasoningStepToolCallsItemsArgs1!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ReasoningStepToolCallsItemsArgs1' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ReasoningStepToolCallsItemsArgs(global::Reka.Research.ReasoningStepToolCallsItemsArgs0 value) => new ReasoningStepToolCallsItemsArgs((global::Reka.Research.ReasoningStepToolCallsItemsArgs0?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Research.ReasoningStepToolCallsItemsArgs0?(ReasoningStepToolCallsItemsArgs @this) => @this.ReasoningStepToolCallsItemsArgs0;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ReasoningStepToolCallsItemsArgs(global::Reka.Research.ReasoningStepToolCallsItemsArgs0? value)
         {
@@ -101,22 +101,22 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ReasoningStepToolCallsItemsArgs FromReasoningStepToolCallsItemsArgs0(global::Reka.Research.ReasoningStepToolCallsItemsArgs0? value) => new ReasoningStepToolCallsItemsArgs(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ReasoningStepToolCallsItemsArgs(global::Reka.Research.ReasoningStepToolCallsItemsArgs1 value) => new ReasoningStepToolCallsItemsArgs((global::Reka.Research.ReasoningStepToolCallsItemsArgs1?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Research.ReasoningStepToolCallsItemsArgs1?(ReasoningStepToolCallsItemsArgs @this) => @this.ReasoningStepToolCallsItemsArgs1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ReasoningStepToolCallsItemsArgs(global::Reka.Research.ReasoningStepToolCallsItemsArgs1? value)
         {
@@ -124,12 +124,12 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ReasoningStepToolCallsItemsArgs FromReasoningStepToolCallsItemsArgs1(global::Reka.Research.ReasoningStepToolCallsItemsArgs1? value) => new ReasoningStepToolCallsItemsArgs(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ReasoningStepToolCallsItemsArgs(
             global::Reka.Research.ReasoningStepToolCallsItemsArgs0? reasoningStepToolCallsItemsArgs0,
@@ -141,23 +141,23 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             ReasoningStepToolCallsItemsArgs1 as object ??
-            ReasoningStepToolCallsItemsArgs0 as object 
+            ReasoningStepToolCallsItemsArgs0 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             ReasoningStepToolCallsItemsArgs0?.ToString() ??
-            ReasoningStepToolCallsItemsArgs1?.ToString() 
+            ReasoningStepToolCallsItemsArgs1?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Reka.Research.ReasoningStepToolCallsItemsArgs0, TResult>? reasoningStepToolCallsItemsArgs0 = null,
@@ -190,7 +190,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Reka.Research.ReasoningStepToolCallsItemsArgs0>? reasoningStepToolCallsItemsArgs0 = null,
@@ -214,7 +214,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Reka.Research.ReasoningStepToolCallsItemsArgs0>? reasoningStepToolCallsItemsArgs0 = null,
@@ -237,7 +237,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ReasoningStepToolCallsItemsArgs other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Reka.Research.ReasoningStepToolCallsItemsArgs0?>.Default.Equals(ReasoningStepToolCallsItemsArgs0, other.ReasoningStepToolCallsItemsArgs0) &&
-                global::System.Collections.Generic.EqualityComparer<global::Reka.Research.ReasoningStepToolCallsItemsArgs1?>.Default.Equals(ReasoningStepToolCallsItemsArgs1, other.ReasoningStepToolCallsItemsArgs1) 
+                global::System.Collections.Generic.EqualityComparer<global::Reka.Research.ReasoningStepToolCallsItemsArgs1?>.Default.Equals(ReasoningStepToolCallsItemsArgs1, other.ReasoningStepToolCallsItemsArgs1)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ReasoningStepToolCallsItemsArgs obj1, ReasoningStepToolCallsItemsArgs obj2)
         {
@@ -277,7 +277,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ReasoningStepToolCallsItemsArgs obj1, ReasoningStepToolCallsItemsArgs obj2)
         {
@@ -285,7 +285,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

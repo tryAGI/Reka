@@ -174,7 +174,7 @@ namespace Reka.Vision
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::Reka.Vision.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

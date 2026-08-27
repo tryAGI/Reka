@@ -9,23 +9,23 @@ namespace Reka.Vision
     public enum VideoQaResponseStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Indexing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pending,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Streaming,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Success,
     }

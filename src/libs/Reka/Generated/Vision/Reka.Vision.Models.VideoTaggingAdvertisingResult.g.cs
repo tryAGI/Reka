@@ -4,89 +4,89 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class VideoTaggingAdvertisingResult
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("Description")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Description { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("Violence")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool Violence { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("Profanity")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool Profanity { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("AdultContent")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool AdultContent { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("Drugs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool Drugs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("Alcohol")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool Alcohol { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("Gambling")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool Gambling { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("Political")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool Political { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ExpectedCTR")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double ExpectedCTR { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ViralityScore")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double ViralityScore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("Keyword")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> Keyword { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("MoodTone")]
         [global::System.Text.Json.Serialization.JsonRequired]

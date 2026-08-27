@@ -4,33 +4,33 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SegmentBoundingBox
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("x_min")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double XMin { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("y_min")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double YMin { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("x_max")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double XMax { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("y_max")]
         [global::System.Text.Json.Serialization.JsonRequired]

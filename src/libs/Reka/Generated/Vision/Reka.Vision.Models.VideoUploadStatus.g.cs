@@ -4,20 +4,20 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VideoUploadStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Uploaded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Uploading,
     }

@@ -43,53 +43,53 @@ namespace Reka.Vision
         public global::System.Func<string> CreateIdempotencyKey { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ClipsClient Clips { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImagesClient Images { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public InferenceClient Inference { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MetadataTaggingClient MetadataTagging { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public V2Client V2 { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoGroupsClient VideoGroups { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoQaClient VideoQa { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoSearchClient VideoSearch { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideosClient Videos { get; }
 

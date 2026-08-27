@@ -9,14 +9,14 @@ namespace Reka.Vision
     public sealed partial class SearchRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("query")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Query { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("threshold")]
         public double? Threshold { get; set; }
@@ -28,13 +28,13 @@ namespace Reka.Vision
         public int? MaxResults { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_ids")]
         public global::System.Collections.Generic.IList<string>? VideoIds { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("group_ids")]
         public global::System.Collections.Generic.IList<string>? GroupIds { get; set; }

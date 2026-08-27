@@ -9,11 +9,11 @@ namespace Reka
     public enum ReasoningStepRole
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Assistant,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tool,
     }

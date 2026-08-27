@@ -10,15 +10,15 @@ namespace Reka
     public enum ParallelThinkingConfigMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         High,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Low,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
     }
