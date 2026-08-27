@@ -9,7 +9,7 @@ namespace Reka.Research
     public enum CreateChatCompletionStreamResponseObject
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ChatCompletionChunk,
     }

@@ -5,7 +5,7 @@
 namespace Reka.Research
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct CreateChatCompletionRequestMessagesItems : global::System.IEquatable<CreateChatCompletionRequestMessagesItems>
     {
@@ -20,7 +20,7 @@ namespace Reka.Research
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateChatCompletionRequestMessagesItems0))]
@@ -28,7 +28,7 @@ namespace Reka.Research
         public bool IsCreateChatCompletionRequestMessagesItems0 => CreateChatCompletionRequestMessagesItems0 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateChatCompletionRequestMessagesItems0(
 #if NET6_0_OR_GREATER
@@ -41,7 +41,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Research.CreateChatCompletionRequestMessagesItems0 PickCreateChatCompletionRequestMessagesItems0() => IsCreateChatCompletionRequestMessagesItems0
             ? CreateChatCompletionRequestMessagesItems0!
@@ -57,7 +57,7 @@ namespace Reka.Research
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreateChatCompletionRequestMessagesItems1))]
@@ -65,7 +65,7 @@ namespace Reka.Research
         public bool IsCreateChatCompletionRequestMessagesItems1 => CreateChatCompletionRequestMessagesItems1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCreateChatCompletionRequestMessagesItems1(
 #if NET6_0_OR_GREATER
@@ -78,23 +78,23 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Research.CreateChatCompletionRequestMessagesItems1 PickCreateChatCompletionRequestMessagesItems1() => IsCreateChatCompletionRequestMessagesItems1
             ? CreateChatCompletionRequestMessagesItems1!
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateChatCompletionRequestMessagesItems1' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateChatCompletionRequestMessagesItems(global::Reka.Research.CreateChatCompletionRequestMessagesItems0 value) => new CreateChatCompletionRequestMessagesItems((global::Reka.Research.CreateChatCompletionRequestMessagesItems0?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Research.CreateChatCompletionRequestMessagesItems0?(CreateChatCompletionRequestMessagesItems @this) => @this.CreateChatCompletionRequestMessagesItems0;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateChatCompletionRequestMessagesItems(global::Reka.Research.CreateChatCompletionRequestMessagesItems0? value)
         {
@@ -102,22 +102,22 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateChatCompletionRequestMessagesItems FromCreateChatCompletionRequestMessagesItems0(global::Reka.Research.CreateChatCompletionRequestMessagesItems0? value) => new CreateChatCompletionRequestMessagesItems(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateChatCompletionRequestMessagesItems(global::Reka.Research.CreateChatCompletionRequestMessagesItems1 value) => new CreateChatCompletionRequestMessagesItems((global::Reka.Research.CreateChatCompletionRequestMessagesItems1?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Research.CreateChatCompletionRequestMessagesItems1?(CreateChatCompletionRequestMessagesItems @this) => @this.CreateChatCompletionRequestMessagesItems1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateChatCompletionRequestMessagesItems(global::Reka.Research.CreateChatCompletionRequestMessagesItems1? value)
         {
@@ -125,12 +125,12 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateChatCompletionRequestMessagesItems FromCreateChatCompletionRequestMessagesItems1(global::Reka.Research.CreateChatCompletionRequestMessagesItems1? value) => new CreateChatCompletionRequestMessagesItems(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateChatCompletionRequestMessagesItems(
             global::Reka.Research.CreateChatCompletionRequestMessagesItems0? createChatCompletionRequestMessagesItems0,
@@ -142,23 +142,23 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             CreateChatCompletionRequestMessagesItems1 as object ??
-            CreateChatCompletionRequestMessagesItems0 as object 
+            CreateChatCompletionRequestMessagesItems0 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             CreateChatCompletionRequestMessagesItems0?.ToString() ??
-            CreateChatCompletionRequestMessagesItems1?.ToString() 
+            CreateChatCompletionRequestMessagesItems1?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -166,7 +166,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Reka.Research.CreateChatCompletionRequestMessagesItems0, TResult>? createChatCompletionRequestMessagesItems0 = null,
@@ -191,7 +191,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Reka.Research.CreateChatCompletionRequestMessagesItems0>? createChatCompletionRequestMessagesItems0 = null,
@@ -215,7 +215,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Reka.Research.CreateChatCompletionRequestMessagesItems0>? createChatCompletionRequestMessagesItems0 = null,
@@ -238,7 +238,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -259,18 +259,18 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(CreateChatCompletionRequestMessagesItems other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Reka.Research.CreateChatCompletionRequestMessagesItems0?>.Default.Equals(CreateChatCompletionRequestMessagesItems0, other.CreateChatCompletionRequestMessagesItems0) &&
-                global::System.Collections.Generic.EqualityComparer<global::Reka.Research.CreateChatCompletionRequestMessagesItems1?>.Default.Equals(CreateChatCompletionRequestMessagesItems1, other.CreateChatCompletionRequestMessagesItems1) 
+                global::System.Collections.Generic.EqualityComparer<global::Reka.Research.CreateChatCompletionRequestMessagesItems1?>.Default.Equals(CreateChatCompletionRequestMessagesItems1, other.CreateChatCompletionRequestMessagesItems1)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(CreateChatCompletionRequestMessagesItems obj1, CreateChatCompletionRequestMessagesItems obj2)
         {
@@ -278,7 +278,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(CreateChatCompletionRequestMessagesItems obj1, CreateChatCompletionRequestMessagesItems obj2)
         {
@@ -286,7 +286,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

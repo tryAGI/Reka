@@ -5,12 +5,12 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ResultResponseOutput : global::System.IEquatable<ResultResponseOutput>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Reka.Vision.ImageToVideoOutput? ImageToVideoOutput { get; init; }
@@ -19,7 +19,7 @@ namespace Reka.Vision
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ImageToVideoOutput))]
@@ -27,7 +27,7 @@ namespace Reka.Vision
         public bool IsImageToVideoOutput => ImageToVideoOutput != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickImageToVideoOutput(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Vision.ImageToVideoOutput PickImageToVideoOutput() => IsImageToVideoOutput
             ? ImageToVideoOutput!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ImageToVideoOutput' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Reka.Vision.TextToImageOutput? TextToImageOutput { get; init; }
@@ -56,7 +56,7 @@ namespace Reka.Vision
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TextToImageOutput))]
@@ -64,7 +64,7 @@ namespace Reka.Vision
         public bool IsTextToImageOutput => TextToImageOutput != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTextToImageOutput(
 #if NET6_0_OR_GREATER
@@ -77,14 +77,14 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Vision.TextToImageOutput PickTextToImageOutput() => IsTextToImageOutput
             ? TextToImageOutput!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TextToImageOutput' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Reka.Vision.TextToSpeechOutput? TextToSpeechOutput { get; init; }
@@ -93,7 +93,7 @@ namespace Reka.Vision
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TextToSpeechOutput))]
@@ -101,7 +101,7 @@ namespace Reka.Vision
         public bool IsTextToSpeechOutput => TextToSpeechOutput != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTextToSpeechOutput(
 #if NET6_0_OR_GREATER
@@ -114,14 +114,14 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Vision.TextToSpeechOutput PickTextToSpeechOutput() => IsTextToSpeechOutput
             ? TextToSpeechOutput!
             : throw new global::System.InvalidOperationException($"Expected union variant 'TextToSpeechOutput' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Reka.Vision.ImageToBboxOutput? ImageToBboxOutput { get; init; }
@@ -130,7 +130,7 @@ namespace Reka.Vision
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ImageToBboxOutput))]
@@ -138,7 +138,7 @@ namespace Reka.Vision
         public bool IsImageToBboxOutput => ImageToBboxOutput != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickImageToBboxOutput(
 #if NET6_0_OR_GREATER
@@ -151,23 +151,23 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Vision.ImageToBboxOutput PickImageToBboxOutput() => IsImageToBboxOutput
             ? ImageToBboxOutput!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ImageToBboxOutput' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultResponseOutput(global::Reka.Vision.ImageToVideoOutput value) => new ResultResponseOutput((global::Reka.Vision.ImageToVideoOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Vision.ImageToVideoOutput?(ResultResponseOutput @this) => @this.ImageToVideoOutput;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultResponseOutput(global::Reka.Vision.ImageToVideoOutput? value)
         {
@@ -175,22 +175,22 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultResponseOutput FromImageToVideoOutput(global::Reka.Vision.ImageToVideoOutput? value) => new ResultResponseOutput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultResponseOutput(global::Reka.Vision.TextToImageOutput value) => new ResultResponseOutput((global::Reka.Vision.TextToImageOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Vision.TextToImageOutput?(ResultResponseOutput @this) => @this.TextToImageOutput;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultResponseOutput(global::Reka.Vision.TextToImageOutput? value)
         {
@@ -198,22 +198,22 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultResponseOutput FromTextToImageOutput(global::Reka.Vision.TextToImageOutput? value) => new ResultResponseOutput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultResponseOutput(global::Reka.Vision.TextToSpeechOutput value) => new ResultResponseOutput((global::Reka.Vision.TextToSpeechOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Vision.TextToSpeechOutput?(ResultResponseOutput @this) => @this.TextToSpeechOutput;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultResponseOutput(global::Reka.Vision.TextToSpeechOutput? value)
         {
@@ -221,22 +221,22 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultResponseOutput FromTextToSpeechOutput(global::Reka.Vision.TextToSpeechOutput? value) => new ResultResponseOutput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResultResponseOutput(global::Reka.Vision.ImageToBboxOutput value) => new ResultResponseOutput((global::Reka.Vision.ImageToBboxOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Vision.ImageToBboxOutput?(ResultResponseOutput @this) => @this.ImageToBboxOutput;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultResponseOutput(global::Reka.Vision.ImageToBboxOutput? value)
         {
@@ -244,12 +244,12 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResultResponseOutput FromImageToBboxOutput(global::Reka.Vision.ImageToBboxOutput? value) => new ResultResponseOutput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResultResponseOutput(
             global::Reka.Vision.ImageToVideoOutput? imageToVideoOutput,
@@ -265,27 +265,27 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             ImageToBboxOutput as object ??
             TextToSpeechOutput as object ??
             TextToImageOutput as object ??
-            ImageToVideoOutput as object 
+            ImageToVideoOutput as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             ImageToVideoOutput?.ToString() ??
             TextToImageOutput?.ToString() ??
             TextToSpeechOutput?.ToString() ??
-            ImageToBboxOutput?.ToString() 
+            ImageToBboxOutput?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -293,7 +293,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Reka.Vision.ImageToVideoOutput, TResult>? imageToVideoOutput = null,
@@ -328,7 +328,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Reka.Vision.ImageToVideoOutput>? imageToVideoOutput = null,
@@ -364,7 +364,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Reka.Vision.ImageToVideoOutput>? imageToVideoOutput = null,
@@ -397,7 +397,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -422,7 +422,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ResultResponseOutput other)
         {
@@ -430,12 +430,12 @@ namespace Reka.Vision
                 global::System.Collections.Generic.EqualityComparer<global::Reka.Vision.ImageToVideoOutput?>.Default.Equals(ImageToVideoOutput, other.ImageToVideoOutput) &&
                 global::System.Collections.Generic.EqualityComparer<global::Reka.Vision.TextToImageOutput?>.Default.Equals(TextToImageOutput, other.TextToImageOutput) &&
                 global::System.Collections.Generic.EqualityComparer<global::Reka.Vision.TextToSpeechOutput?>.Default.Equals(TextToSpeechOutput, other.TextToSpeechOutput) &&
-                global::System.Collections.Generic.EqualityComparer<global::Reka.Vision.ImageToBboxOutput?>.Default.Equals(ImageToBboxOutput, other.ImageToBboxOutput) 
+                global::System.Collections.Generic.EqualityComparer<global::Reka.Vision.ImageToBboxOutput?>.Default.Equals(ImageToBboxOutput, other.ImageToBboxOutput)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ResultResponseOutput obj1, ResultResponseOutput obj2)
         {
@@ -443,7 +443,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ResultResponseOutput obj1, ResultResponseOutput obj2)
         {
@@ -451,7 +451,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

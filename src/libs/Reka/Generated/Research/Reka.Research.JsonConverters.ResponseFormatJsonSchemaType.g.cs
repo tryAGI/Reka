@@ -20,7 +20,7 @@ namespace Reka.Research.JsonConverters
                     {
                         return global::Reka.Research.ResponseFormatJsonSchemaTypeExtensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

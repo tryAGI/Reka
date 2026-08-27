@@ -9,7 +9,7 @@ namespace Reka.Vision
     public enum SegmentPromptType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
     }

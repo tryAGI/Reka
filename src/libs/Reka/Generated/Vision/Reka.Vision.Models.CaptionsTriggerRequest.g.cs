@@ -4,7 +4,7 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CaptionsTriggerRequest
     {
@@ -15,7 +15,7 @@ namespace Reka.Vision
         public bool? Force { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("caption_prompt")]
         public string? CaptionPrompt { get; set; }

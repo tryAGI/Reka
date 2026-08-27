@@ -9,11 +9,11 @@ namespace Reka.Vision
     public enum SearchTextField
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Captions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Transcript,
     }

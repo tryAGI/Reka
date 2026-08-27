@@ -4,60 +4,60 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum TextToVideoModelId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Happyhorse10,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         KlingV34k,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         KlingV3Pro,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         KlingV3ProAudio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         KlingV3Std,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         KlingV3StdAudio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ltx23Fast,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ltx23Pro,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Seedance20Fast,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Seedance20Pro,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Veo31,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Veo31Fast,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wan22Plus,
     }

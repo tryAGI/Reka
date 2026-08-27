@@ -9,7 +9,7 @@ namespace Reka.Research
     public enum ChatCompletionResponseMessageAnnotationsItemsType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UrlCitation,
     }

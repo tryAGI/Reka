@@ -20,7 +20,7 @@ namespace Reka.Research.JsonConverters
                     {
                         return global::Reka.Research.CreateChatCompletionRequestMessagesItemsOneOf0RoleExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

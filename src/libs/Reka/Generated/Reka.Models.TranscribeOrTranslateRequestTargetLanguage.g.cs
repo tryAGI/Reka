@@ -9,35 +9,35 @@ namespace Reka
     public enum TranscribeOrTranslateRequestTargetLanguage
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Chinese,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         French,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         German,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Italian,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Japanese,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Korean,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Portuguese,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Spanish,
     }

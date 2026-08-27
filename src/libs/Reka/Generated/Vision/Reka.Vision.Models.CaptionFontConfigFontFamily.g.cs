@@ -4,28 +4,28 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CaptionFontConfigFontFamily
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Bangers,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BebasNeue,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CaptionFont,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Lato,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RobotoCondensed,
     }

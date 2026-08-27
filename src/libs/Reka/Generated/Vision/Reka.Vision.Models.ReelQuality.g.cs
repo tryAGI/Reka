@@ -4,24 +4,24 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ReelQuality
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Fallback,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FullVideo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Lite,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Premium,
     }

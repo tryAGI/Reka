@@ -5,12 +5,12 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct VideoQaResponseChatResponse : global::System.IEquatable<VideoQaResponseChatResponse>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public string? VideoQaResponseChatResponseVariant1 { get; init; }
@@ -19,7 +19,7 @@ namespace Reka.Vision
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoQaResponseChatResponseVariant1))]
@@ -27,7 +27,7 @@ namespace Reka.Vision
         public bool IsVideoQaResponseChatResponseVariant1 => VideoQaResponseChatResponseVariant1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVideoQaResponseChatResponseVariant1(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string PickVideoQaResponseChatResponseVariant1() => IsVideoQaResponseChatResponseVariant1
             ? VideoQaResponseChatResponseVariant1!
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoQaResponseChatResponseVariant1' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public object? VideoQaResponseChatResponseVariant2 { get; init; }
@@ -56,7 +56,7 @@ namespace Reka.Vision
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoQaResponseChatResponseVariant2))]
@@ -64,7 +64,7 @@ namespace Reka.Vision
         public bool IsVideoQaResponseChatResponseVariant2 => VideoQaResponseChatResponseVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVideoQaResponseChatResponseVariant2(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object PickVideoQaResponseChatResponseVariant2() => IsVideoQaResponseChatResponseVariant2
             ? VideoQaResponseChatResponseVariant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoQaResponseChatResponseVariant2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoQaResponseChatResponse(string value) => new VideoQaResponseChatResponse((string?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator string?(VideoQaResponseChatResponse @this) => @this.VideoQaResponseChatResponseVariant1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoQaResponseChatResponse(string? value)
         {
@@ -101,12 +101,12 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoQaResponseChatResponse FromVideoQaResponseChatResponseVariant1(string? value) => new VideoQaResponseChatResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoQaResponseChatResponse(
             string? videoQaResponseChatResponseVariant1,
@@ -118,23 +118,23 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             VideoQaResponseChatResponseVariant2 as object ??
-            VideoQaResponseChatResponseVariant1 as object 
+            VideoQaResponseChatResponseVariant1 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             VideoQaResponseChatResponseVariant1?.ToString() ??
-            VideoQaResponseChatResponseVariant2?.ToString() 
+            VideoQaResponseChatResponseVariant2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -142,7 +142,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<string, TResult>? videoQaResponseChatResponseVariant1 = null,
@@ -167,7 +167,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<string>? videoQaResponseChatResponseVariant1 = null,
@@ -191,7 +191,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<string>? videoQaResponseChatResponseVariant1 = null,
@@ -214,7 +214,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -235,18 +235,18 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(VideoQaResponseChatResponse other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(VideoQaResponseChatResponseVariant1, other.VideoQaResponseChatResponseVariant1) &&
-                global::System.Collections.Generic.EqualityComparer<object?>.Default.Equals(VideoQaResponseChatResponseVariant2, other.VideoQaResponseChatResponseVariant2) 
+                global::System.Collections.Generic.EqualityComparer<object?>.Default.Equals(VideoQaResponseChatResponseVariant2, other.VideoQaResponseChatResponseVariant2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(VideoQaResponseChatResponse obj1, VideoQaResponseChatResponse obj2)
         {
@@ -254,7 +254,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(VideoQaResponseChatResponse obj1, VideoQaResponseChatResponse obj2)
         {
@@ -262,7 +262,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -9,7 +9,7 @@ namespace Reka.Research
     public enum CreateChatCompletionStreamResponseChoicesItemsFinishReason
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Stop,
     }

@@ -9,23 +9,23 @@ namespace Reka
     public enum ContentPartType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioUrl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImageUrl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PdfUrl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VideoUrl,
     }

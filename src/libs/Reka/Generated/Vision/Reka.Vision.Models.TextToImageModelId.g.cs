@@ -4,72 +4,72 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum TextToImageModelId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flux2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flux2Max,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flux2Pro,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GptImage2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ideogram4,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ideogram4Quality,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ideogram4Turbo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NanoBanana2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         QwenImage2512,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         QwenImageMaxPreview,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Seedream4,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Seedream45,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Uni1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Uni1Max,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wan27Fast,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wan27Pro,
     }

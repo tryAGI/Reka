@@ -4,7 +4,7 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChunkingConfigInput
     {
@@ -33,13 +33,13 @@ namespace Reka.Vision
         public bool? UseAsr { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("vad_threshold")]
         public double? VadThreshold { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         public string? Language { get; set; }
@@ -51,7 +51,7 @@ namespace Reka.Vision
         public bool? ForceVllmWhisperAsr { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunker_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.ChunkerTypeJsonConverter))]

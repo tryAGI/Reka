@@ -9,7 +9,7 @@ namespace Reka.Vision
     public sealed partial class ReconfigureAction
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("trigger")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.FeatureJsonConverter))]
@@ -24,7 +24,7 @@ namespace Reka.Vision
         public required global::Reka.Vision.ReconfigureConfig Config { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]

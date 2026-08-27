@@ -4,16 +4,16 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SearchStrategy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Semantic,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
     }

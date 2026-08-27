@@ -11,11 +11,11 @@ namespace Reka.Vision
     public enum ClipLayout
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ai,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Fit,
     }

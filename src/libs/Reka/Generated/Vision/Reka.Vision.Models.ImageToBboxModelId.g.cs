@@ -4,12 +4,12 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ImageToBboxModelId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sam3,
     }

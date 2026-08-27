@@ -9,7 +9,7 @@ namespace Reka
     public enum AnnotationType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UrlCitation,
     }

@@ -9,23 +9,23 @@ namespace Reka.Vision
     public enum VideoResolution
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x1080,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x240,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x360,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x480,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x720,
     }

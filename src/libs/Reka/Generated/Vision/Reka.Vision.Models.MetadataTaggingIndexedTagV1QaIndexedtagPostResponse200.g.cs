@@ -5,12 +5,12 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200 : global::System.IEquatable<MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Reka.Vision.VideoTaggingAdvertisingResult? VideoTaggingAdvertisingResult { get; init; }
@@ -19,7 +19,7 @@ namespace Reka.Vision
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoTaggingAdvertisingResult))]
@@ -27,7 +27,7 @@ namespace Reka.Vision
         public bool IsVideoTaggingAdvertisingResult => VideoTaggingAdvertisingResult != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVideoTaggingAdvertisingResult(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Vision.VideoTaggingAdvertisingResult PickVideoTaggingAdvertisingResult() => IsVideoTaggingAdvertisingResult
             ? VideoTaggingAdvertisingResult!
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoTaggingAdvertisingResult' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public string? MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2 { get; init; }
@@ -56,7 +56,7 @@ namespace Reka.Vision
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2))]
@@ -64,7 +64,7 @@ namespace Reka.Vision
         public bool IsMetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2 => MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickMetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string PickMetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2() => IsMetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2
             ? MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200(global::Reka.Vision.VideoTaggingAdvertisingResult value) => new MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200((global::Reka.Vision.VideoTaggingAdvertisingResult?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Vision.VideoTaggingAdvertisingResult?(MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200 @this) => @this.VideoTaggingAdvertisingResult;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200(global::Reka.Vision.VideoTaggingAdvertisingResult? value)
         {
@@ -101,22 +101,22 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200 FromVideoTaggingAdvertisingResult(global::Reka.Vision.VideoTaggingAdvertisingResult? value) => new MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200(string value) => new MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200((string?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator string?(MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200 @this) => @this.MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200(string? value)
         {
@@ -124,12 +124,12 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200 FromMetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2(string? value) => new MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200(
             global::Reka.Vision.VideoTaggingAdvertisingResult? videoTaggingAdvertisingResult,
@@ -141,23 +141,23 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2 as object ??
-            VideoTaggingAdvertisingResult as object 
+            VideoTaggingAdvertisingResult as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             VideoTaggingAdvertisingResult?.ToString() ??
-            MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2?.ToString() 
+            MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Reka.Vision.VideoTaggingAdvertisingResult, TResult>? videoTaggingAdvertisingResult = null,
@@ -190,7 +190,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Reka.Vision.VideoTaggingAdvertisingResult>? videoTaggingAdvertisingResult = null,
@@ -214,7 +214,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Reka.Vision.VideoTaggingAdvertisingResult>? videoTaggingAdvertisingResult = null,
@@ -237,7 +237,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Reka.Vision.VideoTaggingAdvertisingResult?>.Default.Equals(VideoTaggingAdvertisingResult, other.VideoTaggingAdvertisingResult) &&
-                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2, other.MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2) 
+                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2, other.MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200 obj1, MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200 obj2)
         {
@@ -277,7 +277,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200 obj1, MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200 obj2)
         {
@@ -285,7 +285,7 @@ namespace Reka.Vision
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

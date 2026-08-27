@@ -4,7 +4,7 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class TranscriptTriggerRequest
     {
@@ -15,7 +15,7 @@ namespace Reka.Vision
         public bool? Force { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunking_config")]
         public global::Reka.Vision.ChunkingConfigInput? ChunkingConfig { get; set; }

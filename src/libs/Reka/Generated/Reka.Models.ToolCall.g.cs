@@ -4,7 +4,7 @@
 namespace Reka
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ToolCall
     {
@@ -23,7 +23,7 @@ namespace Reka
         public global::Reka.ToolCallType Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
         [global::System.Text.Json.Serialization.JsonRequired]

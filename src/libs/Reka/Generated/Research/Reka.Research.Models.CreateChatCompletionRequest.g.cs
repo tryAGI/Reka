@@ -4,7 +4,7 @@
 namespace Reka.Research
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateChatCompletionRequest
     {
@@ -34,7 +34,7 @@ namespace Reka.Research
         public bool? Stream { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("research")]
         public global::Reka.Research.ResearchOptions? Research { get; set; }

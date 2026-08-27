@@ -4,20 +4,20 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CaptionFontConfigPosition
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Bottom,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Middle,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Top,
     }

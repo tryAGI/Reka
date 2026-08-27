@@ -9,7 +9,7 @@ namespace Reka.Vision
     public sealed partial class ClipListResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("items")]
         [global::System.Text.Json.Serialization.JsonRequired]

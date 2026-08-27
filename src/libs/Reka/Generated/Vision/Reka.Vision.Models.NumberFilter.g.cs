@@ -9,13 +9,13 @@ namespace Reka.Vision
     public sealed partial class NumberFilter
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gte")]
         public double? Gte { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lte")]
         public double? Lte { get; set; }

@@ -4,16 +4,16 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ChunkerType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MaxUtility,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Remote,
     }

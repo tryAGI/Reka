@@ -16,7 +16,7 @@ namespace Reka.Research
         public global::Reka.Research.ReasoningStepContentToolName? ToolName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_output")]
         public global::System.Collections.Generic.IList<global::Reka.Research.ReasoningStepContentToolOutputItems>? ToolOutput { get; set; }

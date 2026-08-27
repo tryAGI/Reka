@@ -4,19 +4,19 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class QuickTagV1QaQuicktagPostRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required byte[] Video { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("videoname")]
         [global::System.Text.Json.Serialization.JsonRequired]

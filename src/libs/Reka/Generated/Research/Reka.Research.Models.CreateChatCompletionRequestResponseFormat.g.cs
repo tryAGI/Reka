@@ -21,7 +21,7 @@ namespace Reka.Research
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseFormatJsonSchema))]
@@ -29,7 +29,7 @@ namespace Reka.Research
         public bool IsResponseFormatJsonSchema => ResponseFormatJsonSchema != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResponseFormatJsonSchema(
 #if NET6_0_OR_GREATER
@@ -42,23 +42,23 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Reka.Research.ResponseFormatJsonSchema PickResponseFormatJsonSchema() => IsResponseFormatJsonSchema
             ? ResponseFormatJsonSchema!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseFormatJsonSchema' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator CreateChatCompletionRequestResponseFormat(global::Reka.Research.ResponseFormatJsonSchema value) => new CreateChatCompletionRequestResponseFormat((global::Reka.Research.ResponseFormatJsonSchema?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Reka.Research.ResponseFormatJsonSchema?(CreateChatCompletionRequestResponseFormat @this) => @this.ResponseFormatJsonSchema;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreateChatCompletionRequestResponseFormat(global::Reka.Research.ResponseFormatJsonSchema? value)
         {
@@ -66,26 +66,26 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static CreateChatCompletionRequestResponseFormat FromResponseFormatJsonSchema(global::Reka.Research.ResponseFormatJsonSchema? value) => new CreateChatCompletionRequestResponseFormat(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
-            ResponseFormatJsonSchema as object 
+            ResponseFormatJsonSchema as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
-            ResponseFormatJsonSchema?.ToString() 
+            ResponseFormatJsonSchema?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -93,7 +93,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Reka.Research.ResponseFormatJsonSchema, TResult>? responseFormatJsonSchema = null,
@@ -113,7 +113,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Reka.Research.ResponseFormatJsonSchema>? responseFormatJsonSchema = null,
@@ -131,7 +131,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Reka.Research.ResponseFormatJsonSchema>? responseFormatJsonSchema = null,
@@ -149,7 +149,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -168,17 +168,17 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(CreateChatCompletionRequestResponseFormat other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Reka.Research.ResponseFormatJsonSchema?>.Default.Equals(ResponseFormatJsonSchema, other.ResponseFormatJsonSchema) 
+                global::System.Collections.Generic.EqualityComparer<global::Reka.Research.ResponseFormatJsonSchema?>.Default.Equals(ResponseFormatJsonSchema, other.ResponseFormatJsonSchema)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(CreateChatCompletionRequestResponseFormat obj1, CreateChatCompletionRequestResponseFormat obj2)
         {
@@ -186,7 +186,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(CreateChatCompletionRequestResponseFormat obj1, CreateChatCompletionRequestResponseFormat obj2)
         {
@@ -194,7 +194,7 @@ namespace Reka.Research
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

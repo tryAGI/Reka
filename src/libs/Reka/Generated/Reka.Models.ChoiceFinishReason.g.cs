@@ -9,19 +9,19 @@ namespace Reka
     public enum ChoiceFinishReason
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Context,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Length,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Stop,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ToolCalls,
     }

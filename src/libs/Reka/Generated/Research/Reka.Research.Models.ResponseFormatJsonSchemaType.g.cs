@@ -9,7 +9,7 @@ namespace Reka.Research
     public enum ResponseFormatJsonSchemaType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsonSchema,
     }

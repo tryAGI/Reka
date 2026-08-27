@@ -4,24 +4,24 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CaptionMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Generic,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Security,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TaggingAdVideo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tte1110,
     }

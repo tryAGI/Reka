@@ -4,7 +4,7 @@
 namespace Reka.Research
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ResearchOptions
     {

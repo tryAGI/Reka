@@ -9,7 +9,7 @@ namespace Reka.Vision
     public sealed partial class ReconfigureConfig
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunking_config")]
         [global::System.Text.Json.Serialization.JsonRequired]

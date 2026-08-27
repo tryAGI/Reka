@@ -4,7 +4,7 @@
 namespace Reka.Vision
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class FeaturePlanResponseErrors
     {

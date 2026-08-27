@@ -4,7 +4,7 @@
 namespace Reka
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ValidationError
     {
