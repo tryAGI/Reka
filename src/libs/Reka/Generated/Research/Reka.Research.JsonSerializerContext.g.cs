@@ -78,6 +78,7 @@ namespace Reka.Research
             typeof(global::Reka.Research.JsonConverters.UnixTimestampJsonConverter),
         })]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Research.JsonSerializerContextTypes))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Research.CreateChatCompletionRequestMessagesItemsOneOf0Role), TypeInfoPropertyName = "CreateChatCompletionRequestMessagesItemsOneOf0Role2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Research.CreateChatCompletionRequestMessagesItems0))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
@@ -139,7 +140,6 @@ namespace Reka.Research
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Research.CreateChatCompletionResponse200), TypeInfoPropertyName = "CreateChatCompletionResponse2002")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Reka.Research.CreateChatCompletionRequestMessagesItems>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Reka.Research.ReasoningStepContentToolOutputItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Reka.Research.ReasoningStepToolCallsItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Reka.Research.ReasoningStep>))]
