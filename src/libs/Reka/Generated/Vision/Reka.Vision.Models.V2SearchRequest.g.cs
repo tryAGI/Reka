@@ -58,8 +58,7 @@ namespace Reka.Vision
         /// Metadata filters (duration, width, height)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filter")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.SearchFilter, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.SearchFilter, object>? Filter { get; set; }
+        public global::Reka.Vision.SearchFilter? Filter { get; set; }
 
         /// <summary>
         /// Start of an explicit UTC datetime range for semantic search
@@ -173,7 +172,7 @@ namespace Reka.Vision
             global::System.Collections.Generic.IList<string>? groupIds,
             global::Reka.Vision.ThresholdLevel? threshold,
             bool? rerank,
-            global::Reka.Vision.OneOf<global::Reka.Vision.SearchFilter, object>? filter,
+            global::Reka.Vision.SearchFilter? filter,
             global::System.DateTime? datetimeFrom,
             global::System.DateTime? datetimeTo,
             double? timestampFrom,

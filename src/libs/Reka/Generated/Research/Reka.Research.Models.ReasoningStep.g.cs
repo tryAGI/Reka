@@ -34,8 +34,7 @@ namespace Reka.Research
         /// The result from the execution of the tool call, if applicable.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Research.JsonConverters.OneOfJsonConverter<global::Reka.Research.ReasoningStepContent, object>))]
-        public global::Reka.Research.OneOf<global::Reka.Research.ReasoningStepContent, object>? Content { get; set; }
+        public global::Reka.Research.ReasoningStepContent? Content { get; set; }
 
         /// <summary>
         /// The unique identifier of the tool call that produced this reasoning step. This is used to link the reasoning step to the tool call in an earlier reasoning step.
@@ -75,7 +74,7 @@ namespace Reka.Research
             global::Reka.Research.ReasoningStepRole role,
             string? reasoningContent,
             global::System.Collections.Generic.IList<global::Reka.Research.ReasoningStepToolCallsItems>? toolCalls,
-            global::Reka.Research.OneOf<global::Reka.Research.ReasoningStepContent, object>? content,
+            global::Reka.Research.ReasoningStepContent? content,
             string? toolCallId)
         {
             this.Role = role;

@@ -21,6 +21,11 @@ namespace Reka.Research
         public global::System.Collections.Generic.Dictionary<string, object>? StringObjectDictionary { get; set; }
 
         /// <summary>
+        /// Runtime object lists used by dynamic JSON payloads such as tool arguments.
+        /// </summary>
+        public global::System.Collections.Generic.List<object>? ObjectList { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         public global::System.Text.Json.JsonElement? JsonElement { get; set; }
@@ -188,91 +193,79 @@ namespace Reka.Research
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.OneOf<global::Reka.Research.ReasoningStepContent, object>? Type40 { get; set; }
+        public global::Reka.Research.ChatCompletionResponseMessageAnnotationsItemsType? Type40 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.ChatCompletionResponseMessageAnnotationsItemsType? Type41 { get; set; }
+        public global::Reka.Research.ChatCompletionResponseMessageAnnotationsItemsUrlCitation? Type41 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.ChatCompletionResponseMessageAnnotationsItemsUrlCitation? Type42 { get; set; }
+        public global::Reka.Research.ChatCompletionResponseMessageAnnotationsItems? Type42 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.ChatCompletionResponseMessageAnnotationsItems? Type43 { get; set; }
+        public global::Reka.Research.ChatCompletionResponseMessage? Type43 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.ChatCompletionResponseMessage? Type44 { get; set; }
+        public global::System.Collections.Generic.IList<global::Reka.Research.ReasoningStep>? Type44 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Reka.Research.ReasoningStep>? Type45 { get; set; }
+        public global::System.Collections.Generic.IList<global::Reka.Research.ChatCompletionResponseMessageAnnotationsItems>? Type45 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Reka.Research.ChatCompletionResponseMessageAnnotationsItems>? Type46 { get; set; }
+        public global::Reka.Research.CreateChatCompletionResponseChoicesItems? Type46 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.CreateChatCompletionResponseChoicesItems? Type47 { get; set; }
+        public global::Reka.Research.CompletionUsage? Type47 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.CompletionUsage? Type48 { get; set; }
+        public global::Reka.Research.CreateChatCompletionResponse? Type48 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.CreateChatCompletionResponse? Type49 { get; set; }
+        public global::System.Collections.Generic.IList<global::Reka.Research.CreateChatCompletionResponseChoicesItems>? Type49 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Reka.Research.CreateChatCompletionResponseChoicesItems>? Type50 { get; set; }
+        public global::System.DateTimeOffset? Type50 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.DateTimeOffset? Type51 { get; set; }
+        public global::Reka.Research.ChatCompletionStreamResponseDeltaRole? Type51 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.ChatCompletionStreamResponseDeltaRole? Type52 { get; set; }
+        public global::Reka.Research.ChatCompletionStreamResponseDelta? Type52 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.ChatCompletionStreamResponseDelta? Type53 { get; set; }
+        public global::Reka.Research.CreateChatCompletionStreamResponseChoicesItemsFinishReason? Type53 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.CreateChatCompletionStreamResponseChoicesItemsFinishReason? Type54 { get; set; }
+        public global::Reka.Research.CreateChatCompletionStreamResponseChoicesItems? Type54 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.CreateChatCompletionStreamResponseChoicesItems? Type55 { get; set; }
+        public global::Reka.Research.CreateChatCompletionStreamResponseObject? Type55 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.OneOf<global::Reka.Research.CreateChatCompletionStreamResponseChoicesItemsFinishReason?, object>? Type56 { get; set; }
+        public global::Reka.Research.CreateChatCompletionStreamResponse? Type56 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.CreateChatCompletionStreamResponseObject? Type57 { get; set; }
+        public global::System.Collections.Generic.IList<global::Reka.Research.CreateChatCompletionStreamResponseChoicesItems>? Type57 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.CreateChatCompletionStreamResponse? Type58 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Reka.Research.CreateChatCompletionStreamResponseChoicesItems>? Type59 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Reka.Research.OneOf<global::Reka.Research.CompletionUsage, object>? Type60 { get; set; }
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Reka.Research.CreateChatCompletionResponse200? Type61 { get; set; }
+        public global::Reka.Research.CreateChatCompletionResponse200? Type58 { get; set; }
 
         /// <summary>
         ///

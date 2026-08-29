@@ -26,22 +26,19 @@ namespace Reka.Vision
         /// Metadata for a video
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VideoMetadata, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.VideoMetadata, object>? Metadata { get; set; }
+        public global::Reka.Vision.VideoMetadata? Metadata { get; set; }
 
         /// <summary>
         /// Status of video indexing
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("indexing_status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VideoIndexingStatus?, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.VideoIndexingStatus?, object>? IndexingStatus { get; set; }
+        public global::Reka.Vision.VideoIndexingStatus? IndexingStatus { get; set; }
 
         /// <summary>
         /// Type of indexing applied to the video
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("indexing_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.UserIndexingParams?, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.UserIndexingParams?, object>? IndexingType { get; set; }
+        public global::Reka.Vision.UserIndexingParams? IndexingType { get; set; }
 
         /// <summary>
         /// Group ID if video belongs to a group
@@ -82,9 +79,9 @@ namespace Reka.Vision
         public VideosGetResponseChunk(
             string videoId,
             string url,
-            global::Reka.Vision.OneOf<global::Reka.Vision.VideoMetadata, object>? metadata,
-            global::Reka.Vision.OneOf<global::Reka.Vision.VideoIndexingStatus?, object>? indexingStatus,
-            global::Reka.Vision.OneOf<global::Reka.Vision.UserIndexingParams?, object>? indexingType,
+            global::Reka.Vision.VideoMetadata? metadata,
+            global::Reka.Vision.VideoIndexingStatus? indexingStatus,
+            global::Reka.Vision.UserIndexingParams? indexingType,
             string? groupId)
         {
             this.VideoId = videoId ?? throw new global::System.ArgumentNullException(nameof(videoId));

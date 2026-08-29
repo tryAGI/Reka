@@ -50,8 +50,7 @@ namespace Reka.Research
         /// **NOTE:** If the stream is interrupted or cancelled, you may not  receive the final usage chunk which contains the total token usage for the request.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Research.JsonConverters.OneOfJsonConverter<global::Reka.Research.CompletionUsage, object>))]
-        public global::Reka.Research.OneOf<global::Reka.Research.CompletionUsage, object>? Usage { get; set; }
+        public global::Reka.Research.CompletionUsage? Usage { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -90,7 +89,7 @@ namespace Reka.Research
             global::System.DateTimeOffset created,
             string model,
             global::Reka.Research.CreateChatCompletionStreamResponseObject @object,
-            global::Reka.Research.OneOf<global::Reka.Research.CompletionUsage, object>? usage)
+            global::Reka.Research.CompletionUsage? usage)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));

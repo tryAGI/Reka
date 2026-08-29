@@ -45,8 +45,7 @@ namespace Reka.Vision
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_settings")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VoiceSettingsInput, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.VoiceSettingsInput, object>? VoiceSettings { get; set; }
+        public global::Reka.Vision.VoiceSettingsInput? VoiceSettings { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -76,7 +75,7 @@ namespace Reka.Vision
             global::Reka.Vision.TextToSpeechInputOutputFormat? outputFormat,
             string? languageCode,
             int? seed,
-            global::Reka.Vision.OneOf<global::Reka.Vision.VoiceSettingsInput, object>? voiceSettings)
+            global::Reka.Vision.VoiceSettingsInput? voiceSettings)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));

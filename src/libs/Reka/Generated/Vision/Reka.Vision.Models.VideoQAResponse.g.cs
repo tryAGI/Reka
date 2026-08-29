@@ -12,8 +12,7 @@ namespace Reka.Vision
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chat_response")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VideoQaResponseChatResponse?, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.VideoQaResponseChatResponse?, object>? ChatResponse { get; set; }
+        public global::Reka.Vision.VideoQaResponseChatResponse? ChatResponse { get; set; }
 
         /// <summary>
         /// Default Value: pending
@@ -39,7 +38,7 @@ namespace Reka.Vision
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public VideoQAResponse(
-            global::Reka.Vision.OneOf<global::Reka.Vision.VideoQaResponseChatResponse?, object>? chatResponse,
+            global::Reka.Vision.VideoQaResponseChatResponse? chatResponse,
             global::Reka.Vision.VideoQaResponseStatus? status)
         {
             this.ChatResponse = chatResponse;

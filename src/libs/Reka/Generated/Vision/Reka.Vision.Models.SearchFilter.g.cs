@@ -18,22 +18,19 @@ namespace Reka.Vision
         /// Filter by video duration in seconds
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.NumberFilter, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.NumberFilter, object>? Duration { get; set; }
+        public global::Reka.Vision.NumberFilter? Duration { get; set; }
 
         /// <summary>
         /// Filter by video width in pixels
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("width")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.NumberFilter, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.NumberFilter, object>? Width { get; set; }
+        public global::Reka.Vision.NumberFilter? Width { get; set; }
 
         /// <summary>
         /// Filter by video height in pixels
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("height")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.NumberFilter, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.NumberFilter, object>? Height { get; set; }
+        public global::Reka.Vision.NumberFilter? Height { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -61,9 +58,9 @@ namespace Reka.Vision
 #endif
         public SearchFilter(
             global::System.Collections.Generic.IList<string>? id,
-            global::Reka.Vision.OneOf<global::Reka.Vision.NumberFilter, object>? duration,
-            global::Reka.Vision.OneOf<global::Reka.Vision.NumberFilter, object>? width,
-            global::Reka.Vision.OneOf<global::Reka.Vision.NumberFilter, object>? height)
+            global::Reka.Vision.NumberFilter? duration,
+            global::Reka.Vision.NumberFilter? width,
+            global::Reka.Vision.NumberFilter? height)
         {
             this.Id = id;
             this.Duration = duration;

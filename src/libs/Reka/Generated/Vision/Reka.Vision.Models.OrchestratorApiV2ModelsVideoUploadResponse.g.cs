@@ -27,8 +27,7 @@ namespace Reka.Vision
         /// Video metadata (populated after upload completes)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VideoMetadata, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.VideoMetadata, object>? Metadata { get; set; }
+        public global::Reka.Vision.VideoMetadata? Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -54,7 +53,7 @@ namespace Reka.Vision
         public OrchestratorApiV2ModelsVideoUploadResponse(
             string videoId,
             global::Reka.Vision.VideoUploadStatus status,
-            global::Reka.Vision.OneOf<global::Reka.Vision.VideoMetadata, object>? metadata)
+            global::Reka.Vision.VideoMetadata? metadata)
         {
             this.VideoId = videoId ?? throw new global::System.ArgumentNullException(nameof(videoId));
             this.Status = status;

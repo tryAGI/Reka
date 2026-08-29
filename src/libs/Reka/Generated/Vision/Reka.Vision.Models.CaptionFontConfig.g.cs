@@ -18,8 +18,7 @@ namespace Reka.Vision
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_transform")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.CaptionFontConfigTextTransform?, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.CaptionFontConfigTextTransform?, object>? TextTransform { get; set; }
+        public global::Reka.Vision.CaptionFontConfigTextTransform? TextTransform { get; set; }
 
         /// <summary>
         ///
@@ -43,15 +42,13 @@ namespace Reka.Vision
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("position")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.CaptionFontConfigPosition?, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.CaptionFontConfigPosition?, object>? Position { get; set; }
+        public global::Reka.Vision.CaptionFontConfigPosition? Position { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("font_family")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.CaptionFontConfigFontFamily?, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.CaptionFontConfigFontFamily?, object>? FontFamily { get; set; }
+        public global::Reka.Vision.CaptionFontConfigFontFamily? FontFamily { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -74,12 +71,12 @@ namespace Reka.Vision
 #endif
         public CaptionFontConfig(
             double? desiredFontSize,
-            global::Reka.Vision.OneOf<global::Reka.Vision.CaptionFontConfigTextTransform?, object>? textTransform,
+            global::Reka.Vision.CaptionFontConfigTextTransform? textTransform,
             string? textColor,
             string? highlightColor,
             string? strokeColor,
-            global::Reka.Vision.OneOf<global::Reka.Vision.CaptionFontConfigPosition?, object>? position,
-            global::Reka.Vision.OneOf<global::Reka.Vision.CaptionFontConfigFontFamily?, object>? fontFamily)
+            global::Reka.Vision.CaptionFontConfigPosition? position,
+            global::Reka.Vision.CaptionFontConfigFontFamily? fontFamily)
         {
             this.DesiredFontSize = desiredFontSize;
             this.TextTransform = textTransform;

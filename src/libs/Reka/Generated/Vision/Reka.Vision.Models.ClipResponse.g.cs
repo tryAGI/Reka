@@ -38,15 +38,13 @@ namespace Reka.Vision
         /// Generation configuration used
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generation_config")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.ClipGenerationConfigResult, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.ClipGenerationConfigResult, object>? GenerationConfig { get; set; }
+        public global::Reka.Vision.ClipGenerationConfigResult? GenerationConfig { get; set; }
 
         /// <summary>
         /// Rendering configuration used
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rendering_config")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.ClipRenderingConfig, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.ClipRenderingConfig, object>? RenderingConfig { get; set; }
+        public global::Reka.Vision.ClipRenderingConfig? RenderingConfig { get; set; }
 
         /// <summary>
         /// List of input video URLs
@@ -110,8 +108,8 @@ namespace Reka.Vision
             string status,
             string? createdAt,
             string? updatedAt,
-            global::Reka.Vision.OneOf<global::Reka.Vision.ClipGenerationConfigResult, object>? generationConfig,
-            global::Reka.Vision.OneOf<global::Reka.Vision.ClipRenderingConfig, object>? renderingConfig,
+            global::Reka.Vision.ClipGenerationConfigResult? generationConfig,
+            global::Reka.Vision.ClipRenderingConfig? renderingConfig,
             global::System.Collections.Generic.IList<string>? videoUrls,
             string? prompt,
             global::System.Collections.Generic.IList<global::Reka.Vision.ClipOutput>? output)
