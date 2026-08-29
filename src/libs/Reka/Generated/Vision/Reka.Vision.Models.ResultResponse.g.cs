@@ -27,8 +27,7 @@ namespace Reka.Vision
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.ResultResponseOutput?, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.ResultResponseOutput?, object>? Output { get; set; }
+        public global::Reka.Vision.ResultResponseOutput? Output { get; set; }
 
         /// <summary>
         ///
@@ -62,7 +61,7 @@ namespace Reka.Vision
         public ResultResponse(
             string requestId,
             global::Reka.Vision.ResultResponseStatus status,
-            global::Reka.Vision.OneOf<global::Reka.Vision.ResultResponseOutput?, object>? output,
+            global::Reka.Vision.ResultResponseOutput? output,
             object? error,
             object? metrics)
         {

@@ -40,8 +40,7 @@ namespace Reka.Vision
         /// Caption styling overrides
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("caption_style")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.CaptionFontConfig, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.CaptionFontConfig, object>? CaptionStyle { get; set; }
+        public global::Reka.Vision.CaptionFontConfig? CaptionStyle { get; set; }
 
         /// <summary>
         /// How to fit the source video into the target aspect_ratio. 'ai' (default) reframes the source to fill the target, keeping the most relevant content in view. 'fit' preserves the entire source frame inside the target, adding bars on the unfilled sides.
@@ -87,7 +86,7 @@ namespace Reka.Vision
             bool? subtitles,
             global::Reka.Vision.AspectRatio? aspectRatio,
             global::Reka.Vision.VideoResolution? resolution,
-            global::Reka.Vision.OneOf<global::Reka.Vision.CaptionFontConfig, object>? captionStyle,
+            global::Reka.Vision.CaptionFontConfig? captionStyle,
             global::Reka.Vision.ClipLayout? layout)
         {
             this.ShowWatermark = showWatermark;

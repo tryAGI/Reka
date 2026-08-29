@@ -19,9 +19,7 @@ namespace Reka.Vision
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("frame_size")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.FrameSize, object>))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Reka.Vision.OneOf<global::Reka.Vision.FrameSize, object> FrameSize { get; set; }
+        public global::Reka.Vision.FrameSize? FrameSize { get; set; }
 
         /// <summary>
         ///
@@ -40,15 +38,15 @@ namespace Reka.Vision
         /// Initializes a new instance of the <see cref="SegmentResponse" /> class.
         /// </summary>
         /// <param name="frames"></param>
-        /// <param name="frameSize"></param>
         /// <param name="frameCount"></param>
+        /// <param name="frameSize"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SegmentResponse(
             global::System.Collections.Generic.IList<global::Reka.Vision.SegmentFrame> frames,
-            global::Reka.Vision.OneOf<global::Reka.Vision.FrameSize, object> frameSize,
-            int frameCount)
+            int frameCount,
+            global::Reka.Vision.FrameSize? frameSize)
         {
             this.Frames = frames ?? throw new global::System.ArgumentNullException(nameof(frames));
             this.FrameSize = frameSize;

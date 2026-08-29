@@ -185,54 +185,6 @@ namespace Reka.Vision
 
             typeof(global::Reka.Vision.JsonConverters.ResultResponseOutputJsonConverter),
 
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VideoMetadata, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VideoIndexingStatus?, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.UserIndexingParams?, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VideoQaResponseChatResponse?, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.SubtitleTranslationLocale?, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.CaptionFontConfigTextTransform?, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.CaptionFontConfigPosition?, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.CaptionFontConfigFontFamily?, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.CaptionFontConfig, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.SubtitleTranslationLocale?, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.ClipGenerationConfigResult, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.ClipRenderingConfig, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VideoUploadStatus?, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VideoMetadata, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VideoMetadata, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.NumberFilter, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.NumberFilter, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.NumberFilter, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.SearchFilter, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.FrameSize, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.InferenceRequestListItemOutput?, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.ResultResponseOutput?, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VoiceSettingsInput, object>),
-
-            typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.V2InferenceRequestsGetParametersStatusSchema?, object>),
-
             typeof(global::Reka.Vision.JsonConverters.UnixTimestampJsonConverter),
         })]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.JsonSerializerContextTypes))]
@@ -245,10 +197,7 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoIndexingStatus), TypeInfoPropertyName = "VideoIndexingStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.UserIndexingParams), TypeInfoPropertyName = "UserIndexingParams2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideosGetResponseChunk))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.VideoMetadata, object>), TypeInfoPropertyName = "OneOfVideoMetadataObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.VideoIndexingStatus?, object>), TypeInfoPropertyName = "OneOfVideoIndexingStatusObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.UserIndexingParams?, object>), TypeInfoPropertyName = "OneOfUserIndexingParamsObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideosGetResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Reka.Vision.VideosGetResponseChunk>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoDeleteResponse))]
@@ -271,7 +220,6 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoQaResponseChatResponse), TypeInfoPropertyName = "VideoQaResponseChatResponse2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoQaResponseStatus), TypeInfoPropertyName = "VideoQaResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoQAResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.VideoQaResponseChatResponse?, object>), TypeInfoPropertyName = "OneOfVideoQaResponseChatResponseObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoTaggingAdvertisingResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoTaggingRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200), TypeInfoPropertyName = "MetadataTaggingIndexedTagV1QaIndexedtagPostResponse2002")]
@@ -279,25 +227,18 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoGenerationTemplate), TypeInfoPropertyName = "VideoGenerationTemplate2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.SubtitleTranslationLocale), TypeInfoPropertyName = "SubtitleTranslationLocale2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.ClipGenerationConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.SubtitleTranslationLocale?, object>), TypeInfoPropertyName = "OneOfSubtitleTranslationLocaleObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.AspectRatio), TypeInfoPropertyName = "AspectRatio2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoResolution), TypeInfoPropertyName = "VideoResolution2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.CaptionFontConfigTextTransform), TypeInfoPropertyName = "CaptionFontConfigTextTransform2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.CaptionFontConfigPosition), TypeInfoPropertyName = "CaptionFontConfigPosition2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.CaptionFontConfigFontFamily), TypeInfoPropertyName = "CaptionFontConfigFontFamily2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.CaptionFontConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.CaptionFontConfigTextTransform?, object>), TypeInfoPropertyName = "OneOfCaptionFontConfigTextTransformObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.CaptionFontConfigPosition?, object>), TypeInfoPropertyName = "OneOfCaptionFontConfigPositionObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.CaptionFontConfigFontFamily?, object>), TypeInfoPropertyName = "OneOfCaptionFontConfigFontFamilyObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.ClipLayout), TypeInfoPropertyName = "ClipLayout2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.ClipRenderingConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.CaptionFontConfig, object>), TypeInfoPropertyName = "OneOfCaptionFontConfigObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.ClipRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.ClipGenerationConfigResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.ClipOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.ClipResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.ClipGenerationConfigResult, object>), TypeInfoPropertyName = "OneOfClipGenerationConfigResultObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.ClipRenderingConfig, object>), TypeInfoPropertyName = "OneOfClipRenderingConfigObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Reka.Vision.ClipOutput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.ClipDeleteRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.ImageUploadResponse))]
@@ -317,7 +258,6 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoUploadStatus), TypeInfoPropertyName = "VideoUploadStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.FeatureStatus), TypeInfoPropertyName = "FeatureStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.VideoUploadStatus?, object>), TypeInfoPropertyName = "OneOfVideoUploadStatusObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Reka.Vision.FeatureStatus>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Reka.Vision.VideoResponse>))]
@@ -356,10 +296,8 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.ThresholdLevel), TypeInfoPropertyName = "ThresholdLevel2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.NumberFilter))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.SearchFilter))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.NumberFilter, object>), TypeInfoPropertyName = "OneOfNumberFilterObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.V2SearchRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Reka.Vision.SearchTextField>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.SearchFilter, object>), TypeInfoPropertyName = "OneOfSearchFilterObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.V2SearchResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.SearchPool))]
@@ -399,7 +337,6 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.FrameSize))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.SegmentResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Reka.Vision.SegmentFrame>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.FrameSize, object>), TypeInfoPropertyName = "OneOfFrameSizeObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.InferenceModelInfo))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.InferenceModelsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Reka.Vision.InferenceModelInfo>))]
@@ -416,13 +353,11 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Reka.Vision.BoundingBox>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.InferenceRequestListItemOutput), TypeInfoPropertyName = "InferenceRequestListItemOutput2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.InferenceRequestListItem))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.InferenceRequestListItemOutput?, object>), TypeInfoPropertyName = "OneOfInferenceRequestListItemOutputObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.InferenceRequestListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Reka.Vision.InferenceRequestListItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.ResultResponseStatus), TypeInfoPropertyName = "ResultResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.ResultResponseOutput), TypeInfoPropertyName = "ResultResponseOutput2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.ResultResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.ResultResponseOutput?, object>), TypeInfoPropertyName = "OneOfResultResponseOutputObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.StatusResponseStatus), TypeInfoPropertyName = "StatusResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.StatusResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<object>))]
@@ -449,7 +384,6 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.TextToSpeechInputOutputFormat), TypeInfoPropertyName = "TextToSpeechInputOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VoiceSettingsInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.TextToSpeechInput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.VoiceSettingsInput, object>), TypeInfoPropertyName = "OneOfVoiceSettingsInputObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.TextToSpeechSubmitRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.TextToVideoModelId), TypeInfoPropertyName = "TextToVideoModelId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.TextToVideoInputAspectRatio), TypeInfoPropertyName = "TextToVideoInputAspectRatio2")]
@@ -468,7 +402,6 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.UploadVideoV2VideosPostRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::System.Guid>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OneOf<global::Reka.Vision.V2InferenceRequestsGetParametersStatusSchema?, object>), TypeInfoPropertyName = "OneOfV2InferenceRequestsGetParametersStatusSchemaObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, bool>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Reka.Vision.VideosGetResponseChunk>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Reka.Vision.OrchestratorProtocolVideoGroupResponse>))]

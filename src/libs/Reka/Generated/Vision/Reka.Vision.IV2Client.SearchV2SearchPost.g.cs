@@ -90,7 +90,7 @@ namespace Reka.Vision
             global::System.Collections.Generic.IList<string>? groupIds = default,
             global::Reka.Vision.ThresholdLevel? threshold = default,
             bool? rerank = default,
-            global::Reka.Vision.OneOf<global::Reka.Vision.SearchFilter, object>? filter = default,
+            global::Reka.Vision.SearchFilter? filter = default,
             global::System.DateTime? datetimeFrom = default,
             global::System.DateTime? datetimeTo = default,
             double? timestampFrom = default,

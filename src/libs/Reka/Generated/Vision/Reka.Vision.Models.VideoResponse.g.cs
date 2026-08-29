@@ -25,15 +25,13 @@ namespace Reka.Vision
         /// Upload status of the video
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VideoUploadStatus?, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.VideoUploadStatus?, object>? Status { get; set; }
+        public global::Reka.Vision.VideoUploadStatus? Status { get; set; }
 
         /// <summary>
         /// Metadata for a video
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.VideoMetadata, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.VideoMetadata, object>? Metadata { get; set; }
+        public global::Reka.Vision.VideoMetadata? Metadata { get; set; }
 
         /// <summary>
         /// Per-feature indexing statuses from the video_features table
@@ -89,8 +87,8 @@ namespace Reka.Vision
         public VideoResponse(
             string videoId,
             string? url,
-            global::Reka.Vision.OneOf<global::Reka.Vision.VideoUploadStatus?, object>? status,
-            global::Reka.Vision.OneOf<global::Reka.Vision.VideoMetadata, object>? metadata,
+            global::Reka.Vision.VideoUploadStatus? status,
+            global::Reka.Vision.VideoMetadata? metadata,
             global::System.Collections.Generic.Dictionary<string, global::Reka.Vision.FeatureStatus>? features,
             string? groupId,
             string? error)

@@ -72,8 +72,7 @@ namespace Reka.Vision
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.InferenceRequestListItemOutput?, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.InferenceRequestListItemOutput?, object>? Output { get; set; }
+        public global::Reka.Vision.InferenceRequestListItemOutput? Output { get; set; }
 
         /// <summary>
         ///
@@ -114,7 +113,7 @@ namespace Reka.Vision
             global::System.DateTime? startedAt,
             global::System.DateTime? completedAt,
             object? input,
-            global::Reka.Vision.OneOf<global::Reka.Vision.InferenceRequestListItemOutput?, object>? output,
+            global::Reka.Vision.InferenceRequestListItemOutput? output,
             object? error)
         {
             this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));

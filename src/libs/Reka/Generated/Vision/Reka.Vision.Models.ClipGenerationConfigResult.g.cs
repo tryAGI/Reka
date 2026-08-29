@@ -55,8 +55,7 @@ namespace Reka.Vision
         /// Optional locale to auto-generate translated subtitles after generation completes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("translated_subtitles_target_language")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Reka.Vision.JsonConverters.OneOfJsonConverter<global::Reka.Vision.SubtitleTranslationLocale?, object>))]
-        public global::Reka.Vision.OneOf<global::Reka.Vision.SubtitleTranslationLocale?, object>? TranslatedSubtitlesTargetLanguage { get; set; }
+        public global::Reka.Vision.SubtitleTranslationLocale? TranslatedSubtitlesTargetLanguage { get; set; }
 
         /// <summary>
         /// Max character length of a translated subtitle group before splitting on word boundaries.
@@ -109,7 +108,7 @@ namespace Reka.Vision
             int? maxDurationSeconds,
             int? sourceStartTime,
             int? sourceEndTime,
-            global::Reka.Vision.OneOf<global::Reka.Vision.SubtitleTranslationLocale?, object>? translatedSubtitlesTargetLanguage,
+            global::Reka.Vision.SubtitleTranslationLocale? translatedSubtitlesTargetLanguage,
             int? translatedSubtitlesGroupLength)
         {
             this.Template = template;
