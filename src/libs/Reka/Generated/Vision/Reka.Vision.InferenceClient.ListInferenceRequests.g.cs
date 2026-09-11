@@ -181,7 +181,7 @@ namespace Reka.Vision
                                 .AddOptionalParameter("endpoint_id", endpointId)
                                 .AddOptionalParameter("capability", capability)
                                 .AddOptionalParameter("model_id", modelId)
-                                .AddOptionalParameter("status", status?.ToString())
+                                .AddOptionalParameter("status", status?.ToValueString())
                                 .AddOptionalParameter("start", start?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("end", end?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("expand", expand, delimiter: ",", explode: true)
