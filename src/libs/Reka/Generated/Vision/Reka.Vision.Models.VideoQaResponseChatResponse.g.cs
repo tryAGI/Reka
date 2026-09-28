@@ -42,8 +42,8 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public string PickVideoQaResponseChatResponseVariant1() => IsVideoQaResponseChatResponseVariant1
-            ? VideoQaResponseChatResponseVariant1!
+        public string PickVideoQaResponseChatResponseVariant1() => VideoQaResponseChatResponseVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoQaResponseChatResponseVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public object PickVideoQaResponseChatResponseVariant2() => IsVideoQaResponseChatResponseVariant2
-            ? VideoQaResponseChatResponseVariant2!
+        public object PickVideoQaResponseChatResponseVariant2() => VideoQaResponseChatResponseVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoQaResponseChatResponseVariant2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -154,13 +154,13 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsVideoQaResponseChatResponseVariant1 && videoQaResponseChatResponseVariant1 != null)
+            if (VideoQaResponseChatResponseVariant1 is { } __value0 && videoQaResponseChatResponseVariant1 != null)
             {
-                return videoQaResponseChatResponseVariant1(VideoQaResponseChatResponseVariant1!);
+                return videoQaResponseChatResponseVariant1(__value0);
             }
-            else if (IsVideoQaResponseChatResponseVariant2 && videoQaResponseChatResponseVariant2 != null)
+            else if (VideoQaResponseChatResponseVariant2 is { } __value1 && videoQaResponseChatResponseVariant2 != null)
             {
-                return videoQaResponseChatResponseVariant2(VideoQaResponseChatResponseVariant2!);
+                return videoQaResponseChatResponseVariant2(__value1);
             }
 
             return default(TResult);
@@ -180,13 +180,13 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsVideoQaResponseChatResponseVariant1)
+            if (VideoQaResponseChatResponseVariant1 is { } __value0)
             {
-                videoQaResponseChatResponseVariant1?.Invoke(VideoQaResponseChatResponseVariant1!);
+                videoQaResponseChatResponseVariant1?.Invoke(__value0);
             }
-            else if (IsVideoQaResponseChatResponseVariant2)
+            else if (VideoQaResponseChatResponseVariant2 is { } __value1)
             {
-                videoQaResponseChatResponseVariant2?.Invoke(VideoQaResponseChatResponseVariant2!);
+                videoQaResponseChatResponseVariant2?.Invoke(__value1);
             }
         }
 
@@ -203,13 +203,13 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsVideoQaResponseChatResponseVariant1)
+            if (VideoQaResponseChatResponseVariant1 is { } __value0)
             {
-                videoQaResponseChatResponseVariant1?.Invoke(VideoQaResponseChatResponseVariant1!);
+                videoQaResponseChatResponseVariant1?.Invoke(__value0);
             }
-            else if (IsVideoQaResponseChatResponseVariant2)
+            else if (VideoQaResponseChatResponseVariant2 is { } __value1)
             {
-                videoQaResponseChatResponseVariant2?.Invoke(VideoQaResponseChatResponseVariant2!);
+                videoQaResponseChatResponseVariant2?.Invoke(__value1);
             }
         }
 

@@ -211,25 +211,25 @@ namespace Reka.Vision.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.ImageToVideoOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.ImageToVideoOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.ImageToVideoOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ImageToVideoOutput!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickImageToVideoOutput(), typeInfo);
             }
             else if (value.IsTextToImageOutput)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.TextToImageOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.TextToImageOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.TextToImageOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TextToImageOutput!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTextToImageOutput(), typeInfo);
             }
             else if (value.IsTextToSpeechOutput)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.TextToSpeechOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.TextToSpeechOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.TextToSpeechOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TextToSpeechOutput!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTextToSpeechOutput(), typeInfo);
             }
             else if (value.IsImageToBboxOutput)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.ImageToBboxOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.ImageToBboxOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.ImageToBboxOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ImageToBboxOutput!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickImageToBboxOutput(), typeInfo);
             }
         }
     }

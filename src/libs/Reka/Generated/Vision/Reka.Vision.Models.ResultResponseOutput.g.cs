@@ -42,8 +42,8 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Vision.ImageToVideoOutput PickImageToVideoOutput() => IsImageToVideoOutput
-            ? ImageToVideoOutput!
+        public global::Reka.Vision.ImageToVideoOutput PickImageToVideoOutput() => ImageToVideoOutput is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ImageToVideoOutput' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Vision.TextToImageOutput PickTextToImageOutput() => IsTextToImageOutput
-            ? TextToImageOutput!
+        public global::Reka.Vision.TextToImageOutput PickTextToImageOutput() => TextToImageOutput is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TextToImageOutput' but the value was {ToString()}.");
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Vision.TextToSpeechOutput PickTextToSpeechOutput() => IsTextToSpeechOutput
-            ? TextToSpeechOutput!
+        public global::Reka.Vision.TextToSpeechOutput PickTextToSpeechOutput() => TextToSpeechOutput is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TextToSpeechOutput' but the value was {ToString()}.");
 
         /// <summary>
@@ -153,8 +153,8 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Vision.ImageToBboxOutput PickImageToBboxOutput() => IsImageToBboxOutput
-            ? ImageToBboxOutput!
+        public global::Reka.Vision.ImageToBboxOutput PickImageToBboxOutput() => ImageToBboxOutput is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ImageToBboxOutput' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -307,21 +307,21 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsImageToVideoOutput && imageToVideoOutput != null)
+            if (ImageToVideoOutput is { } __value0 && imageToVideoOutput != null)
             {
-                return imageToVideoOutput(ImageToVideoOutput!);
+                return imageToVideoOutput(__value0);
             }
-            else if (IsTextToImageOutput && textToImageOutput != null)
+            else if (TextToImageOutput is { } __value1 && textToImageOutput != null)
             {
-                return textToImageOutput(TextToImageOutput!);
+                return textToImageOutput(__value1);
             }
-            else if (IsTextToSpeechOutput && textToSpeechOutput != null)
+            else if (TextToSpeechOutput is { } __value2 && textToSpeechOutput != null)
             {
-                return textToSpeechOutput(TextToSpeechOutput!);
+                return textToSpeechOutput(__value2);
             }
-            else if (IsImageToBboxOutput && imageToBboxOutput != null)
+            else if (ImageToBboxOutput is { } __value3 && imageToBboxOutput != null)
             {
-                return imageToBboxOutput(ImageToBboxOutput!);
+                return imageToBboxOutput(__value3);
             }
 
             return default(TResult);
@@ -345,21 +345,21 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsImageToVideoOutput)
+            if (ImageToVideoOutput is { } __value0)
             {
-                imageToVideoOutput?.Invoke(ImageToVideoOutput!);
+                imageToVideoOutput?.Invoke(__value0);
             }
-            else if (IsTextToImageOutput)
+            else if (TextToImageOutput is { } __value1)
             {
-                textToImageOutput?.Invoke(TextToImageOutput!);
+                textToImageOutput?.Invoke(__value1);
             }
-            else if (IsTextToSpeechOutput)
+            else if (TextToSpeechOutput is { } __value2)
             {
-                textToSpeechOutput?.Invoke(TextToSpeechOutput!);
+                textToSpeechOutput?.Invoke(__value2);
             }
-            else if (IsImageToBboxOutput)
+            else if (ImageToBboxOutput is { } __value3)
             {
-                imageToBboxOutput?.Invoke(ImageToBboxOutput!);
+                imageToBboxOutput?.Invoke(__value3);
             }
         }
 
@@ -378,21 +378,21 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsImageToVideoOutput)
+            if (ImageToVideoOutput is { } __value0)
             {
-                imageToVideoOutput?.Invoke(ImageToVideoOutput!);
+                imageToVideoOutput?.Invoke(__value0);
             }
-            else if (IsTextToImageOutput)
+            else if (TextToImageOutput is { } __value1)
             {
-                textToImageOutput?.Invoke(TextToImageOutput!);
+                textToImageOutput?.Invoke(__value1);
             }
-            else if (IsTextToSpeechOutput)
+            else if (TextToSpeechOutput is { } __value2)
             {
-                textToSpeechOutput?.Invoke(TextToSpeechOutput!);
+                textToSpeechOutput?.Invoke(__value2);
             }
-            else if (IsImageToBboxOutput)
+            else if (ImageToBboxOutput is { } __value3)
             {
-                imageToBboxOutput?.Invoke(ImageToBboxOutput!);
+                imageToBboxOutput?.Invoke(__value3);
             }
         }
 

@@ -132,13 +132,13 @@ namespace Reka.Research.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Research.ReasoningStepContentToolOutputItems0), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Research.ReasoningStepContentToolOutputItems0?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Research.ReasoningStepContentToolOutputItems0).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ReasoningStepContentToolOutputItems0!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickReasoningStepContentToolOutputItems0(), typeInfo);
             }
             else if (value.IsReasoningStepContentToolOutputItems1)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Research.ReasoningStepContentToolOutputItems1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Research.ReasoningStepContentToolOutputItems1?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Research.ReasoningStepContentToolOutputItems1).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ReasoningStepContentToolOutputItems1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickReasoningStepContentToolOutputItems1(), typeInfo);
             }
         }
     }

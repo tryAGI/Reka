@@ -44,8 +44,8 @@ namespace Reka.Research
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.ResponseFormatJsonSchema PickResponseFormatJsonSchema() => IsResponseFormatJsonSchema
-            ? ResponseFormatJsonSchema!
+        public global::Reka.Research.ResponseFormatJsonSchema PickResponseFormatJsonSchema() => ResponseFormatJsonSchema is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseFormatJsonSchema' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -104,9 +104,9 @@ namespace Reka.Research
                 Validate();
             }
 
-            if (IsResponseFormatJsonSchema && responseFormatJsonSchema != null)
+            if (ResponseFormatJsonSchema is { } __value0 && responseFormatJsonSchema != null)
             {
-                return responseFormatJsonSchema(ResponseFormatJsonSchema!);
+                return responseFormatJsonSchema(__value0);
             }
 
             return default(TResult);
@@ -124,9 +124,9 @@ namespace Reka.Research
                 Validate();
             }
 
-            if (IsResponseFormatJsonSchema)
+            if (ResponseFormatJsonSchema is { } __value0)
             {
-                responseFormatJsonSchema?.Invoke(ResponseFormatJsonSchema!);
+                responseFormatJsonSchema?.Invoke(__value0);
             }
         }
 
@@ -142,9 +142,9 @@ namespace Reka.Research
                 Validate();
             }
 
-            if (IsResponseFormatJsonSchema)
+            if (ResponseFormatJsonSchema is { } __value0)
             {
-                responseFormatJsonSchema?.Invoke(ResponseFormatJsonSchema!);
+                responseFormatJsonSchema?.Invoke(__value0);
             }
         }
 

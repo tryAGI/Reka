@@ -43,8 +43,8 @@ namespace Reka.Research
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.CreateChatCompletionRequestMessagesItems0 PickCreateChatCompletionRequestMessagesItems0() => IsCreateChatCompletionRequestMessagesItems0
-            ? CreateChatCompletionRequestMessagesItems0!
+        public global::Reka.Research.CreateChatCompletionRequestMessagesItems0 PickCreateChatCompletionRequestMessagesItems0() => CreateChatCompletionRequestMessagesItems0 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateChatCompletionRequestMessagesItems0' but the value was {ToString()}.");
 
         /// <summary>
@@ -80,8 +80,8 @@ namespace Reka.Research
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.CreateChatCompletionRequestMessagesItems1 PickCreateChatCompletionRequestMessagesItems1() => IsCreateChatCompletionRequestMessagesItems1
-            ? CreateChatCompletionRequestMessagesItems1!
+        public global::Reka.Research.CreateChatCompletionRequestMessagesItems1 PickCreateChatCompletionRequestMessagesItems1() => CreateChatCompletionRequestMessagesItems1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateChatCompletionRequestMessagesItems1' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -178,13 +178,13 @@ namespace Reka.Research
                 Validate();
             }
 
-            if (IsCreateChatCompletionRequestMessagesItems0 && createChatCompletionRequestMessagesItems0 != null)
+            if (CreateChatCompletionRequestMessagesItems0 is { } __value0 && createChatCompletionRequestMessagesItems0 != null)
             {
-                return createChatCompletionRequestMessagesItems0(CreateChatCompletionRequestMessagesItems0!);
+                return createChatCompletionRequestMessagesItems0(__value0);
             }
-            else if (IsCreateChatCompletionRequestMessagesItems1 && createChatCompletionRequestMessagesItems1 != null)
+            else if (CreateChatCompletionRequestMessagesItems1 is { } __value1 && createChatCompletionRequestMessagesItems1 != null)
             {
-                return createChatCompletionRequestMessagesItems1(CreateChatCompletionRequestMessagesItems1!);
+                return createChatCompletionRequestMessagesItems1(__value1);
             }
 
             return default(TResult);
@@ -204,13 +204,13 @@ namespace Reka.Research
                 Validate();
             }
 
-            if (IsCreateChatCompletionRequestMessagesItems0)
+            if (CreateChatCompletionRequestMessagesItems0 is { } __value0)
             {
-                createChatCompletionRequestMessagesItems0?.Invoke(CreateChatCompletionRequestMessagesItems0!);
+                createChatCompletionRequestMessagesItems0?.Invoke(__value0);
             }
-            else if (IsCreateChatCompletionRequestMessagesItems1)
+            else if (CreateChatCompletionRequestMessagesItems1 is { } __value1)
             {
-                createChatCompletionRequestMessagesItems1?.Invoke(CreateChatCompletionRequestMessagesItems1!);
+                createChatCompletionRequestMessagesItems1?.Invoke(__value1);
             }
         }
 
@@ -227,13 +227,13 @@ namespace Reka.Research
                 Validate();
             }
 
-            if (IsCreateChatCompletionRequestMessagesItems0)
+            if (CreateChatCompletionRequestMessagesItems0 is { } __value0)
             {
-                createChatCompletionRequestMessagesItems0?.Invoke(CreateChatCompletionRequestMessagesItems0!);
+                createChatCompletionRequestMessagesItems0?.Invoke(__value0);
             }
-            else if (IsCreateChatCompletionRequestMessagesItems1)
+            else if (CreateChatCompletionRequestMessagesItems1 is { } __value1)
             {
-                createChatCompletionRequestMessagesItems1?.Invoke(CreateChatCompletionRequestMessagesItems1!);
+                createChatCompletionRequestMessagesItems1?.Invoke(__value1);
             }
         }
 

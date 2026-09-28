@@ -129,13 +129,13 @@ namespace Reka.Vision.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.PaginatedResponseTranscriptSegment), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.PaginatedResponseTranscriptSegment?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.PaginatedResponseTranscriptSegment).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PaginatedResponseTranscriptSegment!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickPaginatedResponseTranscriptSegment(), typeInfo);
             }
             else if (value.IsTranscriptTextResponse)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.TranscriptTextResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.TranscriptTextResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.TranscriptTextResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TranscriptTextResponse!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTranscriptTextResponse(), typeInfo);
             }
         }
     }

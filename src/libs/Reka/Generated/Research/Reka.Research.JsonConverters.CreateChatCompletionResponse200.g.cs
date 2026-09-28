@@ -147,13 +147,13 @@ namespace Reka.Research.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Research.CreateChatCompletionResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Research.CreateChatCompletionResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Research.CreateChatCompletionResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateChatCompletionResponse!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickCreateChatCompletionResponse(), typeInfo);
             }
             else if (value.IsCreateChatCompletionStreamResponse)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Research.CreateChatCompletionStreamResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Research.CreateChatCompletionStreamResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Research.CreateChatCompletionStreamResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateChatCompletionStreamResponse!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickCreateChatCompletionStreamResponse(), typeInfo);
             }
         }
     }

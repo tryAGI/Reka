@@ -130,13 +130,13 @@ namespace Reka.Research.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Research.CreateChatCompletionRequestMessagesItems0), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Research.CreateChatCompletionRequestMessagesItems0?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Research.CreateChatCompletionRequestMessagesItems0).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateChatCompletionRequestMessagesItems0!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickCreateChatCompletionRequestMessagesItems0(), typeInfo);
             }
             else if (value.IsCreateChatCompletionRequestMessagesItems1)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Research.CreateChatCompletionRequestMessagesItems1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Research.CreateChatCompletionRequestMessagesItems1?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Research.CreateChatCompletionRequestMessagesItems1).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.CreateChatCompletionRequestMessagesItems1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickCreateChatCompletionRequestMessagesItems1(), typeInfo);
             }
         }
     }

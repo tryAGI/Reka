@@ -42,8 +42,8 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Vision.VideoTaggingAdvertisingResult PickVideoTaggingAdvertisingResult() => IsVideoTaggingAdvertisingResult
-            ? VideoTaggingAdvertisingResult!
+        public global::Reka.Vision.VideoTaggingAdvertisingResult PickVideoTaggingAdvertisingResult() => VideoTaggingAdvertisingResult is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoTaggingAdvertisingResult' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public string PickMetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2() => IsMetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2
-            ? MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2!
+        public string PickMetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2() => MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsVideoTaggingAdvertisingResult && videoTaggingAdvertisingResult != null)
+            if (VideoTaggingAdvertisingResult is { } __value0 && videoTaggingAdvertisingResult != null)
             {
-                return videoTaggingAdvertisingResult(VideoTaggingAdvertisingResult!);
+                return videoTaggingAdvertisingResult(__value0);
             }
-            else if (IsMetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2 && metadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2 != null)
+            else if (MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2 is { } __value1 && metadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2 != null)
             {
-                return metadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2(MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2!);
+                return metadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsVideoTaggingAdvertisingResult)
+            if (VideoTaggingAdvertisingResult is { } __value0)
             {
-                videoTaggingAdvertisingResult?.Invoke(VideoTaggingAdvertisingResult!);
+                videoTaggingAdvertisingResult?.Invoke(__value0);
             }
-            else if (IsMetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2)
+            else if (MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2 is { } __value1)
             {
-                metadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2?.Invoke(MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2!);
+                metadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsVideoTaggingAdvertisingResult)
+            if (VideoTaggingAdvertisingResult is { } __value0)
             {
-                videoTaggingAdvertisingResult?.Invoke(VideoTaggingAdvertisingResult!);
+                videoTaggingAdvertisingResult?.Invoke(__value0);
             }
-            else if (IsMetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2)
+            else if (MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2 is { } __value1)
             {
-                metadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2?.Invoke(MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2!);
+                metadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2?.Invoke(__value1);
             }
         }
 
