@@ -102,7 +102,7 @@ namespace Reka.Research.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Research.ResponseFormatJsonSchema), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Research.ResponseFormatJsonSchema?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Research.ResponseFormatJsonSchema).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ResponseFormatJsonSchema!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickResponseFormatJsonSchema(), typeInfo);
             }
         }
     }

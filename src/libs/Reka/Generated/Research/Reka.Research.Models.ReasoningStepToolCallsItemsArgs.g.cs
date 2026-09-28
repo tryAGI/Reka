@@ -42,8 +42,8 @@ namespace Reka.Research
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.ReasoningStepToolCallsItemsArgs0 PickReasoningStepToolCallsItemsArgs0() => IsReasoningStepToolCallsItemsArgs0
-            ? ReasoningStepToolCallsItemsArgs0!
+        public global::Reka.Research.ReasoningStepToolCallsItemsArgs0 PickReasoningStepToolCallsItemsArgs0() => ReasoningStepToolCallsItemsArgs0 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ReasoningStepToolCallsItemsArgs0' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Reka.Research
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.ReasoningStepToolCallsItemsArgs1 PickReasoningStepToolCallsItemsArgs1() => IsReasoningStepToolCallsItemsArgs1
-            ? ReasoningStepToolCallsItemsArgs1!
+        public global::Reka.Research.ReasoningStepToolCallsItemsArgs1 PickReasoningStepToolCallsItemsArgs1() => ReasoningStepToolCallsItemsArgs1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ReasoningStepToolCallsItemsArgs1' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace Reka.Research
                 Validate();
             }
 
-            if (IsReasoningStepToolCallsItemsArgs0 && reasoningStepToolCallsItemsArgs0 != null)
+            if (ReasoningStepToolCallsItemsArgs0 is { } __value0 && reasoningStepToolCallsItemsArgs0 != null)
             {
-                return reasoningStepToolCallsItemsArgs0(ReasoningStepToolCallsItemsArgs0!);
+                return reasoningStepToolCallsItemsArgs0(__value0);
             }
-            else if (IsReasoningStepToolCallsItemsArgs1 && reasoningStepToolCallsItemsArgs1 != null)
+            else if (ReasoningStepToolCallsItemsArgs1 is { } __value1 && reasoningStepToolCallsItemsArgs1 != null)
             {
-                return reasoningStepToolCallsItemsArgs1(ReasoningStepToolCallsItemsArgs1!);
+                return reasoningStepToolCallsItemsArgs1(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace Reka.Research
                 Validate();
             }
 
-            if (IsReasoningStepToolCallsItemsArgs0)
+            if (ReasoningStepToolCallsItemsArgs0 is { } __value0)
             {
-                reasoningStepToolCallsItemsArgs0?.Invoke(ReasoningStepToolCallsItemsArgs0!);
+                reasoningStepToolCallsItemsArgs0?.Invoke(__value0);
             }
-            else if (IsReasoningStepToolCallsItemsArgs1)
+            else if (ReasoningStepToolCallsItemsArgs1 is { } __value1)
             {
-                reasoningStepToolCallsItemsArgs1?.Invoke(ReasoningStepToolCallsItemsArgs1!);
+                reasoningStepToolCallsItemsArgs1?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace Reka.Research
                 Validate();
             }
 
-            if (IsReasoningStepToolCallsItemsArgs0)
+            if (ReasoningStepToolCallsItemsArgs0 is { } __value0)
             {
-                reasoningStepToolCallsItemsArgs0?.Invoke(ReasoningStepToolCallsItemsArgs0!);
+                reasoningStepToolCallsItemsArgs0?.Invoke(__value0);
             }
-            else if (IsReasoningStepToolCallsItemsArgs1)
+            else if (ReasoningStepToolCallsItemsArgs1 is { } __value1)
             {
-                reasoningStepToolCallsItemsArgs1?.Invoke(ReasoningStepToolCallsItemsArgs1!);
+                reasoningStepToolCallsItemsArgs1?.Invoke(__value1);
             }
         }
 

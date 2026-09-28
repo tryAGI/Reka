@@ -138,13 +138,13 @@ namespace Reka.Vision.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Reka.Vision.VideoTaggingAdvertisingResult), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Reka.Vision.VideoTaggingAdvertisingResult?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Reka.Vision.VideoTaggingAdvertisingResult).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VideoTaggingAdvertisingResult!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickVideoTaggingAdvertisingResult(), typeInfo);
             }
             else if (value.IsMetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(string), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<string?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(string).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickMetadataTaggingIndexedTagV1QaIndexedtagPostResponse200Variant2(), typeInfo);
             }
         }
     }

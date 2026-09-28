@@ -147,7 +147,7 @@ namespace Reka.Vision
                 PrepareGetVideoRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    videoId: videoId!);
+                    videoId: videoId);
 
                 return __httpRequest;
             }
@@ -169,7 +169,7 @@ namespace Reka.Vision
                                 pathTemplate: "$\"/v1/videos/{videoId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -203,7 +203,7 @@ namespace Reka.Vision
                                 pathTemplate: "$\"/v1/videos/{videoId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -244,7 +244,7 @@ namespace Reka.Vision
                                 pathTemplate: "$\"/v1/videos/{videoId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -292,7 +292,7 @@ namespace Reka.Vision
                                 pathTemplate: "$\"/v1/videos/{videoId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -314,7 +314,7 @@ namespace Reka.Vision
                                 pathTemplate: "$\"/v1/videos/{videoId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

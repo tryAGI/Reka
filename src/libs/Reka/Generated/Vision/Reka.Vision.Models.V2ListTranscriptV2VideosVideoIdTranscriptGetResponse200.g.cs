@@ -42,8 +42,8 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Vision.PaginatedResponseTranscriptSegment PickPaginatedResponseTranscriptSegment() => IsPaginatedResponseTranscriptSegment
-            ? PaginatedResponseTranscriptSegment!
+        public global::Reka.Vision.PaginatedResponseTranscriptSegment PickPaginatedResponseTranscriptSegment() => PaginatedResponseTranscriptSegment is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'PaginatedResponseTranscriptSegment' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Vision.TranscriptTextResponse PickTranscriptTextResponse() => IsTranscriptTextResponse
-            ? TranscriptTextResponse!
+        public global::Reka.Vision.TranscriptTextResponse PickTranscriptTextResponse() => TranscriptTextResponse is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TranscriptTextResponse' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsPaginatedResponseTranscriptSegment && paginatedResponseTranscriptSegment != null)
+            if (PaginatedResponseTranscriptSegment is { } __value0 && paginatedResponseTranscriptSegment != null)
             {
-                return paginatedResponseTranscriptSegment(PaginatedResponseTranscriptSegment!);
+                return paginatedResponseTranscriptSegment(__value0);
             }
-            else if (IsTranscriptTextResponse && transcriptTextResponse != null)
+            else if (TranscriptTextResponse is { } __value1 && transcriptTextResponse != null)
             {
-                return transcriptTextResponse(TranscriptTextResponse!);
+                return transcriptTextResponse(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsPaginatedResponseTranscriptSegment)
+            if (PaginatedResponseTranscriptSegment is { } __value0)
             {
-                paginatedResponseTranscriptSegment?.Invoke(PaginatedResponseTranscriptSegment!);
+                paginatedResponseTranscriptSegment?.Invoke(__value0);
             }
-            else if (IsTranscriptTextResponse)
+            else if (TranscriptTextResponse is { } __value1)
             {
-                transcriptTextResponse?.Invoke(TranscriptTextResponse!);
+                transcriptTextResponse?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsPaginatedResponseTranscriptSegment)
+            if (PaginatedResponseTranscriptSegment is { } __value0)
             {
-                paginatedResponseTranscriptSegment?.Invoke(PaginatedResponseTranscriptSegment!);
+                paginatedResponseTranscriptSegment?.Invoke(__value0);
             }
-            else if (IsTranscriptTextResponse)
+            else if (TranscriptTextResponse is { } __value1)
             {
-                transcriptTextResponse?.Invoke(TranscriptTextResponse!);
+                transcriptTextResponse?.Invoke(__value1);
             }
         }
 

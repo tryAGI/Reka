@@ -42,8 +42,8 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public double PickVideoChunkSearchResultScoreVariant1() => IsVideoChunkSearchResultScoreVariant1
-            ? VideoChunkSearchResultScoreVariant1!.Value
+        public double PickVideoChunkSearchResultScoreVariant1() => VideoChunkSearchResultScoreVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoChunkSearchResultScoreVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public string PickVideoChunkSearchResultScoreVariant2() => IsVideoChunkSearchResultScoreVariant2
-            ? VideoChunkSearchResultScoreVariant2!
+        public string PickVideoChunkSearchResultScoreVariant2() => VideoChunkSearchResultScoreVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoChunkSearchResultScoreVariant2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsVideoChunkSearchResultScoreVariant1 && videoChunkSearchResultScoreVariant1 != null)
+            if (VideoChunkSearchResultScoreVariant1 is { } __value0 && videoChunkSearchResultScoreVariant1 != null)
             {
-                return videoChunkSearchResultScoreVariant1(VideoChunkSearchResultScoreVariant1!);
+                return videoChunkSearchResultScoreVariant1(__value0);
             }
-            else if (IsVideoChunkSearchResultScoreVariant2 && videoChunkSearchResultScoreVariant2 != null)
+            else if (VideoChunkSearchResultScoreVariant2 is { } __value1 && videoChunkSearchResultScoreVariant2 != null)
             {
-                return videoChunkSearchResultScoreVariant2(VideoChunkSearchResultScoreVariant2!);
+                return videoChunkSearchResultScoreVariant2(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsVideoChunkSearchResultScoreVariant1)
+            if (VideoChunkSearchResultScoreVariant1 is { } __value0)
             {
-                videoChunkSearchResultScoreVariant1?.Invoke(VideoChunkSearchResultScoreVariant1!);
+                videoChunkSearchResultScoreVariant1?.Invoke(__value0);
             }
-            else if (IsVideoChunkSearchResultScoreVariant2)
+            else if (VideoChunkSearchResultScoreVariant2 is { } __value1)
             {
-                videoChunkSearchResultScoreVariant2?.Invoke(VideoChunkSearchResultScoreVariant2!);
+                videoChunkSearchResultScoreVariant2?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace Reka.Vision
                 Validate();
             }
 
-            if (IsVideoChunkSearchResultScoreVariant1)
+            if (VideoChunkSearchResultScoreVariant1 is { } __value0)
             {
-                videoChunkSearchResultScoreVariant1?.Invoke(VideoChunkSearchResultScoreVariant1!);
+                videoChunkSearchResultScoreVariant1?.Invoke(__value0);
             }
-            else if (IsVideoChunkSearchResultScoreVariant2)
+            else if (VideoChunkSearchResultScoreVariant2 is { } __value1)
             {
-                videoChunkSearchResultScoreVariant2?.Invoke(VideoChunkSearchResultScoreVariant2!);
+                videoChunkSearchResultScoreVariant2?.Invoke(__value1);
             }
         }
 

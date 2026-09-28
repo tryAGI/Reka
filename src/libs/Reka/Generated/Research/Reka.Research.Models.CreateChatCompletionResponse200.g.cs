@@ -42,8 +42,8 @@ namespace Reka.Research
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.CreateChatCompletionResponse PickCreateChatCompletionResponse() => IsCreateChatCompletionResponse
-            ? CreateChatCompletionResponse!
+        public global::Reka.Research.CreateChatCompletionResponse PickCreateChatCompletionResponse() => CreateChatCompletionResponse is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateChatCompletionResponse' but the value was {ToString()}.");
 
         /// <summary>
@@ -80,8 +80,8 @@ namespace Reka.Research
         /// <summary>
         ///
         /// </summary>
-        public global::Reka.Research.CreateChatCompletionStreamResponse PickCreateChatCompletionStreamResponse() => IsCreateChatCompletionStreamResponse
-            ? CreateChatCompletionStreamResponse!
+        public global::Reka.Research.CreateChatCompletionStreamResponse PickCreateChatCompletionStreamResponse() => CreateChatCompletionStreamResponse is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreateChatCompletionStreamResponse' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -178,13 +178,13 @@ namespace Reka.Research
                 Validate();
             }
 
-            if (IsCreateChatCompletionResponse && createChatCompletionResponse != null)
+            if (CreateChatCompletionResponse is { } __value0 && createChatCompletionResponse != null)
             {
-                return createChatCompletionResponse(CreateChatCompletionResponse!);
+                return createChatCompletionResponse(__value0);
             }
-            else if (IsCreateChatCompletionStreamResponse && createChatCompletionStreamResponse != null)
+            else if (CreateChatCompletionStreamResponse is { } __value1 && createChatCompletionStreamResponse != null)
             {
-                return createChatCompletionStreamResponse(CreateChatCompletionStreamResponse!);
+                return createChatCompletionStreamResponse(__value1);
             }
 
             return default(TResult);
@@ -204,13 +204,13 @@ namespace Reka.Research
                 Validate();
             }
 
-            if (IsCreateChatCompletionResponse)
+            if (CreateChatCompletionResponse is { } __value0)
             {
-                createChatCompletionResponse?.Invoke(CreateChatCompletionResponse!);
+                createChatCompletionResponse?.Invoke(__value0);
             }
-            else if (IsCreateChatCompletionStreamResponse)
+            else if (CreateChatCompletionStreamResponse is { } __value1)
             {
-                createChatCompletionStreamResponse?.Invoke(CreateChatCompletionStreamResponse!);
+                createChatCompletionStreamResponse?.Invoke(__value1);
             }
         }
 
@@ -227,13 +227,13 @@ namespace Reka.Research
                 Validate();
             }
 
-            if (IsCreateChatCompletionResponse)
+            if (CreateChatCompletionResponse is { } __value0)
             {
-                createChatCompletionResponse?.Invoke(CreateChatCompletionResponse!);
+                createChatCompletionResponse?.Invoke(__value0);
             }
-            else if (IsCreateChatCompletionStreamResponse)
+            else if (CreateChatCompletionStreamResponse is { } __value1)
             {
-                createChatCompletionStreamResponse?.Invoke(CreateChatCompletionStreamResponse!);
+                createChatCompletionStreamResponse?.Invoke(__value1);
             }
         }
 
