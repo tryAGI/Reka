@@ -76,7 +76,7 @@ namespace Reka.Research
             typeof(global::Reka.Research.JsonConverters.UnixTimestampJsonConverter),
         })]
     #pragma warning restore CS3016
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Research.JsonSerializerContextTypes))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Research.ResearchJsonSerializerContextTypes))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Research.CreateChatCompletionRequestMessagesItemsOneOf0Role), TypeInfoPropertyName = "CreateChatCompletionRequestMessagesItemsOneOf0Role2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Research.CreateChatCompletionRequestMessagesItems0))]

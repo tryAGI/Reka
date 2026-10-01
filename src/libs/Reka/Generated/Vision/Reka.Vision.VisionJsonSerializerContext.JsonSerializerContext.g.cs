@@ -186,7 +186,7 @@ namespace Reka.Vision
             typeof(global::Reka.Vision.JsonConverters.UnixTimestampJsonConverter),
         })]
     #pragma warning restore CS3016
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.JsonSerializerContextTypes))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VisionJsonSerializerContextTypes))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.CaptionMode), TypeInfoPropertyName = "CaptionMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OrchestratorProtocolVideoUploadResponse))]
