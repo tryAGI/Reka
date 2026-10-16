@@ -16,7 +16,7 @@ namespace Reka
         {
             Authorizing(HttpClient, ref apiKey);
 
-            AuthorizeUsingApiKeyInHeader(apiKey);
+            AuthorizeUsingBearer(apiKey);
 
             Authorized(HttpClient);
         }

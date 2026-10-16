@@ -118,7 +118,11 @@ public partial class RekaClient : Microsoft.Extensions.AI.IChatClient
 
         foreach (var auth in Authorizations)
         {
-            if (auth.Type == "ApiKey" && auth.Location == "Header")
+            if (auth.Type == "Http" && auth.Name == "Bearer")
+            {
+                httpRequest.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", auth.Value);
+            }
+            else if (auth.Type == "ApiKey" && auth.Location == "Header")
             {
                 httpRequest.Headers.Add(auth.Name, auth.Value);
             }

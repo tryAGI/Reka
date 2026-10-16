@@ -81,6 +81,69 @@ public sealed class GeneratedClientsTests
         capture.LastContent.Should().Contain("\"model\":\"reka-flash-research\"");
     }
 
+    [TestMethod]
+    public async Task CoreClient_ChatCompletion_UsesBearerAuth()
+    {
+        var capture = new RawCaptureHandler(
+            """
+            {"id":"chat-test","object":"chat.completion","created":1,"model":"reka-flash-3",
+             "choices":[{"index":0,"message":{"role":"assistant","content":"11"},"finish_reason":"stop"}],
+             "usage":{"prompt_tokens":5,"completion_tokens":1,"total_tokens":6}}
+            """);
+        using var httpClient = new HttpClient(capture);
+        using var api = new RekaClient("core-key", httpClient: httpClient);
+
+        var response = await api.Chat.CreateChatCompletionAsync(new CreateChatCompletionRequest
+        {
+            Model = "reka-flash-3",
+            Messages = [new ChatMessageInput { Role = ChatMessageInputRole.User, Content = "Fifth prime?" }],
+        });
+
+        response.Choices[0].Message.Content.Should().Be("11");
+        capture.LastRequestUri.Should().Be(new Uri("https://api.reka.ai/v1/chat/completions"));
+        capture.LastAuthorization.Should().Be(new AuthenticationHeaderValue("Bearer", "core-key"));
+        capture.LastHeaders.Should().NotContainKey("X-Api-Key");
+    }
+
+    [TestMethod]
+    public async Task CoreClient_ListModels_LegacyAuthorizationMethodUsesBearerAuth()
+    {
+        var capture = new RawCaptureHandler("""{"object":"list","data":[]}""");
+        using var httpClient = new HttpClient(capture);
+        using var api = new RekaClient("old-key", httpClient: httpClient);
+        api.AuthorizeUsingApiKeyInHeader("new-key");
+
+        var response = await api.Models.ListModelsAsync();
+
+        response.Data.Should().BeEmpty();
+        capture.LastRequestUri.Should().Be(new Uri("https://api.reka.ai/v1/models"));
+        capture.LastAuthorization.Should().Be(new AuthenticationHeaderValue("Bearer", "new-key"));
+        capture.LastHeaders.Should().NotContainKey("X-Api-Key");
+    }
+
+    [TestMethod]
+    public async Task CoreClient_StreamingChat_UsesBearerAuth()
+    {
+        var capture = new RawCaptureHandler(
+            "data: {\"id\":\"chat-test\",\"model\":\"reka-flash-3\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"Hello\"}}]}\n\ndata: [DONE]\n\n");
+        using var httpClient = new HttpClient(capture);
+        using var api = new RekaClient("stream-key", httpClient: httpClient);
+        Microsoft.Extensions.AI.IChatClient chatClient = api;
+        var text = new StringBuilder();
+
+        await foreach (var update in chatClient.GetStreamingResponseAsync(
+            [new Microsoft.Extensions.AI.ChatMessage(Microsoft.Extensions.AI.ChatRole.User, "Hello")],
+            new Microsoft.Extensions.AI.ChatOptions { ModelId = "reka-flash-3" }))
+        {
+            text.Append(update.Text);
+        }
+
+        text.ToString().Should().Be("Hello");
+        capture.LastRequestUri.Should().Be(new Uri("https://api.reka.ai/v1/chat/completions"));
+        capture.LastAuthorization.Should().Be(new AuthenticationHeaderValue("Bearer", "stream-key"));
+        capture.LastHeaders.Should().NotContainKey("X-Api-Key");
+    }
+
     private sealed class RawCaptureHandler(string responseJson) : HttpMessageHandler
     {
         public HttpMethod? LastMethod { get; private set; }

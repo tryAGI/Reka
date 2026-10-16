@@ -7,7 +7,7 @@ namespace Reka
     {
 
         /// <inheritdoc/>
-        public void AuthorizeUsingApiKeyInHeader(
+        public void AuthorizeUsingBearer(
             string apiKey)
         {
             apiKey = apiKey ?? throw new global::System.ArgumentNullException(nameof(apiKey));
@@ -15,9 +15,8 @@ namespace Reka
             for (var i = Authorizations.Count - 1; i >= 0; i--)
             {
                 var __authorization = Authorizations[i];
-                if (__authorization.Type == "ApiKey" &&
-                    __authorization.Location == "Header" &&
-                    __authorization.Name == "X-Api-Key")
+                if (__authorization.Type == "Http" &&
+                    __authorization.Name == "Bearer")
                 {
                     Authorizations.RemoveAt(i);
                 }
@@ -25,10 +24,10 @@ namespace Reka
 
             Authorizations.Add(new global::Reka.EndPointAuthorization
             {
-                Type = "ApiKey",
+                Type = "Http",
                 SchemeId = "ApiKeyAuth",
                 Location = "Header",
-                Name = "X-Api-Key",
+                Name = "Bearer",
                 Value = apiKey,
             });
         }

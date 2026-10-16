@@ -97,9 +97,8 @@ paths:
 components:
   securitySchemes:
     ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: X-Api-Key
+      type: http
+      scheme: bearer
 
   schemas:
     CreateChatCompletionRequest:

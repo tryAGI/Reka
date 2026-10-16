@@ -1,14 +1,21 @@
 # Reka .NET SDK
 
-[![NuGet](https://img.shields.io/nuget/v/tryAGI.Reka.svg)](https://www.nuget.org/packages/tryAGI.Reka/)
+[![NuGet](https://img.shields.io/nuget/v/Reka.svg)](https://www.nuget.org/packages/Reka/)
 
 C# SDK for the [Reka](https://reka.ai/) AI platform, auto-generated from the Reka OpenAPI specification using [AutoSDK](https://github.com/HavenDV/AutoSDK).
 
 ## Installation
 
 ```bash
-dotnet add package tryAGI.Reka
+dotnet add package Reka --prerelease
 ```
+
+Use the prerelease package for the current Reka API. The historical stable 1.1.2
+package contains the earlier Ollama-based client.
+
+Chat and model-list requests use Bearer authentication at `https://api.reka.ai/v1`,
+as described in the [current Reka documentation](https://docs.reka.ai/overview).
+Vision uses a separate client and API-key header.
 
 ## Usage
 

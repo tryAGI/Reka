@@ -13,11 +13,11 @@ namespace Reka
                 Authorizations = new global::Reka.EndPointAuthorizationRequirement[]
                 {                    new global::Reka.EndPointAuthorizationRequirement
                     {
-                        Type = "ApiKey",
+                        Type = "Http",
                         SchemeId = "ApiKeyAuth",
                         Location = "Header",
-                        Name = "X-Api-Key",
-                        FriendlyName = "ApiKeyInHeader",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
                     },
                 },
             };
