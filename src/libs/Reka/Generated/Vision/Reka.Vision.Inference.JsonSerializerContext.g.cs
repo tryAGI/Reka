@@ -101,13 +101,13 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Reka.Vision.BoundingBox>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Reka.Vision.InferenceRequestListItem>))]
-    internal sealed partial class InferenceSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
+    internal sealed partial class VisionJsonSerializerContext_InferenceChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class InferenceSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
+    public sealed partial class VisionJsonSerializerContext_Inference : global::System.Text.Json.Serialization.JsonSerializerContext
     {
         private static readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver Resolver = new LazyChunkResolver();
 
@@ -120,9 +120,9 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public static InferenceSourceGenerationContext Default { get; } = new(DefaultOptions);
+        public static VisionJsonSerializerContext_Inference Default { get; } = new(DefaultOptions);
 
-        private InferenceSourceGenerationContext(global::System.Text.Json.JsonSerializerOptions options)
+        private VisionJsonSerializerContext_Inference(global::System.Text.Json.JsonSerializerOptions options)
             : base(options)
         {
         }
@@ -457,7 +457,7 @@ namespace Reka.Vision
             {
                 return index switch
                 {
-                    0 => new InferenceSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => new VisionJsonSerializerContext_InferenceChunk0(new global::System.Text.Json.JsonSerializerOptions()),
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }
