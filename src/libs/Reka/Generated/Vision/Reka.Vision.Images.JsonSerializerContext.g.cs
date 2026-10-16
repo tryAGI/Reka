@@ -43,13 +43,13 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Reka.Vision.DetectionMetadata>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Reka.Vision.ImageSearchResult>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<byte[]>))]
-    internal sealed partial class ImagesSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
+    internal sealed partial class VisionJsonSerializerContext_ImagesChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class ImagesSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
+    public sealed partial class VisionJsonSerializerContext_Images : global::System.Text.Json.Serialization.JsonSerializerContext
     {
         private static readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver Resolver = new LazyChunkResolver();
 
@@ -62,9 +62,9 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public static ImagesSourceGenerationContext Default { get; } = new(DefaultOptions);
+        public static VisionJsonSerializerContext_Images Default { get; } = new(DefaultOptions);
 
-        private ImagesSourceGenerationContext(global::System.Text.Json.JsonSerializerOptions options)
+        private VisionJsonSerializerContext_Images(global::System.Text.Json.JsonSerializerOptions options)
             : base(options)
         {
         }
@@ -173,7 +173,7 @@ namespace Reka.Vision
             {
                 return index switch
                 {
-                    0 => new ImagesSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => new VisionJsonSerializerContext_ImagesChunk0(new global::System.Text.Json.JsonSerializerOptions()),
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

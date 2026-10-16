@@ -26,13 +26,13 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoQaResponseChatResponse?), TypeInfoPropertyName = "NullableVideoQaResponseChatResponse2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VideoQaResponseStatus?), TypeInfoPropertyName = "NullableVideoQaResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Reka.Vision.SimpleChatMessage>))]
-    internal sealed partial class VideoQaSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
+    internal sealed partial class VisionJsonSerializerContext_VideoQaChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class VideoQaSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
+    public sealed partial class VisionJsonSerializerContext_VideoQa : global::System.Text.Json.Serialization.JsonSerializerContext
     {
         private static readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver Resolver = new LazyChunkResolver();
 
@@ -45,9 +45,9 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public static VideoQaSourceGenerationContext Default { get; } = new(DefaultOptions);
+        public static VisionJsonSerializerContext_VideoQa Default { get; } = new(DefaultOptions);
 
-        private VideoQaSourceGenerationContext(global::System.Text.Json.JsonSerializerOptions options)
+        private VisionJsonSerializerContext_VideoQa(global::System.Text.Json.JsonSerializerOptions options)
             : base(options)
         {
         }
@@ -157,7 +157,7 @@ namespace Reka.Vision
             {
                 return index switch
                 {
-                    0 => new VideoQaSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => new VisionJsonSerializerContext_VideoQaChunk0(new global::System.Text.Json.JsonSerializerOptions()),
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

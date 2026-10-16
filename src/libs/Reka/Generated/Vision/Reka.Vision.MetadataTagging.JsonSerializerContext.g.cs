@@ -26,13 +26,13 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.MetadataTaggingIndexedTagV1QaIndexedtagPostResponse200?), TypeInfoPropertyName = "NullableMetadataTaggingIndexedTagV1QaIndexedtagPostResponse2002")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
-    internal sealed partial class MetadataTaggingSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
+    internal sealed partial class VisionJsonSerializerContext_MetadataTaggingChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class MetadataTaggingSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
+    public sealed partial class VisionJsonSerializerContext_MetadataTagging : global::System.Text.Json.Serialization.JsonSerializerContext
     {
         private static readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver Resolver = new LazyChunkResolver();
 
@@ -45,9 +45,9 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public static MetadataTaggingSourceGenerationContext Default { get; } = new(DefaultOptions);
+        public static VisionJsonSerializerContext_MetadataTagging Default { get; } = new(DefaultOptions);
 
-        private MetadataTaggingSourceGenerationContext(global::System.Text.Json.JsonSerializerOptions options)
+        private VisionJsonSerializerContext_MetadataTagging(global::System.Text.Json.JsonSerializerOptions options)
             : base(options)
         {
         }
@@ -128,7 +128,7 @@ namespace Reka.Vision
             {
                 return index switch
                 {
-                    0 => new MetadataTaggingSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => new VisionJsonSerializerContext_MetadataTaggingChunk0(new global::System.Text.Json.JsonSerializerOptions()),
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

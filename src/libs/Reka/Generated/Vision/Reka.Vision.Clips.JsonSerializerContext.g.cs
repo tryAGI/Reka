@@ -58,13 +58,13 @@ namespace Reka.Vision
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Reka.Vision.ClipOutput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Reka.Vision.ClipListItem>))]
-    internal sealed partial class ClipsSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
+    internal sealed partial class VisionJsonSerializerContext_ClipsChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class ClipsSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
+    public sealed partial class VisionJsonSerializerContext_Clips : global::System.Text.Json.Serialization.JsonSerializerContext
     {
         private static readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver Resolver = new LazyChunkResolver();
 
@@ -77,9 +77,9 @@ namespace Reka.Vision
         /// <summary>
         ///
         /// </summary>
-        public static ClipsSourceGenerationContext Default { get; } = new(DefaultOptions);
+        public static VisionJsonSerializerContext_Clips Default { get; } = new(DefaultOptions);
 
-        private ClipsSourceGenerationContext(global::System.Text.Json.JsonSerializerOptions options)
+        private VisionJsonSerializerContext_Clips(global::System.Text.Json.JsonSerializerOptions options)
             : base(options)
         {
         }
@@ -300,7 +300,7 @@ namespace Reka.Vision
             {
                 return index switch
                 {
-                    0 => new ClipsSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => new VisionJsonSerializerContext_ClipsChunk0(new global::System.Text.Json.JsonSerializerOptions()),
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }
