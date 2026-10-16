@@ -7,7 +7,7 @@ C# SDK for the [Reka](https://reka.ai/) AI platform, auto-generated from the Rek
 ## Installation
 
 ```bash
-dotnet add package Reka --prerelease
+dotnet add package Reka --version "0.0.0-dev.*"
 ```
 
 Use the prerelease package for the current Reka API. The historical stable 1.1.2

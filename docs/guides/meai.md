@@ -15,7 +15,7 @@ The Reka SDK implements `IChatClient` and `ISpeechToTextClient` and provides `AI
 ## Installation
 
 ```bash
-dotnet add package Reka --prerelease
+dotnet add package Reka --version "0.0.0-dev.*"
 ```
 
 ## Chat Completions
