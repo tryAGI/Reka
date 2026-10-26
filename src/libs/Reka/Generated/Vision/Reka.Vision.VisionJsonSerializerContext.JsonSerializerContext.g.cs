@@ -188,6 +188,7 @@ namespace Reka.Vision
     #pragma warning restore CS3016
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.VisionJsonSerializerContextTypes))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.CaptionMode), TypeInfoPropertyName = "CaptionMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Reka.Vision.OrchestratorProtocolVideoUploadResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
